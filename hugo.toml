@@ -8,16 +8,16 @@ theme = 'PaperMod'
   homeInfoParams = { Title = "你好，我是逆蝶 ", Content = "欢迎来到我的博客主页：个人 / 博客 / 教程 " }
 
 [[menu.main]]
-  name = "论文学习"
-  url = "/study"
+  name = "about NoC"
+  url = "/NoC"
   weight = 1
 
 [[menu.main]]
-  name = "参考文献"
-  url = "/ref"
+  name = "about Cache cohency"
+  url = "/Cache"
   weight = 2
 
 [[menu.main]]
-  name = "杂项"
-  url = "/posts"
+  name = "about Schedule"
+  url = "/Schedule"
   weight = 3
