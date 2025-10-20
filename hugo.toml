@@ -1,0 +1,24 @@
+
+baseURL = 'https://leru-sama.github.io/'
+languageCode = 'zh-cn'
+title = '我的博客'
+theme = 'PaperMod'
+
+[params]
+  defaultTheme = "auto"
+  homeInfoParams = { Title = "你好，我是逆蝶 ", Content = "欢迎来到我的博客主页：个人 / 博客 / 教程 " }
+
+[[menu.main]]
+  name = "个人"
+  url = "/posts"
+  weight = 1
+
+[[menu.main]]
+  name = "教程"
+  url = "/docs"
+  weight = 2
+
+[[menu.main]]
+  name = "学习"
+  url = "/study"
+  weight = 3
