@@ -3,15 +3,21 @@ name: Deploy Hugo site to GitHub Pages
 on:
   push:
     branches:
-      - master  # 👈 每次推送到 main 分支就会自动部署
+      - master  # 注意：GitHub 默认分支现在是 main，如果你仍用 master 需要确保存在
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          submodules: true  # 如果使用 Hugo 模块建议加上
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
@@ -27,3 +33,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          # 可选：明确指定目标分支（默认已是 gh-pages）
+          # destination_branch: gh-pages
