@@ -71,3 +71,43 @@ $$
 这个参考文献列表有现在所有的参考文献：
 {{< references all="true" >}}
 
+
+## Admonition 提示框示例
+
+### 默认提示框（note类型）
+{{< admonition >}}
+这是一个默认的提示框，类型为note。
+{{< /admonition >}}
+
+### 自定义标题的提示框
+{{< admonition note "自定义标题" >}}
+这是一个带有自定义标题的提示框。
+{{< /admonition >}}
+
+### 提示（tip类型）
+{{< admonition tip "提示" >}}
+这里可以放一些提示信息，帮助用户更好地理解内容。
+{{< /admonition >}}
+
+### 警告（warning类型）
+{{< admonition warning "警告" >}}
+这里可以放一些警告信息，提醒用户注意潜在问题。
+{{< /admonition >}}
+
+### 危险（danger类型）
+{{< admonition danger "危险" >}}
+这里可以放一些危险信息，提示用户避免错误操作。
+{{< /admonition >}}
+
+### 重要信息（important类型）
+{{< admonition important "重要" >}}
+这里可以放一些重要信息，需要用户特别关注。
+{{< /admonition >}}
+
+### 问题（question类型）
+{{< admonition question "问题" >}}
+这里可以放一些问题或FAQ内容。
+
+这样可以吗？
+{{< /admonition >}}
+

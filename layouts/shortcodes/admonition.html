@@ -1,0 +1,13 @@
+{{- $type := .Get 0 | default "note" -}}
+{{- $title := .Get 1 | default (strings.Title $type) -}}
+{{- $icon := .Get 2 | default "💡" -}}
+
+<div class="admonition admonition-{{ $type }}">
+  <div class="admonition-title">
+    <span class="admonition-icon">{{ $icon }}</span>
+    <span class="admonition-text">{{ $title }}</span>
+  </div>
+  <div class="admonition-content">
+    {{ .Inner }}
+  </div>
+</div>

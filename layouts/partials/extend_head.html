@@ -26,6 +26,85 @@
         font-size: 16px;
     }
     
+    /* Admonition 提示框样式 */
+    .admonition {
+        margin: 1.5rem 0;
+        padding: 0;
+        border-left: 4px solid #666;
+        border-radius: 0.35em;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .admonition-title {
+        padding: 0.75rem 1rem;
+        background-color: #f7f7f7;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .admonition-icon {
+        font-size: 1.2em;
+    }
+    
+    .admonition-content {
+        padding: 1rem;
+        background-color: #fff;
+    }
+    
+    /* 不同类型的提示框 */
+    .admonition-note {
+        border-color: #6ab0de;
+    }
+    
+    .admonition-note .admonition-title {
+        background-color: #f1f8ff;
+    }
+    
+    .admonition-tip {
+        border-color: #4fad2b;
+    }
+    
+    .admonition-tip .admonition-title {
+        background-color: #f6ffed;
+    }
+    
+    .admonition-warning {
+        border-color: #faad14;
+    }
+    
+    .admonition-warning .admonition-title {
+        background-color: #fffbe6;
+    }
+    
+    .admonition-danger,
+    .admonition-error {
+        border-color: #f5222d;
+    }
+    
+    .admonition-danger .admonition-title,
+    .admonition-error .admonition-title {
+        background-color: #fff2f0;
+    }
+    
+    .admonition-important {
+        border-color: #722ed1;
+    }
+    
+    .admonition-important .admonition-title {
+        background-color: #f9f0ff;
+    }
+    
+    .admonition-question {
+        border-color: #13c2c2;
+    }
+    
+    .admonition-question .admonition-title {
+        background-color: #e6fffb;
+    }
+    
     /* 为内容区域添加背景色，确保文本清晰可读 */
     .main-content, .header, .footer, .article {
         background-color: rgba(255, 255, 255, 0.95);

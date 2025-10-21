@@ -13,9 +13,6 @@ title = 'RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Base
 
 {{< figure src="/noc/rht_noc/router_with_link_controller.jpg" alt="加入 LC 的 router" caption="加入 LC 的 router" >}}
 
-
-
-
 LC的判断逻辑是根据两端待传输的flit进行协商，优先传输flit多也就是带宽需求大的。这玩意会带来一个等待链路授权的时间，这个文章里面通过一个bufferless torus解决。
 
 ## bufferless torus
@@ -32,5 +29,8 @@ LC的判断逻辑是根据两端待传输的flit进行协商，优先传输flit�
 
 {{< figure src="/noc/rht_noc/logical_loop.jpg" alt="垂直环和水平环形成的逻辑环" caption="垂直环和水平环形成的逻辑环" >}}
 
+{{< admonition note>}}
+这个就作为水综述的东西，这种增加带宽利用率的奇技淫巧好像对我没啥用
+{{< /admonition >}}
 
 {{< references >}}
