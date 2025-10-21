@@ -38,6 +38,15 @@ alt="垂直环和水平环形成的逻辑环"/&gt; &lt;figcaption&gt;
 &lt;p&gt;垂直环和水平环形成的逻辑环&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
+&lt;span class="admonition-text"&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+这个就作为水综述的东西，这种增加带宽利用率的奇技淫巧好像对我没啥用
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;h2&gt;参考文献&lt;/h2&gt;
 &lt;ol class="references-list"&gt;
 &lt;li id="ditomasoQOREFaultTolerant2014" class="reference-item"&gt;
@@ -99,8 +108,9 @@ alt="SubNoC的构造"/&gt; &lt;figcaption&gt;
 &lt;li&gt;&lt;strong&gt;tree&lt;/strong&gt;: 可以为更高层的父节点提供更大的带宽，一个router有4个端口，分别可以通过基础款的mesh以及adaptation link吃满下游的3个带宽，然后回复1个带宽给上游。&lt;strong&gt;这个不拿来做adaptable，拿来做广播好像也挺好&lt;/strong&gt;。
 这个例子里面将最右下角的router作为根节点，以获取最多的空闲接口（右边和下面都是空着的），将边上的router作为第一级节点，获得次大的空闲接口（下边是空着的）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="思考"&gt;思考&lt;/h2&gt;
-&lt;p&gt;这个东西可以作为我的缓存一致性域的高速连接。分点来吧。&lt;/p&gt;</description></item><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p&gt;字体测试：
+&lt;h2 id="小结"&gt;小结&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个东西可以作为缓存一致性域的高速连接:&lt;/p&gt;</description></item><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p&gt;字体测试：
 &lt;em&gt;这是斜体&lt;/em&gt; &lt;em&gt;这也是斜体&lt;/em&gt; &lt;strong&gt;加粗！&lt;/strong&gt; &lt;em&gt;&lt;strong&gt;又粗又斜！&lt;/strong&gt;&lt;/em&gt; &lt;del&gt;删掉的字&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;列表：&lt;/p&gt;
 &lt;ul&gt;
