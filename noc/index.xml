@@ -4,7 +4,7 @@
 &lt;h2 id="半带宽mesh"&gt;半带宽mesh&lt;/h2&gt;
 &lt;p&gt;使用依据是[@10286455]中写的，百分之80情况下的相邻router带宽都是单向的，所以索性就只做半带宽的mesh来节省资源，router之间通过一个channel的adaptable link[@6835942]连接，然后再路由器里面增加了一级LC（link control），用来判定link是朝哪个方向走。&lt;/p&gt;
 &lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/NoC/rht_noc/router_with_link_controller.jpg"
+&lt;img loading="lazy" src="https://leru-sama.github.io/noc/rht_noc/router_with_link_controller.jpg"
 alt="加入 LC 的 router"/&gt; &lt;figcaption&gt;
 &lt;p&gt;加入 LC 的 router&lt;/p&gt;
 &lt;/figcaption&gt;
@@ -15,20 +15,20 @@ alt="加入 LC 的 router"/&gt; &lt;figcaption&gt;
 &lt;p&gt;因为是bufferless的，所以构造和普通的有点不一样，如下图所示啊，东南西北各一条adaptable link，然后local是双向带宽ejection、injection
 此外还有一个到mesh router的buffer的单向链路。&lt;/p&gt;
 &lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/NoC/rht_noc/RI_microarchetecture.jpg"
+&lt;img loading="lazy" src="https://leru-sama.github.io/noc/rht_noc/RI_microarchetecture.jpg"
 alt="RI_microarchetecture"/&gt; &lt;figcaption&gt;
 &lt;p&gt;RI_microarchetecture&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/NoC/rht_noc/RI_loop_conbine.jpg"
+&lt;img loading="lazy" src="https://leru-sama.github.io/noc/rht_noc/RI_loop_conbine.jpg"
 alt="RI_loop_conbine"/&gt; &lt;figcaption&gt;
 &lt;p&gt;RI_loop_conbine&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;p&gt;如上面右边的图所示，通过某种算法确定路由器的转弯方向，最终保证每个垂直的环与水平的环形成一个逻辑上的大环，如下图所示：&lt;/p&gt;
 &lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/NoC/rht_noc/logical_loop.jpg"
+&lt;img loading="lazy" src="https://leru-sama.github.io/noc/rht_noc/logical_loop.jpg"
 alt="垂直环和水平环形成的逻辑环"/&gt; &lt;figcaption&gt;
 &lt;p&gt;垂直环和水平环形成的逻辑环&lt;/p&gt;
 &lt;/figcaption&gt;
@@ -36,7 +36,7 @@ alt="垂直环和水平环形成的逻辑环"/&gt; &lt;figcaption&gt;
 &lt;p&gt;这篇论文[@9407201]做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。&lt;/p&gt;
 &lt;p&gt;整体来说就是一个基础款的mesh网络加上一些可配置的link，这些link可以用将子网络组成不同的拓扑结构。&lt;/p&gt;
 &lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/NoC/adapt_noc/adaptable_NoC_overview.jpg"
+&lt;img loading="lazy" src="https://leru-sama.github.io/noc/adapt_noc/adaptable_NoC_overview.jpg"
 alt="Adapt-NoC总体结构"/&gt; &lt;figcaption&gt;
 &lt;p&gt;Adapt-NoC总体结构&lt;/p&gt;
 &lt;/figcaption&gt;
@@ -45,7 +45,7 @@ alt="Adapt-NoC总体结构"/&gt; &lt;figcaption&gt;
 &lt;p&gt;adaptable router就是再普通的router外部加了一堆mux，具体路由算法可能得再看看，
 adaptable link有点意思，使用了 link segmentation and link reversal。&lt;/p&gt;
 &lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/NoC/adapt_noc/adaptable_router_adaptable_link.jpg"
+&lt;img loading="lazy" src="https://leru-sama.github.io/noc/adapt_noc/adaptable_router_adaptable_link.jpg"
 alt="adaptable router and adaptable link"/&gt; &lt;figcaption&gt;
 &lt;p&gt;adaptable router and adaptable link&lt;/p&gt;
 &lt;/figcaption&gt;
@@ -64,7 +64,7 @@ alt="adaptable router and adaptable link"/&gt; &lt;figcaption&gt;
 &lt;/ol&gt;
 &lt;p&gt;组子网的举例：&lt;/p&gt;
 &lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/NoC/adapt_noc/constructionOfSubNoC.jpg"
+&lt;img loading="lazy" src="https://leru-sama.github.io/noc/adapt_noc/constructionOfSubNoC.jpg"
 alt="SubNoC的构造"/&gt; &lt;figcaption&gt;
 &lt;p&gt;SubNoC的构造&lt;/p&gt;
 &lt;/figcaption&gt;
