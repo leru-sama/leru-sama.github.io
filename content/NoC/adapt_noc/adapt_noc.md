@@ -10,13 +10,13 @@ title = 'Adapt_noc'
 
 整体来说就是一个基础款的mesh网络加上一些可配置的link，这些link可以用将子网络组成不同的拓扑结构。
 
-{{< figure src="/NoC/adapt_noc/adaptable_NoC_overview.jpg" alt="Adapt-NoC总体结构" caption="Adapt-NoC总体结构" >}}
+{{< figure src="/noc/adapt_noc/adaptable_NoC_overview.jpg" alt="Adapt-NoC总体结构" caption="Adapt-NoC总体结构" >}}
 
 ## adaptable router and adaptable link
 adaptable router就是再普通的router外部加了一堆mux，具体路由算法可能得再看看，
 adaptable link有点意思，使用了 link segmentation and link reversal。
 
-{{< figure src="/NoC/adapt_noc/adaptable_router_adaptable_link.jpg" alt="adaptable router and adaptable link" caption="adaptable router and adaptable link" >}}
+{{< figure src="/noc/adapt_noc/adaptable_router_adaptable_link.jpg" alt="adaptable router and adaptable link" caption="adaptable router and adaptable link" >}}
 
 - **link segmentation**: 这玩意将链路给分段，每个segmentaion就是相邻两个路由器之间的link，然后通过控制逻辑进行控制，可以配置为bypass什么的。
 - **link reversal** [@6835942]: 这玩意将每段链路设计为可反转的形态，获取可配置的双向带宽。 (引用的这篇文章[@6835942]，做这个的目的是做fault tolerence)
@@ -32,7 +32,7 @@ adaptable link有点意思，使用了 link segmentation and link reversal。
 
 组子网的举例：
 
-{{< figure src="/NoC/adapt_noc/constructionOfSubNoC.jpg" alt="SubNoC的构造" caption="SubNoC的构造" >}}
+{{< figure src="/noc/adapt_noc/constructionOfSubNoC.jpg" alt="SubNoC的构造" caption="SubNoC的构造" >}}
 
 - **cmesh**: 每个2 × 2的相邻路由器做了一个concentrate link,把2 × 2的Core连到一个路由器上面去，然后用 adaptable link 来连接 2 × 2 的Core，形成一个稀疏的NoC
 - **torus**: 普通的mesh加上adaptable link作为bypass路径，形成完整拓扑。
