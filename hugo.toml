@@ -1,7 +1,7 @@
 baseURL = 'https://leru-sama.github.io/'
 languageCode = 'zh-cn'
 title = '我的博客'
-theme = ['PaperMod', 'hugo-cite']
+theme = ['PaperMod']
 
 [params]
   defaultTheme = "auto"
