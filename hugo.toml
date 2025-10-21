@@ -21,3 +21,8 @@ theme = ['PaperMod']
   name = "about Schedule"
   url = "/Schedule"
   weight = 3
+
+[[menu.main]]
+  name = "example"
+  url = "/example"
+  weight = 4

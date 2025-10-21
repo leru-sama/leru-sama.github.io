@@ -1,0 +1,52 @@
+{{ $key := .Get 0 }}{{ $allReferences := slice }}{{ $citedKeys := .Page.Scratch.Get "citedReferences" | default slice }}{{ $citedKeys = $citedKeys | append $key | uniq }}{{ .Page.Scratch.Set "citedReferences" $citedKeys }}
+
+<!-- 遍历static/bib目录下所有的json文件 -->
+{{ $bibDir := "static/bib" }}
+{{ range (readDir $bibDir) }}
+  {{ if and (not .IsDir) (strings.HasSuffix .Name ".json") }}
+    {{ $jsonPath := printf "%s/%s" $bibDir .Name }}
+    {{ $jsonContent := readFile $jsonPath }}
+    {{ $fileReferences := $jsonContent | transform.Unmarshal }}
+    {{ range $fileReferences }}
+      {{ $allReferences = $allReferences | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $references := $allReferences }}
+
+{{ $found := false }}
+{{ $reference := dict }}
+{{ $authorString := "" }}
+{{ $year := "" }}
+
+{{ range $references }}
+  {{ if eq (index . "citation-key") $key }}
+    {{ $reference = . }}
+    {{ $found = true }}
+    
+    <!-- 提取作者信息 -->
+    {{ $authorCount := len $reference.author }}
+    {{ $firstAuthor := index $reference.author 0 }}
+    {{ if gt $authorCount 1 }}
+      <!-- 多个作者时，只显示第一个作者的given name，然后加et al -->
+      {{ $authorString = printf "%s, et al" $firstAuthor.given }}
+    {{ else }}
+      <!-- 单个作者时，显示其given name -->
+      {{ $authorString = $firstAuthor.given }}
+    {{ end }}
+    
+    <!-- 提取年份 -->
+    {{ $issued := index $reference "issued" }}
+    {{ $dateParts := index $issued "date-parts" }}
+    {{ $year = index $dateParts 0 0 }}
+    
+    {{ break }}
+  {{ end }}
+{{ end }}
+
+{{ if $found }}
+  <a href="#{{ $key }}" class="citation">({{ $authorString }}, {{ $year }})</a>
+{{ else }}
+  <span class="citation-error">[未找到引用: {{ $key }}]</span>
+{{ end }}

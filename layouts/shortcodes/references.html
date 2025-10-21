@@ -1,0 +1,56 @@
+{{ $allReferences := slice }}
+
+<!-- 遍历static/bib目录下所有的json文件 -->
+{{ $bibDir := "static/bib" }}
+{{ range (readDir $bibDir) }}
+  {{ if and (not .IsDir) (strings.HasSuffix .Name ".json") }}
+    {{ $jsonPath := printf "%s/%s" $bibDir .Name }}
+    {{ $jsonContent := readFile $jsonPath }}
+    {{ $fileReferences := $jsonContent | transform.Unmarshal }}
+    {{ range $fileReferences }}
+      {{ $allReferences = $allReferences | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $allParam := .Get "all" | default false }}{{ $citedKeys := .Page.Scratch.Get "citedReferences" | default slice }}{{ $references := slice }}{{ if eq $allParam "true" }}{{ $references = $allReferences }}{{ else }}{{ range $allReferences }}{{ if in $citedKeys (index . "citation-key") }}{{ $references = $references | append . }}{{ end }}{{ end }}{{ end }}
+
+<h2>参考文献</h2>
+<ol class="references-list">
+  {{ range $references }}
+    {{ $key := index . "citation-key" }}
+    <li id="{{ $key }}" class="reference-item">
+      <!-- 格式化作者 -->
+      {{ $authors := slice }}
+      {{ range .author }}
+        {{ $authors = $authors | append (printf "%s %s" .family .given) }}
+      {{ end }}
+      {{ $authorString := delimit $authors ", " }}
+      
+      <!-- 提取年份 -->
+      {{ $issued := index . "issued" }}
+      {{ $dateParts := index $issued "date-parts" }}
+      {{ $year := index $dateParts 0 0 }}
+      
+      <!-- 格式化标题 -->
+      {{ $title := .title }}
+      
+      <!-- 格式化期刊/会议 -->
+      {{ $containerTitle := index . "container-title" }}
+      
+      <!-- 格式化卷期号 -->
+      {{ $volume := .volume | default "" }}
+      {{ $issue := .issue | default "" }}
+      {{ $volumeIssue := cond (and $volume $issue) (printf "%s(%s):" $volume $issue) (cond $volume (printf "%s:" $volume) "") }}
+      
+      <!-- 格式化页码 -->
+      {{ $pages := .page | default "" }}
+      
+      <!-- 格式化DOI -->
+      {{ $doi := .DOI | default "" }}
+      
+      <!-- 组装参考文献格式 -->
+      {{ $authorString }}. {{ $year }}. {{ $title }}. {{ $containerTitle }}{{ with $volumeIssue }} {{ . }}{{ end }}{{ with $pages }} {{ . }}{{ end }}{{ with $doi }}. DOI: {{ . }}{{ end }}.
+    </li>
+  {{ end }}
+</ol>

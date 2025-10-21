@@ -6,7 +6,7 @@ title = 'Adapt_noc'
 
 # Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures
 
-这篇论文[@9407201]做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。
+这篇论文[@zhengAdaptNoCFlexibleNetworkonChip2021]做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。
 
 整体来说就是一个基础款的mesh网络加上一些可配置的link，这些link可以用将子网络组成不同的拓扑结构。
 
