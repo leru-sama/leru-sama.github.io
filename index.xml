@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>我的博客</title><link>https://leru-sama.github.io/</link><description>Recent content on 我的博客</description><generator>Hugo -- 0.151.2</generator><language>zh-cn</language><lastBuildDate>Tue, 21 Oct 2025 10:32:57 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Reference</title><link>https://leru-sama.github.io/reference/</link><pubDate>Tue, 21 Oct 2025 10:32:57 +0800</pubDate><guid>https://leru-sama.github.io/reference/</guid><description/></item><item><title>Rht_noc</title><link>https://leru-sama.github.io/noc/rht_noc/rht_noc/</link><pubDate>Mon, 20 Oct 2025 20:58:23 +0800</pubDate><guid>https://leru-sama.github.io/noc/rht_noc/rht_noc/</guid><description>&lt;h1 id="rht-noc-a-reconfigurable-hybrid-topology-architecture-for-chiplet-based-multicore-system"&gt;RHT NoC A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System&lt;/h1&gt;
-&lt;p&gt;这篇论文[@11026095]来自VLSI，今天先看看。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>牛马日志</title><link>https://leru-sama.github.io/</link><description>Recent content on 牛马日志</description><generator>Hugo -- 0.151.2</generator><language>zh-cn</language><lastBuildDate>Tue, 21 Oct 2025 10:32:57 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Reference</title><link>https://leru-sama.github.io/reference/</link><pubDate>Tue, 21 Oct 2025 10:32:57 +0800</pubDate><guid>https://leru-sama.github.io/reference/</guid><description/></item><item><title>RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System</title><link>https://leru-sama.github.io/noc/rht_noc/rht_noc/</link><pubDate>Mon, 20 Oct 2025 20:58:23 +0800</pubDate><guid>https://leru-sama.github.io/noc/rht_noc/rht_noc/</guid><description>&lt;p&gt;这篇论文
+&lt;a href="#xuRHTNoCReconfigurable2025" class="citation"&gt;(Dongyu, et al, 2025)&lt;/a&gt;
+来自VLSI，今天先看看。&lt;/p&gt;
 &lt;p&gt;这篇论文做了一个半带宽mesh，然后用一个bufferless tours来弥补半带宽mesh的不足。&lt;/p&gt;
 &lt;h2 id="半带宽mesh"&gt;半带宽mesh&lt;/h2&gt;
-&lt;p&gt;使用依据是[@10286455]中写的，百分之80情况下的相邻router带宽都是单向的，所以索性就只做半带宽的mesh来节省资源，router之间通过一个channel的adaptable link[@6835942]连接，然后再路由器里面增加了一级LC（link control），用来判定link是朝哪个方向走。&lt;/p&gt;
+&lt;p&gt;使用依据是
+&lt;a href="#xuRMCNoCReliable2023" class="citation"&gt;(Dongyu, et al, 2023)&lt;/a&gt;
+中写的，百分之80情况下的相邻router带宽都是单向的，所以索性就只做半带宽的mesh来节省资源，router之间通过一个channel的adaptable link
+&lt;a href="#ditomasoQOREFaultTolerant2014" class="citation"&gt;(Dominic, et al, 2014)&lt;/a&gt;
+连接，然后再路由器里面增加了一级LC（link control），用来判定link是朝哪个方向走。&lt;/p&gt;
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/noc/rht_noc/router_with_link_controller.jpg"
 alt="加入 LC 的 router"/&gt; &lt;figcaption&gt;
@@ -32,8 +37,21 @@ alt="RI_loop_conbine"/&gt; &lt;figcaption&gt;
 alt="垂直环和水平环形成的逻辑环"/&gt; &lt;figcaption&gt;
 &lt;p&gt;垂直环和水平环形成的逻辑环&lt;/p&gt;
 &lt;/figcaption&gt;
-&lt;/figure&gt;</description></item><item><title>Adapt_noc</title><link>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</link><pubDate>Mon, 20 Oct 2025 20:56:19 +0800</pubDate><guid>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</guid><description>&lt;h1 id="adapt-noc-a-flexible-network-on-chip-design-for-heterogeneous-manycore-architectures"&gt;Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures&lt;/h1&gt;
-&lt;p&gt;这篇论文[@zhengAdaptNoCFlexibleNetworkonChip2021]做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。&lt;/p&gt;
+&lt;/figure&gt;
+&lt;h2&gt;参考文献&lt;/h2&gt;
+&lt;ol class="references-list"&gt;
+&lt;li id="ditomasoQOREFaultTolerant2014" class="reference-item"&gt;
+DiTomaso Dominic, Kodi Avinash, Louri Ahmed. 2014. QORE: A fault tolerant network-on-chip architecture with power-efficient quad-function channel (QFC) buffers. 2014 IEEE 20th International Symposium on High Performance Computer Architecture (HPCA) 320-331. DOI: 10.1109/HPCA.2014.6835942.
+&lt;/li&gt;
+&lt;li id="xuRHTNoCReconfigurable2025" class="reference-item"&gt;
+Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 33(8): 2104-2117. DOI: 10.1109/TVLSI.2025.3572112.
+&lt;/li&gt;
+&lt;li id="xuRMCNoCReliable2023" class="reference-item"&gt;
+Xu Dongyu, Ouyang Yiming, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2023. RMC NoC: A Reliable On-Chip Network Architecture With Reconfigurable Multifunctional Channel. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 31(12): 2061-2074. DOI: 10.1109/TVLSI.2023.3321598.
+&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures</title><link>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</link><pubDate>Mon, 20 Oct 2025 20:56:19 +0800</pubDate><guid>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</guid><description>&lt;p&gt;这篇论文
+&lt;a href="#zhengAdaptNoCFlexibleNetworkonChip2021" class="citation"&gt;(Hao, et al, 2021)&lt;/a&gt;
+做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。&lt;/p&gt;
 &lt;p&gt;整体来说就是一个基础款的mesh网络加上一些可配置的link，这些link可以用将子网络组成不同的拓扑结构。&lt;/p&gt;
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/noc/adapt_noc/adaptable_NoC_overview.jpg"
@@ -52,11 +70,17 @@ alt="adaptable router and adaptable link"/&gt; &lt;figcaption&gt;
 &lt;/figure&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;link segmentation&lt;/strong&gt;: 这玩意将链路给分段，每个segmentaion就是相邻两个路由器之间的link，然后通过控制逻辑进行控制，可以配置为bypass什么的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;link reversal&lt;/strong&gt; [@6835942]: 这玩意将每段链路设计为可反转的形态，获取可配置的双向带宽。 (引用的这篇文章[@6835942]，做这个的目的是做fault tolerence)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;link reversal&lt;/strong&gt;
+&lt;a href="#ditomasoQOREFaultTolerant2014" class="citation"&gt;(Dominic, et al, 2014)&lt;/a&gt;
+: 这玩意将每段链路设计为可反转的形态，获取可配置的双向带宽。 (引用的这篇文章
+&lt;a href="#ditomasoQOREFaultTolerant2014" class="citation"&gt;(Dominic, et al, 2014)&lt;/a&gt;
+，做这个的目的是做fault tolerence)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="subnoc"&gt;SubNoC&lt;/h2&gt;
 &lt;p&gt;通过adaptable link来组子网。里面每2乘4个router下边放了一个memory controllor，可以做子网间的数据共享什么的，不重要。&lt;/p&gt;
-&lt;p&gt;通过[@1411731]的方法实现&lt;strong&gt;无死锁的动态路由策略切换&lt;/strong&gt;，具体而言有如下几步：&lt;/p&gt;
+&lt;p&gt;通过
+&lt;a href="#lysneMethodologyDevelopingDeadlockfree2005" class="citation"&gt;(O., et al, 2005)&lt;/a&gt;
+的方法实现&lt;strong&gt;无死锁的动态路由策略切换&lt;/strong&gt;，具体而言有如下几步：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;由一个控制端口？（这个论文里没讲）发送一个切换路由策略的消息，接到消息的路由器加载Rmesh（mesh的路由算法）&lt;/li&gt;
 &lt;li&gt;等到没有需要由老的路由算法传递的包以后，移除旧路由策略Rold及其对应的link configuration并加载新路由策略Rnew以及对应的link configuration。&lt;/li&gt;
