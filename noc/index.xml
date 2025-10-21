@@ -33,7 +33,7 @@ alt="垂直环和水平环形成的逻辑环"/&gt; &lt;figcaption&gt;
 &lt;p&gt;垂直环和水平环形成的逻辑环&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;</description></item><item><title>Adapt_noc</title><link>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</link><pubDate>Mon, 20 Oct 2025 20:56:19 +0800</pubDate><guid>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</guid><description>&lt;h1 id="adapt-noc-a-flexible-network-on-chip-design-for-heterogeneous-manycore-architectures"&gt;Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures&lt;/h1&gt;
-&lt;p&gt;这篇论文[@9407201]做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。&lt;/p&gt;
+&lt;p&gt;这篇论文[@zhengAdaptNoCFlexibleNetworkonChip2021]做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。&lt;/p&gt;
 &lt;p&gt;整体来说就是一个基础款的mesh网络加上一些可配置的link，这些link可以用将子网络组成不同的拓扑结构。&lt;/p&gt;
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/noc/adapt_noc/adaptable_NoC_overview.jpg"
