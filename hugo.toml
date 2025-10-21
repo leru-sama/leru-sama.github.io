@@ -1,6 +1,6 @@
 baseURL = 'https://leru-sama.github.io/'
 languageCode = 'zh-cn'
-title = '我的博客'
+title = '牛马日志'
 theme = ['PaperMod']
 
 [params]

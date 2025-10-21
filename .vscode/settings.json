@@ -8,6 +8,6 @@
         "**/node_modules": true
     },
     "search.include": {
-        "/content/**": true
+        "content/**": true
     }
 }

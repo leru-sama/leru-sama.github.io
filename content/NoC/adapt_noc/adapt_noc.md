@@ -1,12 +1,10 @@
 +++
 date = '2025-10-20T20:56:19+08:00'
 draft = false
-title = 'Adapt_noc'
+title = 'Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures'
 +++
 
-# Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures
-
-这篇论文[@zhengAdaptNoCFlexibleNetworkonChip2021]做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。
+这篇论文{{< cite zhengAdaptNoCFlexibleNetworkonChip2021 >}}做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。
 
 整体来说就是一个基础款的mesh网络加上一些可配置的link，这些link可以用将子网络组成不同的拓扑结构。
 
@@ -19,12 +17,12 @@ adaptable link有点意思，使用了 link segmentation and link reversal。
 {{< figure src="/noc/adapt_noc/adaptable_router_adaptable_link.jpg" alt="adaptable router and adaptable link" caption="adaptable router and adaptable link" >}}
 
 - **link segmentation**: 这玩意将链路给分段，每个segmentaion就是相邻两个路由器之间的link，然后通过控制逻辑进行控制，可以配置为bypass什么的。
-- **link reversal** [@6835942]: 这玩意将每段链路设计为可反转的形态，获取可配置的双向带宽。 (引用的这篇文章[@6835942]，做这个的目的是做fault tolerence)
+- **link reversal** {{< cite ditomasoQOREFaultTolerant2014 >}}: 这玩意将每段链路设计为可反转的形态，获取可配置的双向带宽。 (引用的这篇文章{{< cite ditomasoQOREFaultTolerant2014 >}}，做这个的目的是做fault tolerence)
 
 ## SubNoC
 通过adaptable link来组子网。里面每2乘4个router下边放了一个memory controllor，可以做子网间的数据共享什么的，不重要。
 
-通过[@1411731]的方法实现**无死锁的动态路由策略切换**，具体而言有如下几步：
+通过{{< cite lysneMethodologyDevelopingDeadlockfree2005 >}}的方法实现**无死锁的动态路由策略切换**，具体而言有如下几步：
 
 1. 由一个控制端口？（这个论文里没讲）发送一个切换路由策略的消息，接到消息的路由器加载Rmesh（mesh的路由算法）
 2. 等到没有需要由老的路由算法传递的包以后，移除旧路由策略Rold及其对应的link configuration并加载新路由策略Rnew以及对应的link configuration。
@@ -49,4 +47,5 @@ adaptable link有点意思，使用了 link segmentation and link reversal。
 
 域间通信直接上到消息网络，所以消息网络和内存网络需要有一个专有的link，这个link也可以做成是adaptable的，做域间通信的时候可以选择节点来连接。消息网络估计就是一个固定拓扑的网络，具体拓扑还得研究研究。
 
+{{< references >}}
 
