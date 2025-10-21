@@ -1,0 +1,47 @@
+{{- /* Head custom content area start */ -}}
+{{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
+{{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
+
+<!-- 引入Google Fonts中的Noto Serif SC字体 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* 引入Google Fonts中的Noto Serif SC作为替代字体 */
+    
+    /* 全局背景图片样式 */
+    body {
+        font-family: 'Noto Serif SC', serif;
+        /* 为确保中文显示效果，添加多个后备字体 */
+        font-family: 'Noto Serif SC', 'SimSun', 'STSong', serif;
+        background-image: url('{{ "background.jpg" | absURL }}');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-blend-mode: overlay;
+        background-color: rgba(255, 255, 255, 0.8); /* 半透明白色覆盖，确保内容可读性 */
+        line-height: 1.6;
+        font-size: 16px;
+    }
+    
+    /* 为内容区域添加背景色，确保文本清晰可读 */
+    .main-content, .header, .footer, .article {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* 适配不同屏幕尺寸 */
+    @media (max-width: 768px) {
+        .main-content, .header, .footer, .article {
+            padding: 15px;
+            border-radius: 4px;
+        }
+    }
+</style>
+
+{{- /* Head custom content area end */ -}}
