@@ -36,3 +36,8 @@ theme = ['PaperMod']
   name = "example"
   url = "/example"
   weight = 4
+
+[[menu.main]]
+  name = "啃CHI"
+  url  = "/chi"
+  weight = 5

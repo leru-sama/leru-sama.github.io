@@ -2,19 +2,20 @@
 {{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
 {{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
 
-<!-- 引入Google Fonts中的Noto Serif SC字体 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <style>
-    /* 引入Google Fonts中的Noto Serif SC作为替代字体 */
+    /* 引入自定义字体 */
+    @font-face {
+        font-family: 'HY SuZeLi XingKai';
+        src: url('{{ "font/HYSuZeLiXingKaiTruingW-2.ttf" | absURL }}') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
     
     /* 全局背景图片样式 */
     body {
-        font-family: 'Noto Serif SC', serif;
-        /* 为确保中文显示效果，添加多个后备字体 */
-        font-family: 'Noto Serif SC', 'SimSun', 'STSong', serif;
+        /* 使用自定义字体 */
+        font-family: 'HY SuZeLi XingKai', 'SimSun', 'STSong', serif;
         background-image: url('{{ "background.jpg" | absURL }}');
         background-size: cover;
         background-position: center;
@@ -23,7 +24,7 @@
         background-blend-mode: overlay;
         background-color: rgba(255, 255, 255, 0.8); /* 半透明白色覆盖，确保内容可读性 */
         line-height: 1.6;
-        font-size: 16px;
+        font-size: 22px; /* 进一步增大正文字号 */
     }
     
     /* Admonition 提示框样式 */
