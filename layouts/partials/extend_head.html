@@ -5,26 +5,20 @@
 <style>
     /* 引入自定义字体 */
     @font-face {
-        font-family: 'HY SuZeLi XingKai';
-        src: url('{{ "font/HYSuZeLiXingKaiTruingW-2.ttf" | absURL }}') format('truetype');
+        font-family: '胖橘猫老师';
+        src: url('{{ "font/胖橘猫老师(非商用).ttf" | absURL }}') format('truetype');
         font-weight: normal;
         font-style: normal;
         font-display: swap;
     }
     
-    /* 全局背景图片样式 */
+    /* 全局基础样式 - 使用系统字体快速渲染，后续通过JavaScript切换为胖橘猫老师字体 */
     body {
-        /* 使用自定义字体 */
-        font-family: 'HY SuZeLi XingKai', 'SimSun', 'STSong', serif;
-        background-image: url('{{ "background.jpg" | absURL }}');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-blend-mode: overlay;
-        background-color: rgba(255, 255, 255, 0.8); /* 半透明白色覆盖，确保内容可读性 */
+        /* 先使用系统字体快速显示内容 */
+        font-family: 'SimSun', 'STSong', serif;
+        background-color: #ffffff; /* 简单背景色 */
         line-height: 1.6;
-        font-size: 22px; /* 进一步增大正文字号 */
+        font-size: 20px; /* 进一步增大正文字号 */
     }
     
     /* Admonition 提示框样式 */
@@ -123,5 +117,40 @@
         }
     }
 </style>
+
+<!-- 动态加载静态资源的脚本 -->
+<script>
+    // 页面加载完成后再加载静态资源
+    window.addEventListener('load', function() {
+        // 加载背景图片
+        setTimeout(function() {
+            document.body.style.backgroundImage = 'url({{ "background.jpg" | absURL }})';
+            document.body.style.backgroundSize = 'cover';
+            document.body.style.backgroundPosition = 'center';
+            document.body.style.backgroundAttachment = 'fixed';
+            document.body.style.backgroundRepeat = 'no-repeat';
+            document.body.style.backgroundBlendMode = 'overlay';
+            document.body.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
+        }, 100);
+        
+        // 动态加载胖橘猫老师字体
+        function loadFont(name, url, format) {
+            const fontFace = new FontFace(name, `url(${url}) format('${format}')`, {
+                weight: 'normal',
+                style: 'normal',
+                display: 'swap'
+            });
+            
+            fontFace.load().then(function(loadedFace) {
+                document.fonts.add(loadedFace);
+                // 应用字体到页面
+                document.body.style.fontFamily = `'${name}', 'SimSun', 'STSong', serif`;
+            });
+        }
+        
+        // 加载默认字体（胖橘猫老师）
+        loadFont('胖橘猫老师', '{{ "font/胖橘猫老师(非商用).ttf" | absURL }}', 'truetype');
+    });
+</script>
 
 {{- /* Head custom content area end */ -}}
