@@ -85,3 +85,57 @@ RN和RN的直接通信，用的是FwdNID和FwdTxnID，看图就明白了，这�
 
 
 
+## Ordering
+这一小节有点细节，具体实现的时候再查阅
+
+有一个前提：CHI提了一种Multi copy atomicity，操作的原子性。
+定义的对同一地址的所有写操作都是串行的，所有观察者也都是串行观察到的；读必须在**写数据被所有Requester**观察到之后才返回数据。
+
+{{<admonition type="note" >}}
+这种就是典型的以HA为中心的思想，虽然以内存为中心的缓存一致我还不知道是啥。。。
+
+由于所有的写操作都是传给HA，所以可以在HA出进行排序，而先完成所有的提醒后，再返回读数据也是HA管理并完成的。
+{{< /admonition >}}
+
+### CompAck
+
+
+在spec的p131，有一个表，列出来了哪些Request的CompAck是requre、optional或者NO的
+
+CHI使用CompACK保证事务的原子性，一个事务由Requester发起request开始，由Requester返回CompAck结束。CompAck传输完成后（read会发一个CompAck，write就用write data作为CompAck），HN会snoop对应事务的地址空间，在Request和CompAck之间，不会snoop对应未完成的这个事务（由HN保证）
+
+{{<admonition type="note">}}
+对于读操作，除了ReadOnce和ReadNoSnoop，操作都为：读请求->乱七八糟的读响应->CompAck->snoop,这个snoop有何意义？比如ReadUnique或者ReadShare，要改变缓存行状态的，确实应该snoop。
+
+对于写操作，直接就是写请求->一堆确认->写数据->snoop，这个确实应该snoop。
+{{< /admonition >}}
+
+## Address 
+
+支持物理地址44\~52b，支持虚拟地址49\~53b
+
+memory定义了4种属性：Normal、 Device、Cacheable and Allocate。Normal就不写了。
+这个属性是定义在**request**里面的，也就是说这个属性只对本次传输负责。
+
+一整个事务里面的包的memattr（就是上边定义的属性）原则上来说是一样的，但如果知道下游节点是normal的话，可以由HN改成Normal（也可以不改）。
+
+### Device
+对于有side-effects的设备，必须定义为Device类型，人话就是对于加速器的寄存器堆这种，写进去了还会发生其他的事的东西。
+
+对它的定义都是保证这个读写操作和预期的读写操作对应，比如不能在任何地方缓存device的数据啦、不能prefetch啦什么的。
+
+对于Device的读写操作只能是ReadNoSnp以及WriteNoSnp的变体。
+
+### Cacheable
+这里有一句定义很有意思：如果事务被assert了cacheable，这个事务必须被cache追踪，否则必须要到**final dest**，也就是不能进cache。
+
+### Allocate
+是一个hint，标记了allocate就可选的把这个东西cache了或者不cache。
+
+
+## Retry
+
+CHI有一个PCrd，也就是pacage credit，用来做协议级的流控，如下图，HN可以通过RetryAck让Requester retry。Requester接到RetryAck过后，需等待一个PCrdGrant，给你分配了空间以后才能继续retry，如下图：
+{{<figure src="/chi/transactions/transaction retry flow.jpg" caption="Retry">}}
+
+**完结撒花！ 没这么难嘛，也是草草看完了**
