@@ -1,4 +1,54 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>牛马日志</title><link>https://leru-sama.github.io/</link><description>Recent content on 牛马日志</description><generator>Hugo -- 0.152.2</generator><language>zh-cn</language><lastBuildDate>Wed, 22 Oct 2025 15:23:05 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Transactions</title><link>https://leru-sama.github.io/chi/transactions/transactions/</link><pubDate>Wed, 22 Oct 2025 15:23:05 +0800</pubDate><guid>https://leru-sama.github.io/chi/transactions/transactions/</guid><description>&lt;p&gt;直接从transaction开始看了，看点没看过的给记录下来&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>牛马日志</title><link>https://leru-sama.github.io/</link><description>Recent content on 牛马日志</description><generator>Hugo -- 0.152.2</generator><language>zh-cn</language><lastBuildDate>Wed, 05 Nov 2025 10:08:49 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Cache Coherence for GPU Architectures</title><link>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</link><pubDate>Wed, 05 Nov 2025 10:08:49 +0800</pubDate><guid>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</guid><description>&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
+&lt;p&gt;这篇文章
+&lt;a href="#singh2013" class="citation"&gt;(Inderpreet, et al, 2013)&lt;/a&gt;
+挺老的，介绍的是一种GPU的缓存一致性协议。解决的问题是CPU的严格一致性在
+GPU上不好用，因为GPU有成千上万个线程，导致的一致性流量会非常大，且所需存储的一致性相关查找表也需要的
+memory非常大，所以GPU是没法做类似于 访问-&amp;gt;noop-&amp;gt;授权-&amp;gt;修改 这样的严格一致性协议，文中一句话写得很
+透彻：**Reducing the worst case storage overhead requires throttling the net work via back-pressure flow-control mechanisms when theend-point queues fill up.**这句话引用自
+&lt;a href="#martin2000" class="citation"&gt;(Milo M. K., et al, 2000)&lt;/a&gt;
+这篇远古文章，估计是讲的基于时间戳的snoop，有时间看看。&lt;/p&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
+&lt;span class="admonition-text"&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+结论就是，对于超级多核系统，
+&lt;a href="#martin2000" class="citation"&gt;(Milo M. K., et al, 2000)&lt;/a&gt;
+称"Symmetric Multycore Processor",使用基于反压的流控机制，可以减少一致性流量。
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id="主要内容"&gt;主要内容&lt;/h2&gt;
+&lt;p&gt;主要设计了三种缓存一致性协议：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GPU-VI：优化的 VI一致性协议
+&lt;a href="#kongetira2005" class="citation"&gt;(P., et al, 2005)&lt;/a&gt;
+，VI协议为：写穿，即写操作无论hit还是miss，都将直接发给主存（或HA），由主存去invalid那些其他拥有缓存行的主机副本。&lt;/li&gt;
+&lt;li&gt;GPU-VIni：在L2缓存单独开了一个目录的缓存，本质上就是GPU-VI&lt;/li&gt;
+&lt;li&gt;TC-weak/strong：本文提出的协议，强的不需要软件参与，但是性能弱一点，弱的需要软件进行显式的fence操作，但性能会好一点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="tc协议"&gt;TC协议&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;这个协议只能用在单片上&lt;/strong&gt;，因为它基于一个global的计数器。&lt;/p&gt;
+&lt;p&gt;协议中有2个时间戳：L2每条cacheline的global timestamp和L1每条cacheline的local timestamp。读请求会附带一个预测生命周期，L2将对应cacheline的时间戳设置为全局计数器+预测生命周期。多条读请求就如下图所示，将继续增加global timestamp。&lt;/p&gt;
+&lt;figure&gt;
+&lt;img loading="lazy" src="https://leru-sama.github.io/cachecohence/CacheCoherenceforGPUArchitectures/TC%20hardware%20extention.png"
+alt="TC hardware extention.png"/&gt; &lt;figcaption&gt;
+&lt;p&gt;时间戳扩展&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
+&lt;span class="admonition-text"&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+这样做有一个好处，查看L2的cacheline的时间戳，小于全局计数器，就说明已经没有其他主机持有这个cacheline了，文中没有做处理，但可以可以安全地将它invalid。
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;figure&gt;
+&lt;img loading="lazy" src="https://leru-sama.github.io/cachecohence/CacheCoherenceforGPUArchitectures/GPU-VI%20vs%20TC.png"
+alt="GPU-VI vs TC.png"/&gt; &lt;figcaption&gt;
+&lt;p&gt;GPU-VS vs TC协议&lt;/p&gt;</description></item><item><title>Transactions</title><link>https://leru-sama.github.io/chi/transactions/transactions/</link><pubDate>Wed, 22 Oct 2025 15:23:05 +0800</pubDate><guid>https://leru-sama.github.io/chi/transactions/transactions/</guid><description>&lt;p&gt;直接从transaction开始看了，看点没看过的给记录下来&lt;/p&gt;
 &lt;h2 id="接口和信号"&gt;接口和信号&lt;/h2&gt;
 &lt;p&gt;&lt;del&gt;无数次都是从这儿开始，后边看不下去&lt;/del&gt;&lt;/p&gt;
 &lt;table&gt;
@@ -133,6 +183,15 @@ Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: 
 &lt;li id="xuRMCNoCReliable2023" class="reference-item"&gt;
 Xu Dongyu, Ouyang Yiming, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2023. RMC NoC: A Reliable On-Chip Network Architecture With Reconfigurable Multifunctional Channel. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 31(12): 2061-2074. DOI: 10.1109/TVLSI.2023.3321598.
 &lt;/li&gt;
+&lt;li id="ditomasoQOREFaultTolerant2014" class="reference-item"&gt;
+DiTomaso Dominic, Kodi Avinash, Louri Ahmed. 2014. QORE: A fault tolerant network-on-chip architecture with power-efficient quad-function channel (QFC) buffers. 2014 IEEE 20th International Symposium on High Performance Computer Architecture (HPCA) 320-331. DOI: 10.1109/HPCA.2014.6835942.
+&lt;/li&gt;
+&lt;li id="xuRHTNoCReconfigurable2025" class="reference-item"&gt;
+Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 33(8): 2104-2117. DOI: 10.1109/TVLSI.2025.3572112.
+&lt;/li&gt;
+&lt;li id="xuRMCNoCReliable2023" class="reference-item"&gt;
+Xu Dongyu, Ouyang Yiming, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2023. RMC NoC: A Reliable On-Chip Network Architecture With Reconfigurable Multifunctional Channel. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 31(12): 2061-2074. DOI: 10.1109/TVLSI.2023.3321598.
+&lt;/li&gt;
 &lt;/ol&gt;</description></item><item><title>Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures</title><link>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</link><pubDate>Mon, 20 Oct 2025 20:56:19 +0800</pubDate><guid>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</guid><description>&lt;p&gt;这篇论文
 &lt;a href="#zhengAdaptNoCFlexibleNetworkonChip2021" class="citation"&gt;(Hao, et al, 2021)&lt;/a&gt;
 做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。&lt;/p&gt;
@@ -255,6 +314,12 @@ alt="测试图片"/&gt; &lt;figcaption&gt;
 &lt;p&gt;然后就可以生成参考文献列表了，这个参考文献列表有这一页的参考文献：
 &lt;h2&gt;参考文献&lt;/h2&gt;
 &lt;ol class="references-list"&gt;
+&lt;li id="xuRHTNoCReconfigurable2025" class="reference-item"&gt;
+Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 33(8): 2104-2117. DOI: 10.1109/TVLSI.2025.3572112.
+&lt;/li&gt;
+&lt;li id="zhengAdaptNoCFlexibleNetworkonChip2021" class="reference-item"&gt;
+Zheng Hao, Wang Ke, Louri Ahmed. 2021. Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures. 2021 IEEE International Symposium on High-Performance Computer Architecture (HPCA) 723-735. DOI: 10.1109/HPCA51647.2021.00066.
+&lt;/li&gt;
 &lt;li id="xuRHTNoCReconfigurable2025" class="reference-item"&gt;
 Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 33(8): 2104-2117. DOI: 10.1109/TVLSI.2025.3572112.
 &lt;/li&gt;

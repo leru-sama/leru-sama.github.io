@@ -58,6 +58,15 @@ Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: 
 &lt;li id="xuRMCNoCReliable2023" class="reference-item"&gt;
 Xu Dongyu, Ouyang Yiming, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2023. RMC NoC: A Reliable On-Chip Network Architecture With Reconfigurable Multifunctional Channel. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 31(12): 2061-2074. DOI: 10.1109/TVLSI.2023.3321598.
 &lt;/li&gt;
+&lt;li id="ditomasoQOREFaultTolerant2014" class="reference-item"&gt;
+DiTomaso Dominic, Kodi Avinash, Louri Ahmed. 2014. QORE: A fault tolerant network-on-chip architecture with power-efficient quad-function channel (QFC) buffers. 2014 IEEE 20th International Symposium on High Performance Computer Architecture (HPCA) 320-331. DOI: 10.1109/HPCA.2014.6835942.
+&lt;/li&gt;
+&lt;li id="xuRHTNoCReconfigurable2025" class="reference-item"&gt;
+Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 33(8): 2104-2117. DOI: 10.1109/TVLSI.2025.3572112.
+&lt;/li&gt;
+&lt;li id="xuRMCNoCReliable2023" class="reference-item"&gt;
+Xu Dongyu, Ouyang Yiming, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2023. RMC NoC: A Reliable On-Chip Network Architecture With Reconfigurable Multifunctional Channel. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 31(12): 2061-2074. DOI: 10.1109/TVLSI.2023.3321598.
+&lt;/li&gt;
 &lt;/ol&gt;</description></item><item><title>Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures</title><link>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</link><pubDate>Mon, 20 Oct 2025 20:56:19 +0800</pubDate><guid>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</guid><description>&lt;p&gt;这篇论文
 &lt;a href="#zhengAdaptNoCFlexibleNetworkonChip2021" class="citation"&gt;(Hao, et al, 2021)&lt;/a&gt;
 做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。&lt;/p&gt;
