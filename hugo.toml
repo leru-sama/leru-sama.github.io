@@ -41,3 +41,8 @@ theme = ['PaperMod']
   name = "啃CHI"
   url  = "/chi"
   weight = 5
+
+[[menu.main]]
+  name = "GEM5"
+  url  = "/gem5_learn"
+  weight = 6

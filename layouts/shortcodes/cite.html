@@ -1,6 +1,6 @@
 {{ $key := .Get 0 }}{{ $allReferences := slice }}{{ $citedKeys := .Page.Scratch.Get "citedReferences" | default slice }}{{ $citedKeys = $citedKeys | append $key | uniq }}{{ .Page.Scratch.Set "citedReferences" $citedKeys }}
 
-<!-- 遍历static/bib目录下所有的json文件 -->
+<!-- 遍历static/bib目录下所有的json文件，并基于citation-key去重 -->
 {{ $bibDir := "static/bib" }}
 {{ range (readDir $bibDir) }}
   {{ if and (not .IsDir) (strings.HasSuffix .Name ".json") }}
@@ -8,7 +8,17 @@
     {{ $jsonContent := readFile $jsonPath }}
     {{ $fileReferences := $jsonContent | transform.Unmarshal }}
     {{ range $fileReferences }}
-      {{ $allReferences = $allReferences | append . }}
+      {{ $currentKey := index . "citation-key" }}
+      {{ $alreadyExists := false }}
+      {{ range $allReferences }}
+        {{ if eq (index . "citation-key") $currentKey }}
+          {{ $alreadyExists = true }}
+          {{ break }}
+        {{ end }}
+      {{ end }}
+      {{ if not $alreadyExists }}
+        {{ $allReferences = $allReferences | append . }}
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}

@@ -12,10 +12,9 @@
         font-display: swap;
     }
     
-    /* 全局基础样式 - 使用系统字体快速渲染，后续通过JavaScript切换为胖橘猫老师字体 */
+    /* 全局基础样式 - 直接使用胖橘猫老师字体作为首选 */
     body {
-        /* 先使用系统字体快速显示内容 */
-        font-family: 'SimSun', 'STSong', serif;
+        font-family: '胖橘猫老师', 'SimSun', 'STSong', serif;
         background-color: #ffffff; /* 简单背景色 */
         line-height: 1.6;
         font-size: 20px; /* 进一步增大正文字号 */
@@ -109,6 +108,12 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     
+    /* 代码块字体设置 - 使用等宽字体确保代码对齐和可读性 */
+    code, pre, .chroma, .highlight {
+        font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+        font-size: 0.9em; /* 调整代码字体大小 */
+    }
+    
     /* 适配不同屏幕尺寸 */
     @media (max-width: 768px) {
         .main-content, .header, .footer, .article {
@@ -133,8 +138,8 @@
             document.body.style.backgroundColor = 'rgba(255, 255, 255, 0.8)';
         }, 100);
         
-        // 动态加载胖橘猫老师字体
-        function loadFont(name, url, format) {
+        // 预加载字体以提高性能，但不直接修改字体设置
+        function preloadFont(name, url, format) {
             const fontFace = new FontFace(name, `url(${url}) format('${format}')`, {
                 weight: 'normal',
                 style: 'normal',
@@ -143,13 +148,15 @@
             
             fontFace.load().then(function(loadedFace) {
                 document.fonts.add(loadedFace);
-                // 应用字体到页面
-                document.body.style.fontFamily = `'${name}', 'SimSun', 'STSong', serif`;
+                // 字体已经在CSS中设置为首选，这里仅确保字体加载完成
+                console.log('字体 "胖橘猫老师" 加载完成');
+            }).catch(function(error) {
+                console.error('字体加载失败:', error);
             });
         }
         
-        // 加载默认字体（胖橘猫老师）
-        loadFont('胖橘猫老师', '{{ "font/胖橘猫老师(非商用).ttf" | absURL }}', 'truetype');
+        // 预加载默认字体（胖橘猫老师）
+        preloadFont('胖橘猫老师', '{{ "font/胖橘猫老师(非商用).ttf" | absURL }}', 'truetype');
     });
 </script>
 
