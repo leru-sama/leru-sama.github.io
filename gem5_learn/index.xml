@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Gem5_learns on 牛马日志</title><link>https://leru-sama.github.io/gem5_learn/</link><description>Recent content in Gem5_learns on 牛马日志</description><generator>Hugo -- 0.152.2</generator><language>zh-cn</language><lastBuildDate>Thu, 06 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://leru-sama.github.io/gem5_learn/index.xml" rel="self" type="application/rss+xml"/><item><title>GEM5 学习</title><link>https://leru-sama.github.io/gem5_learn/gem5_leran/</link><pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/gem5_learn/gem5_leran/</guid><description>&lt;p&gt;本文档主要参考 &lt;a href="https://www.gem5.org/documentation/learning_gem5/introduction/"&gt;gem5 官方入门教程&lt;/a&gt; 编写。&lt;/p&gt;
+&lt;h2 id="什么是gem5"&gt;什么是GEM5&lt;/h2&gt;
+&lt;p&gt;贴一个原文：gem5 is a modular discrete event driven computer system simulator platform. That means that:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;gem5’s components can be rearranged, parameterized, extended or replaced easily to suit your needs.&lt;/li&gt;
+&lt;li&gt;It simulates the &lt;strong&gt;passing of time as a series of discrete events&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Its intended use is to simulate one or more computer systems in various ways.&lt;/li&gt;
+&lt;li&gt;It’s more than just a simulator; it’s a simulator platform that lets you use as many of its premade components as you want to build up your own simulation system.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="环境配置"&gt;环境配置&lt;/h2&gt;
+&lt;p&gt;使用vscode + docker安装gem5的环境，安装需要很大的内存，我给了14G+32Gswap。&lt;/p&gt;</description></item></channel></rss>

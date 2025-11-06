@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>牛马日志</title><link>https://leru-sama.github.io/</link><description>Recent content on 牛马日志</description><generator>Hugo -- 0.152.2</generator><language>zh-cn</language><lastBuildDate>Wed, 05 Nov 2025 10:08:49 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Cache Coherence for GPU Architectures</title><link>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</link><pubDate>Wed, 05 Nov 2025 10:08:49 +0800</pubDate><guid>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</guid><description>&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>牛马日志</title><link>https://leru-sama.github.io/</link><description>Recent content on 牛马日志</description><generator>Hugo -- 0.152.2</generator><language>zh-cn</language><lastBuildDate>Thu, 06 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://leru-sama.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>GEM5 学习</title><link>https://leru-sama.github.io/gem5_learn/gem5_leran/</link><pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/gem5_learn/gem5_leran/</guid><description>&lt;p&gt;本文档主要参考 &lt;a href="https://www.gem5.org/documentation/learning_gem5/introduction/"&gt;gem5 官方入门教程&lt;/a&gt; 编写。&lt;/p&gt;
+&lt;h2 id="什么是gem5"&gt;什么是GEM5&lt;/h2&gt;
+&lt;p&gt;贴一个原文：gem5 is a modular discrete event driven computer system simulator platform. That means that:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;gem5’s components can be rearranged, parameterized, extended or replaced easily to suit your needs.&lt;/li&gt;
+&lt;li&gt;It simulates the &lt;strong&gt;passing of time as a series of discrete events&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Its intended use is to simulate one or more computer systems in various ways.&lt;/li&gt;
+&lt;li&gt;It’s more than just a simulator; it’s a simulator platform that lets you use as many of its premade components as you want to build up your own simulation system.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="环境配置"&gt;环境配置&lt;/h2&gt;
+&lt;p&gt;使用vscode + docker安装gem5的环境，安装需要很大的内存，我给了14G+32Gswap。&lt;/p&gt;</description></item><item><title>Cache Coherence for GPU Architectures</title><link>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</link><pubDate>Wed, 05 Nov 2025 10:08:49 +0800</pubDate><guid>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</guid><description>&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
 &lt;p&gt;这篇文章
 &lt;a href="#singh2013" class="citation"&gt;(Inderpreet, et al, 2013)&lt;/a&gt;
 挺老的，介绍的是一种GPU的缓存一致性协议。解决的问题是CPU的严格一致性在
@@ -123,7 +133,7 @@ snoop是HF来发的，RN只接收然后通过SRSP他回东西就OK
 &lt;li&gt;For a &lt;strong&gt;Data packet&lt;/strong&gt;: TgtID, SrcID, TxnID, HomeNID, and DBID.&lt;/li&gt;
 &lt;li&gt;For a &lt;strong&gt;Snoop packet&lt;/strong&gt;: SrcID, TxnID, FwdNID, FwdTxnID, and StashLPID.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;TgtID、SrcID就是源和目的ID，剩余的ID如下介绍：&lt;/p&gt;</description></item><item><title>Reference</title><link>https://leru-sama.github.io/reference/</link><pubDate>Tue, 21 Oct 2025 10:32:57 +0800</pubDate><guid>https://leru-sama.github.io/reference/</guid><description/></item><item><title>RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System</title><link>https://leru-sama.github.io/noc/rht_noc/rht_noc/</link><pubDate>Mon, 20 Oct 2025 20:58:23 +0800</pubDate><guid>https://leru-sama.github.io/noc/rht_noc/rht_noc/</guid><description>&lt;p&gt;这篇论文
+&lt;p&gt;TgtID、SrcID就是源和目的ID，剩余的ID如下介绍：&lt;/p&gt;</description></item><item><title>RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System</title><link>https://leru-sama.github.io/noc/rht_noc/rht_noc/</link><pubDate>Mon, 20 Oct 2025 20:58:23 +0800</pubDate><guid>https://leru-sama.github.io/noc/rht_noc/rht_noc/</guid><description>&lt;p&gt;这篇论文
 &lt;a href="#xuRHTNoCReconfigurable2025" class="citation"&gt;(Dongyu, et al, 2025)&lt;/a&gt;
 来自VLSI，今天先看看。&lt;/p&gt;
 &lt;p&gt;这篇论文做了一个半带宽mesh，然后用一个bufferless tours来弥补半带宽mesh的不足。&lt;/p&gt;
@@ -174,15 +184,6 @@ alt="垂直环和水平环形成的逻辑环"/&gt; &lt;figcaption&gt;
 &lt;/div&gt;
 &lt;h2&gt;参考文献&lt;/h2&gt;
 &lt;ol class="references-list"&gt;
-&lt;li id="ditomasoQOREFaultTolerant2014" class="reference-item"&gt;
-DiTomaso Dominic, Kodi Avinash, Louri Ahmed. 2014. QORE: A fault tolerant network-on-chip architecture with power-efficient quad-function channel (QFC) buffers. 2014 IEEE 20th International Symposium on High Performance Computer Architecture (HPCA) 320-331. DOI: 10.1109/HPCA.2014.6835942.
-&lt;/li&gt;
-&lt;li id="xuRHTNoCReconfigurable2025" class="reference-item"&gt;
-Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 33(8): 2104-2117. DOI: 10.1109/TVLSI.2025.3572112.
-&lt;/li&gt;
-&lt;li id="xuRMCNoCReliable2023" class="reference-item"&gt;
-Xu Dongyu, Ouyang Yiming, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2023. RMC NoC: A Reliable On-Chip Network Architecture With Reconfigurable Multifunctional Channel. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 31(12): 2061-2074. DOI: 10.1109/TVLSI.2023.3321598.
-&lt;/li&gt;
 &lt;li id="ditomasoQOREFaultTolerant2014" class="reference-item"&gt;
 DiTomaso Dominic, Kodi Avinash, Louri Ahmed. 2014. QORE: A fault tolerant network-on-chip architecture with power-efficient quad-function channel (QFC) buffers. 2014 IEEE 20th International Symposium on High Performance Computer Architecture (HPCA) 320-331. DOI: 10.1109/HPCA.2014.6835942.
 &lt;/li&gt;
@@ -314,12 +315,6 @@ alt="测试图片"/&gt; &lt;figcaption&gt;
 &lt;p&gt;然后就可以生成参考文献列表了，这个参考文献列表有这一页的参考文献：
 &lt;h2&gt;参考文献&lt;/h2&gt;
 &lt;ol class="references-list"&gt;
-&lt;li id="xuRHTNoCReconfigurable2025" class="reference-item"&gt;
-Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 33(8): 2104-2117. DOI: 10.1109/TVLSI.2025.3572112.
-&lt;/li&gt;
-&lt;li id="zhengAdaptNoCFlexibleNetworkonChip2021" class="reference-item"&gt;
-Zheng Hao, Wang Ke, Louri Ahmed. 2021. Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures. 2021 IEEE International Symposium on High-Performance Computer Architecture (HPCA) 723-735. DOI: 10.1109/HPCA51647.2021.00066.
-&lt;/li&gt;
 &lt;li id="xuRHTNoCReconfigurable2025" class="reference-item"&gt;
 Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 33(8): 2104-2117. DOI: 10.1109/TVLSI.2025.3572112.
 &lt;/li&gt;
