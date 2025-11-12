@@ -4,15 +4,26 @@
 {{- end -}}>
     {{- if .Get "link" -}}
         <a href="{{ .Get "link" }}"{{ with .Get "target" }} target="{{ . }}"{{ end }}{{ with .Get "rel" }} rel="{{ . }}"{{ end }}>
-    {{- end }}
-    <img loading="lazy" src="{{ .Get "src" }}{{- if eq (.Get "align") "center" }}#center{{- end }}"
-         {{- if or (.Get "alt") (.Get "caption") }}
-         alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
-         {{- end -}}
-         {{- with .Get "width" }} width="{{ . }}"{{ end -}}
-         {{- with .Get "height" }} height="{{ . }}"{{ end -}}
-    /> <!-- Closing img tag -->
-    {{- if .Get "link" }}</a>{{ end -}}
+            <img loading="lazy" src="{{ .Get "src" }}{{- if eq (.Get "align") "center" }}#center{{- end }}"
+                 {{- if or (.Get "alt") (.Get "caption") }}
+                 alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
+                 {{- end -}}
+                 {{- with .Get "width" }} width="{{ . }}"{{ end -}}
+                 {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+            /> <!-- Closing img tag -->
+        </a>
+    {{- else -}}
+        <!-- 没有外部链接时，添加点击放大功能 -->
+        <img loading="lazy" src="{{ .Get "src" }}{{- if eq (.Get "align") "center" }}#center{{- end }}"
+             {{- if or (.Get "alt") (.Get "caption") }}
+             alt="{{ with .Get "alt" }}{{ . }}{{ else }}{{ .Get "caption" | markdownify| plainify }}{{ end }}"
+             {{- end -}}
+             {{- with .Get "width" }} width="{{ . }}"{{ end -}}
+             {{- with .Get "height" }} height="{{ . }}"{{ end -}}
+             onclick="openImageViewer(this)"
+             style="cursor: pointer;"
+        /> <!-- Closing img tag -->
+    {{- end -}}
     {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr") -}}
         <figcaption>
             {{ with (.Get "title") -}}
@@ -29,3 +40,95 @@
         </figcaption>
     {{- end }}
 </figure>
+
+<!-- 图片查看器样式 -->
+<style>
+    .image-viewer {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .image-viewer.show {
+        display: flex;
+    }
+    
+    .image-viewer img {
+        max-width: 90%;
+        max-height: 90%;
+        object-fit: contain;
+    }
+    
+    .image-viewer-close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    
+    .image-viewer-close:hover {
+        color: #bbb;
+    }
+</style>
+
+<!-- 图片查看器脚本 -->
+<script>
+    // 创建图片查看器元素
+    function createImageViewer() {
+        if (!document.getElementById('imageViewer')) {
+            const viewer = document.createElement('div');
+            viewer.id = 'imageViewer';
+            viewer.className = 'image-viewer';
+            viewer.innerHTML = `
+                <span class="image-viewer-close" onclick="closeImageViewer()">&times;</span>
+                <img id="viewerImage" src="" alt="放大图片">
+            `;
+            document.body.appendChild(viewer);
+            
+            // 点击查看器背景也可以关闭
+            viewer.addEventListener('click', function(event) {
+                if (event.target === viewer) {
+                    closeImageViewer();
+                }
+            });
+            
+            // ESC键关闭
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && viewer.classList.contains('show')) {
+                    closeImageViewer();
+                }
+            });
+        }
+        return document.getElementById('imageViewer');
+    }
+    
+    // 打开图片查看器
+    function openImageViewer(imgElement) {
+        const viewer = createImageViewer();
+        const viewerImg = document.getElementById('viewerImage');
+        viewerImg.src = imgElement.src;
+        viewerImg.alt = imgElement.alt;
+        viewer.classList.add('show');
+        document.body.style.overflow = 'hidden'; // 防止背景滚动
+    }
+    
+    // 关闭图片查看器
+    function closeImageViewer() {
+        const viewer = document.getElementById('imageViewer');
+        if (viewer) {
+            viewer.classList.remove('show');
+            document.body.style.overflow = ''; // 恢复背景滚动
+        }
+    }
+</script>
