@@ -33,71 +33,86 @@ benchmark用什么？这个要想一想
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;vscode打开容器，点左下角的那个连接的小点点，如下图：
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/gem5_learn/experiment/vscode%20connect.jpg"
-alt="vscode连接容器" width="500"/&gt;
+alt="vscode连接容器" width="500"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt;
 &lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;连上了就可可以愉快的写代码了，以下是一个简单的python配置程序：
-&lt;div class="admonition admonition-info"&gt;
-&lt;div class="admonition-title"&gt;
-&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
-&lt;span class="admonition-text"&gt;info&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
-注意脚本里面使用自己写的程序的workload配置，网上到处都找不到
-&lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.components.boards.simple_board &lt;span style="color:#f92672"&gt;import&lt;/span&gt; SimpleBoard
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.components.processors.simple_processor &lt;span style="color:#f92672"&gt;import&lt;/span&gt; SimpleProcessor
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.components.cachehierarchies.ruby.mesi_two_level_cache_hierarchy &lt;span style="color:#f92672"&gt;import&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; MESITwoLevelCacheHierarchy,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.components.memory.single_channel &lt;span style="color:#f92672"&gt;import&lt;/span&gt; SingleChannelDDR4_2400
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.components.processors.cpu_types &lt;span style="color:#f92672"&gt;import&lt;/span&gt; CPUTypes
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.isas &lt;span style="color:#f92672"&gt;import&lt;/span&gt; ISA
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.resources.resource &lt;span style="color:#f92672"&gt;import&lt;/span&gt; obtain_resource
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.simulate.simulator &lt;span style="color:#f92672"&gt;import&lt;/span&gt; Simulator
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.resources.resource &lt;span style="color:#f92672"&gt;import&lt;/span&gt; Resource
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# from pathlib import Path&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cache_hierarchy &lt;span style="color:#f92672"&gt;=&lt;/span&gt; MESITwoLevelCacheHierarchy(
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l1d_size&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;16KiB&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l1d_assoc&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l1i_size&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;16KiB&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l1i_assoc&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l2_size&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;256KiB&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l2_assoc&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;16&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; num_l2_banks&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;memory &lt;span style="color:#f92672"&gt;=&lt;/span&gt; SingleChannelDDR4_2400()
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;processor &lt;span style="color:#f92672"&gt;=&lt;/span&gt; SimpleProcessor(cpu_type&lt;span style="color:#f92672"&gt;=&lt;/span&gt;CPUTypes&lt;span style="color:#f92672"&gt;.&lt;/span&gt;TIMING, isa&lt;span style="color:#f92672"&gt;=&lt;/span&gt;ISA&lt;span style="color:#f92672"&gt;.&lt;/span&gt;X86, num_cores&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;board &lt;span style="color:#f92672"&gt;=&lt;/span&gt; SimpleBoard(
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; clk_freq&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;3GHz&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; processor&lt;span style="color:#f92672"&gt;=&lt;/span&gt;processor,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; memory&lt;span style="color:#f92672"&gt;=&lt;/span&gt;memory,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cache_hierarchy&lt;span style="color:#f92672"&gt;=&lt;/span&gt;cache_hierarchy,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 设置workload, 代码存储在本地：/gem5/configs/leru/hello&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.resources.resource &lt;span style="color:#f92672"&gt;import&lt;/span&gt; BinaryResource
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;binary_path &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;/gem5/configs/leru/hello&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;binary_resource &lt;span style="color:#f92672"&gt;=&lt;/span&gt; BinaryResource(local_path&lt;span style="color:#f92672"&gt;=&lt;/span&gt;binary_path)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;board&lt;span style="color:#f92672"&gt;.&lt;/span&gt;set_se_binary_workload(binary_resource)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;board&lt;span style="color:#f92672"&gt;.&lt;/span&gt;workload&lt;span style="color:#f92672"&gt;.&lt;/span&gt;wait_for_remote_gdb &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;False&lt;/span&gt; &lt;span style="color:#75715e"&gt;#不等待GDB链接&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;simulator &lt;span style="color:#f92672"&gt;=&lt;/span&gt; Simulator(board&lt;span style="color:#f92672"&gt;=&lt;/span&gt;board)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;simulator&lt;span style="color:#f92672"&gt;.&lt;/span&gt;run()
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="admonition admonition-info"&gt;
-&lt;div class="admonition-title"&gt;
-&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
-&lt;span class="admonition-text"&gt;info&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
-编译自己的程序的时候，记得加-static，用于静态链接。因为我用的是X86的CPU，所以直接用gcc来编译就ok，用arm的话得用交叉编译链。
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;运行脚本，我编译的是x86的fast&lt;/p&gt;</description></item><item><title>GEM5 学习</title><link>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</link><pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</guid><description>&lt;p&gt;本文档主要参考 &lt;a href="https://www.gem5.org/documentation/learning_gem5/introduction/"&gt;gem5 官方入门教程&lt;/a&gt; 编写。&lt;/p&gt;
+&lt;style&gt;
+.image-viewer {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+}
+.image-viewer.show {
+display: flex;
+}
+.image-viewer img {
+max-width: 90%;
+max-height: 90%;
+object-fit: contain;
+}
+.image-viewer-close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+.image-viewer-close:hover {
+color: #bbb;
+}
+&lt;/style&gt;
+&lt;script&gt;
+function createImageViewer() {
+if (!document.getElementById('imageViewer')) {
+const viewer = document.createElement('div');
+viewer.id = 'imageViewer';
+viewer.className = 'image-viewer';
+viewer.innerHTML = `
+&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
+&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+`;
+document.body.appendChild(viewer);
+viewer.addEventListener('click', function(event) {
+if (event.target === viewer) {
+closeImageViewer();
+}
+});
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape' &amp;&amp; viewer.classList.contains('show')) {
+closeImageViewer();
+}
+});
+}
+return document.getElementById('imageViewer');
+}
+function openImageViewer(imgElement) {
+const viewer = createImageViewer();
+const viewerImg = document.getElementById('viewerImage');
+viewerImg.src = imgElement.src;
+viewerImg.alt = imgElement.alt;
+viewer.classList.add('show');
+document.body.style.overflow = 'hidden';
+}
+function closeImageViewer() {
+const viewer = document.getElementById('imageViewer');
+if (viewer) {
+viewer.classList.remove('show');
+document.body.style.overflow = '';
+}
+}
+&lt;/script&gt;
+&lt;/p&gt;</description></item><item><title>GEM5 学习</title><link>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</link><pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</guid><description>&lt;p&gt;本文档主要参考 &lt;a href="https://www.gem5.org/documentation/learning_gem5/introduction/"&gt;gem5 官方入门教程&lt;/a&gt; 编写。&lt;/p&gt;
 &lt;h2 id="什么是gem5"&gt;什么是GEM5&lt;/h2&gt;
 &lt;p&gt;贴一个原文：gem5 is a modular discrete event driven computer system simulator platform. That means that:&lt;/p&gt;
 &lt;ol&gt;

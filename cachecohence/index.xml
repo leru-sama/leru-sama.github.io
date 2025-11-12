@@ -32,10 +32,87 @@ memory非常大，所以GPU是没法做类似于 访问-&amp;gt;noop-&amp;gt;授
 &lt;p&gt;协议中有2个时间戳：L2每条cacheline的global timestamp和L1每条cacheline的local timestamp。读请求会附带一个预测生命周期，L2将对应cacheline的时间戳设置为全局计数器+预测生命周期。多条读请求就如下图所示，将继续增加global timestamp。&lt;/p&gt;
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/cachecohence/CacheCoherenceforGPUArchitectures/TC%20hardware%20extention.png"
-alt="TC hardware extention.png"/&gt; &lt;figcaption&gt;
+alt="TC hardware extention.png"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt; &lt;figcaption&gt;
 &lt;p&gt;时间戳扩展&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;style&gt;
+.image-viewer {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+}
+.image-viewer.show {
+display: flex;
+}
+.image-viewer img {
+max-width: 90%;
+max-height: 90%;
+object-fit: contain;
+}
+.image-viewer-close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+.image-viewer-close:hover {
+color: #bbb;
+}
+&lt;/style&gt;
+&lt;script&gt;
+function createImageViewer() {
+if (!document.getElementById('imageViewer')) {
+const viewer = document.createElement('div');
+viewer.id = 'imageViewer';
+viewer.className = 'image-viewer';
+viewer.innerHTML = `
+&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
+&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+`;
+document.body.appendChild(viewer);
+viewer.addEventListener('click', function(event) {
+if (event.target === viewer) {
+closeImageViewer();
+}
+});
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape' &amp;&amp; viewer.classList.contains('show')) {
+closeImageViewer();
+}
+});
+}
+return document.getElementById('imageViewer');
+}
+function openImageViewer(imgElement) {
+const viewer = createImageViewer();
+const viewerImg = document.getElementById('viewerImage');
+viewerImg.src = imgElement.src;
+viewerImg.alt = imgElement.alt;
+viewer.classList.add('show');
+document.body.style.overflow = 'hidden';
+}
+function closeImageViewer() {
+const viewer = document.getElementById('imageViewer');
+if (viewer) {
+viewer.classList.remove('show');
+document.body.style.overflow = '';
+}
+}
+&lt;/script&gt;
 &lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 &lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
@@ -47,5 +124,7 @@ alt="TC hardware extention.png"/&gt; &lt;figcaption&gt;
 &lt;/div&gt;
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/cachecohence/CacheCoherenceforGPUArchitectures/GPU-VI%20vs%20TC.png"
-alt="GPU-VI vs TC.png"/&gt; &lt;figcaption&gt;
+alt="GPU-VI vs TC.png"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt; &lt;figcaption&gt;
 &lt;p&gt;GPU-VS vs TC协议&lt;/p&gt;</description></item></channel></rss>

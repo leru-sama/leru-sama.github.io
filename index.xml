@@ -33,71 +33,86 @@ benchmark用什么？这个要想一想
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;vscode打开容器，点左下角的那个连接的小点点，如下图：
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/gem5_learn/experiment/vscode%20connect.jpg"
-alt="vscode连接容器" width="500"/&gt;
+alt="vscode连接容器" width="500"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt;
 &lt;/figure&gt;
-&lt;/p&gt;
-&lt;p&gt;连上了就可可以愉快的写代码了，以下是一个简单的python配置程序：
-&lt;div class="admonition admonition-info"&gt;
-&lt;div class="admonition-title"&gt;
-&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
-&lt;span class="admonition-text"&gt;info&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
-注意脚本里面使用自己写的程序的workload配置，网上到处都找不到
-&lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.components.boards.simple_board &lt;span style="color:#f92672"&gt;import&lt;/span&gt; SimpleBoard
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.components.processors.simple_processor &lt;span style="color:#f92672"&gt;import&lt;/span&gt; SimpleProcessor
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.components.cachehierarchies.ruby.mesi_two_level_cache_hierarchy &lt;span style="color:#f92672"&gt;import&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; MESITwoLevelCacheHierarchy,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.components.memory.single_channel &lt;span style="color:#f92672"&gt;import&lt;/span&gt; SingleChannelDDR4_2400
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.components.processors.cpu_types &lt;span style="color:#f92672"&gt;import&lt;/span&gt; CPUTypes
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.isas &lt;span style="color:#f92672"&gt;import&lt;/span&gt; ISA
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.resources.resource &lt;span style="color:#f92672"&gt;import&lt;/span&gt; obtain_resource
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.simulate.simulator &lt;span style="color:#f92672"&gt;import&lt;/span&gt; Simulator
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.resources.resource &lt;span style="color:#f92672"&gt;import&lt;/span&gt; Resource
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# from pathlib import Path&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cache_hierarchy &lt;span style="color:#f92672"&gt;=&lt;/span&gt; MESITwoLevelCacheHierarchy(
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l1d_size&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;16KiB&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l1d_assoc&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l1i_size&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;16KiB&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l1i_assoc&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l2_size&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;256KiB&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; l2_assoc&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;16&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; num_l2_banks&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;memory &lt;span style="color:#f92672"&gt;=&lt;/span&gt; SingleChannelDDR4_2400()
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;processor &lt;span style="color:#f92672"&gt;=&lt;/span&gt; SimpleProcessor(cpu_type&lt;span style="color:#f92672"&gt;=&lt;/span&gt;CPUTypes&lt;span style="color:#f92672"&gt;.&lt;/span&gt;TIMING, isa&lt;span style="color:#f92672"&gt;=&lt;/span&gt;ISA&lt;span style="color:#f92672"&gt;.&lt;/span&gt;X86, num_cores&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;board &lt;span style="color:#f92672"&gt;=&lt;/span&gt; SimpleBoard(
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; clk_freq&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;3GHz&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; processor&lt;span style="color:#f92672"&gt;=&lt;/span&gt;processor,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; memory&lt;span style="color:#f92672"&gt;=&lt;/span&gt;memory,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cache_hierarchy&lt;span style="color:#f92672"&gt;=&lt;/span&gt;cache_hierarchy,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 设置workload, 代码存储在本地：/gem5/configs/leru/hello&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; gem5.resources.resource &lt;span style="color:#f92672"&gt;import&lt;/span&gt; BinaryResource
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;binary_path &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;/gem5/configs/leru/hello&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;binary_resource &lt;span style="color:#f92672"&gt;=&lt;/span&gt; BinaryResource(local_path&lt;span style="color:#f92672"&gt;=&lt;/span&gt;binary_path)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;board&lt;span style="color:#f92672"&gt;.&lt;/span&gt;set_se_binary_workload(binary_resource)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;board&lt;span style="color:#f92672"&gt;.&lt;/span&gt;workload&lt;span style="color:#f92672"&gt;.&lt;/span&gt;wait_for_remote_gdb &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;False&lt;/span&gt; &lt;span style="color:#75715e"&gt;#不等待GDB链接&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;simulator &lt;span style="color:#f92672"&gt;=&lt;/span&gt; Simulator(board&lt;span style="color:#f92672"&gt;=&lt;/span&gt;board)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;simulator&lt;span style="color:#f92672"&gt;.&lt;/span&gt;run()
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="admonition admonition-info"&gt;
-&lt;div class="admonition-title"&gt;
-&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
-&lt;span class="admonition-text"&gt;info&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
-编译自己的程序的时候，记得加-static，用于静态链接。因为我用的是X86的CPU，所以直接用gcc来编译就ok，用arm的话得用交叉编译链。
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;运行脚本，我编译的是x86的fast&lt;/p&gt;</description></item><item><title>GEM5 学习</title><link>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</link><pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</guid><description>&lt;p&gt;本文档主要参考 &lt;a href="https://www.gem5.org/documentation/learning_gem5/introduction/"&gt;gem5 官方入门教程&lt;/a&gt; 编写。&lt;/p&gt;
+&lt;style&gt;
+.image-viewer {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+}
+.image-viewer.show {
+display: flex;
+}
+.image-viewer img {
+max-width: 90%;
+max-height: 90%;
+object-fit: contain;
+}
+.image-viewer-close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+.image-viewer-close:hover {
+color: #bbb;
+}
+&lt;/style&gt;
+&lt;script&gt;
+function createImageViewer() {
+if (!document.getElementById('imageViewer')) {
+const viewer = document.createElement('div');
+viewer.id = 'imageViewer';
+viewer.className = 'image-viewer';
+viewer.innerHTML = `
+&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
+&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+`;
+document.body.appendChild(viewer);
+viewer.addEventListener('click', function(event) {
+if (event.target === viewer) {
+closeImageViewer();
+}
+});
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape' &amp;&amp; viewer.classList.contains('show')) {
+closeImageViewer();
+}
+});
+}
+return document.getElementById('imageViewer');
+}
+function openImageViewer(imgElement) {
+const viewer = createImageViewer();
+const viewerImg = document.getElementById('viewerImage');
+viewerImg.src = imgElement.src;
+viewerImg.alt = imgElement.alt;
+viewer.classList.add('show');
+document.body.style.overflow = 'hidden';
+}
+function closeImageViewer() {
+const viewer = document.getElementById('imageViewer');
+if (viewer) {
+viewer.classList.remove('show');
+document.body.style.overflow = '';
+}
+}
+&lt;/script&gt;
+&lt;/p&gt;</description></item><item><title>GEM5 学习</title><link>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</link><pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</guid><description>&lt;p&gt;本文档主要参考 &lt;a href="https://www.gem5.org/documentation/learning_gem5/introduction/"&gt;gem5 官方入门教程&lt;/a&gt; 编写。&lt;/p&gt;
 &lt;h2 id="什么是gem5"&gt;什么是GEM5&lt;/h2&gt;
 &lt;p&gt;贴一个原文：gem5 is a modular discrete event driven computer system simulator platform. That means that:&lt;/p&gt;
 &lt;ol&gt;
@@ -141,10 +156,87 @@ memory非常大，所以GPU是没法做类似于 访问-&amp;gt;noop-&amp;gt;授
 &lt;p&gt;协议中有2个时间戳：L2每条cacheline的global timestamp和L1每条cacheline的local timestamp。读请求会附带一个预测生命周期，L2将对应cacheline的时间戳设置为全局计数器+预测生命周期。多条读请求就如下图所示，将继续增加global timestamp。&lt;/p&gt;
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/cachecohence/CacheCoherenceforGPUArchitectures/TC%20hardware%20extention.png"
-alt="TC hardware extention.png"/&gt; &lt;figcaption&gt;
+alt="TC hardware extention.png"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt; &lt;figcaption&gt;
 &lt;p&gt;时间戳扩展&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;style&gt;
+.image-viewer {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+}
+.image-viewer.show {
+display: flex;
+}
+.image-viewer img {
+max-width: 90%;
+max-height: 90%;
+object-fit: contain;
+}
+.image-viewer-close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+.image-viewer-close:hover {
+color: #bbb;
+}
+&lt;/style&gt;
+&lt;script&gt;
+function createImageViewer() {
+if (!document.getElementById('imageViewer')) {
+const viewer = document.createElement('div');
+viewer.id = 'imageViewer';
+viewer.className = 'image-viewer';
+viewer.innerHTML = `
+&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
+&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+`;
+document.body.appendChild(viewer);
+viewer.addEventListener('click', function(event) {
+if (event.target === viewer) {
+closeImageViewer();
+}
+});
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape' &amp;&amp; viewer.classList.contains('show')) {
+closeImageViewer();
+}
+});
+}
+return document.getElementById('imageViewer');
+}
+function openImageViewer(imgElement) {
+const viewer = createImageViewer();
+const viewerImg = document.getElementById('viewerImage');
+viewerImg.src = imgElement.src;
+viewerImg.alt = imgElement.alt;
+viewer.classList.add('show');
+document.body.style.overflow = 'hidden';
+}
+function closeImageViewer() {
+const viewer = document.getElementById('imageViewer');
+if (viewer) {
+viewer.classList.remove('show');
+document.body.style.overflow = '';
+}
+}
+&lt;/script&gt;
 &lt;div class="admonition admonition-note"&gt;
 &lt;div class="admonition-title"&gt;
 &lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
@@ -156,7 +248,9 @@ alt="TC hardware extention.png"/&gt; &lt;figcaption&gt;
 &lt;/div&gt;
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/cachecohence/CacheCoherenceforGPUArchitectures/GPU-VI%20vs%20TC.png"
-alt="GPU-VI vs TC.png"/&gt; &lt;figcaption&gt;
+alt="GPU-VI vs TC.png"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt; &lt;figcaption&gt;
 &lt;p&gt;GPU-VS vs TC协议&lt;/p&gt;</description></item><item><title>Transactions</title><link>https://leru-sama.github.io/chi/transactions/transactions/</link><pubDate>Wed, 22 Oct 2025 15:23:05 +0800</pubDate><guid>https://leru-sama.github.io/chi/transactions/transactions/</guid><description>&lt;p&gt;直接从transaction开始看了，看点没看过的给记录下来&lt;/p&gt;
 &lt;h2 id="接口和信号"&gt;接口和信号&lt;/h2&gt;
 &lt;p&gt;&lt;del&gt;无数次都是从这儿开始，后边看不下去&lt;/del&gt;&lt;/p&gt;
@@ -244,107 +338,177 @@ snoop是HF来发的，RN只接收然后通过SRSP他回东西就OK
 连接，然后再路由器里面增加了一级LC（link control），用来判定link是朝哪个方向走。&lt;/p&gt;
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/noc/rht_noc/router_with_link_controller.jpg"
-alt="加入 LC 的 router"/&gt; &lt;figcaption&gt;
+alt="加入 LC 的 router"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt; &lt;figcaption&gt;
 &lt;p&gt;加入 LC 的 router&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
-&lt;p&gt;LC的判断逻辑是根据两端待传输的flit进行协商，优先传输flit多也就是带宽需求大的。这玩意会带来一个等待链路授权的时间，这个文章里面通过一个bufferless torus解决。&lt;/p&gt;
-&lt;h2 id="bufferless-torus"&gt;bufferless torus&lt;/h2&gt;
-&lt;p&gt;用一个bufferless torus来处理mesh的剩余带宽。这个torus也是用adaptable link来做的，也是只能做单向的流量，里面的路由器称作Ring Interface（RI）&lt;/p&gt;
-&lt;p&gt;因为是bufferless的，所以构造和普通的有点不一样，如下图所示啊，东南西北各一条adaptable link，然后local是双向带宽ejection、injection
-此外还有一个到mesh router的buffer的单向链路。&lt;/p&gt;
-&lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/noc/rht_noc/RI_microarchetecture.jpg"
-alt="RI_microarchetecture"/&gt; &lt;figcaption&gt;
-&lt;p&gt;RI_microarchetecture&lt;/p&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/noc/rht_noc/RI_loop_conbine.jpg"
-alt="RI_loop_conbine"/&gt; &lt;figcaption&gt;
-&lt;p&gt;RI_loop_conbine&lt;/p&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;p&gt;如上面右边的图所示，通过某种算法确定路由器的转弯方向，最终保证每个垂直的环与水平的环形成一个逻辑上的大环，如下图所示：&lt;/p&gt;
-&lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/noc/rht_noc/logical_loop.jpg"
-alt="垂直环和水平环形成的逻辑环"/&gt; &lt;figcaption&gt;
-&lt;p&gt;垂直环和水平环形成的逻辑环&lt;/p&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;div class="admonition admonition-note"&gt;
-&lt;div class="admonition-title"&gt;
-&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
-&lt;span class="admonition-text"&gt;Note&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
-这个就作为水综述的东西，这种增加带宽利用率的奇技淫巧好像对我没啥用
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h2&gt;参考文献&lt;/h2&gt;
-&lt;ol class="references-list"&gt;
-&lt;li id="ditomasoQOREFaultTolerant2014" class="reference-item"&gt;
-DiTomaso Dominic, Kodi Avinash, Louri Ahmed. 2014. QORE: A fault tolerant network-on-chip architecture with power-efficient quad-function channel (QFC) buffers. 2014 IEEE 20th International Symposium on High Performance Computer Architecture (HPCA) 320-331. DOI: 10.1109/HPCA.2014.6835942.
-&lt;/li&gt;
-&lt;li id="xuRHTNoCReconfigurable2025" class="reference-item"&gt;
-Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 33(8): 2104-2117. DOI: 10.1109/TVLSI.2025.3572112.
-&lt;/li&gt;
-&lt;li id="xuRMCNoCReliable2023" class="reference-item"&gt;
-Xu Dongyu, Ouyang Yiming, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2023. RMC NoC: A Reliable On-Chip Network Architecture With Reconfigurable Multifunctional Channel. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 31(12): 2061-2074. DOI: 10.1109/TVLSI.2023.3321598.
-&lt;/li&gt;
-&lt;/ol&gt;</description></item><item><title>Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures</title><link>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</link><pubDate>Mon, 20 Oct 2025 20:56:19 +0800</pubDate><guid>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</guid><description>&lt;p&gt;这篇论文
+&lt;style&gt;
+.image-viewer {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+}
+.image-viewer.show {
+display: flex;
+}
+.image-viewer img {
+max-width: 90%;
+max-height: 90%;
+object-fit: contain;
+}
+.image-viewer-close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+.image-viewer-close:hover {
+color: #bbb;
+}
+&lt;/style&gt;
+&lt;script&gt;
+function createImageViewer() {
+if (!document.getElementById('imageViewer')) {
+const viewer = document.createElement('div');
+viewer.id = 'imageViewer';
+viewer.className = 'image-viewer';
+viewer.innerHTML = `
+&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
+&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+`;
+document.body.appendChild(viewer);
+viewer.addEventListener('click', function(event) {
+if (event.target === viewer) {
+closeImageViewer();
+}
+});
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape' &amp;&amp; viewer.classList.contains('show')) {
+closeImageViewer();
+}
+});
+}
+return document.getElementById('imageViewer');
+}
+function openImageViewer(imgElement) {
+const viewer = createImageViewer();
+const viewerImg = document.getElementById('viewerImage');
+viewerImg.src = imgElement.src;
+viewerImg.alt = imgElement.alt;
+viewer.classList.add('show');
+document.body.style.overflow = 'hidden';
+}
+function closeImageViewer() {
+const viewer = document.getElementById('imageViewer');
+if (viewer) {
+viewer.classList.remove('show');
+document.body.style.overflow = '';
+}
+}
+&lt;/script&gt;
+&lt;p&gt;LC的判断逻辑是根据两端待传输的flit进行协商，优先传输flit多也就是带宽需求大的。这玩意会带来一个等待链路授权的时间，这个文章里面通过一个bufferless torus解决。&lt;/p&gt;</description></item><item><title>Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures</title><link>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</link><pubDate>Mon, 20 Oct 2025 20:56:19 +0800</pubDate><guid>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</guid><description>&lt;p&gt;这篇论文
 &lt;a href="#zhengAdaptNoCFlexibleNetworkonChip2021" class="citation"&gt;(Hao, et al, 2021)&lt;/a&gt;
 做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。&lt;/p&gt;
 &lt;p&gt;整体来说就是一个基础款的mesh网络加上一些可配置的link，这些link可以用将子网络组成不同的拓扑结构。&lt;/p&gt;
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/noc/adapt_noc/adaptable_NoC_overview.jpg"
-alt="Adapt-NoC总体结构"/&gt; &lt;figcaption&gt;
+alt="Adapt-NoC总体结构"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt; &lt;figcaption&gt;
 &lt;p&gt;Adapt-NoC总体结构&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;style&gt;
+.image-viewer {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+}
+.image-viewer.show {
+display: flex;
+}
+.image-viewer img {
+max-width: 90%;
+max-height: 90%;
+object-fit: contain;
+}
+.image-viewer-close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+.image-viewer-close:hover {
+color: #bbb;
+}
+&lt;/style&gt;
+&lt;script&gt;
+function createImageViewer() {
+if (!document.getElementById('imageViewer')) {
+const viewer = document.createElement('div');
+viewer.id = 'imageViewer';
+viewer.className = 'image-viewer';
+viewer.innerHTML = `
+&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
+&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+`;
+document.body.appendChild(viewer);
+viewer.addEventListener('click', function(event) {
+if (event.target === viewer) {
+closeImageViewer();
+}
+});
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape' &amp;&amp; viewer.classList.contains('show')) {
+closeImageViewer();
+}
+});
+}
+return document.getElementById('imageViewer');
+}
+function openImageViewer(imgElement) {
+const viewer = createImageViewer();
+const viewerImg = document.getElementById('viewerImage');
+viewerImg.src = imgElement.src;
+viewerImg.alt = imgElement.alt;
+viewer.classList.add('show');
+document.body.style.overflow = 'hidden';
+}
+function closeImageViewer() {
+const viewer = document.getElementById('imageViewer');
+if (viewer) {
+viewer.classList.remove('show');
+document.body.style.overflow = '';
+}
+}
+&lt;/script&gt;
 &lt;h2 id="adaptable-router-and-adaptable-link"&gt;adaptable router and adaptable link&lt;/h2&gt;
 &lt;p&gt;adaptable router就是再普通的router外部加了一堆mux，具体路由算法可能得再看看，
-adaptable link有点意思，使用了 link segmentation and link reversal。&lt;/p&gt;
-&lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/noc/adapt_noc/adaptable_router_adaptable_link.jpg"
-alt="adaptable router and adaptable link"/&gt; &lt;figcaption&gt;
-&lt;p&gt;adaptable router and adaptable link&lt;/p&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;link segmentation&lt;/strong&gt;: 这玩意将链路给分段，每个segmentaion就是相邻两个路由器之间的link，然后通过控制逻辑进行控制，可以配置为bypass什么的。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;link reversal&lt;/strong&gt;
-&lt;a href="#ditomasoQOREFaultTolerant2014" class="citation"&gt;(Dominic, et al, 2014)&lt;/a&gt;
-: 这玩意将每段链路设计为可反转的形态，获取可配置的双向带宽。 (引用的这篇文章
-&lt;a href="#ditomasoQOREFaultTolerant2014" class="citation"&gt;(Dominic, et al, 2014)&lt;/a&gt;
-，做这个的目的是做fault tolerence)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="subnoc"&gt;SubNoC&lt;/h2&gt;
-&lt;p&gt;通过adaptable link来组子网。里面每2乘4个router下边放了一个memory controllor，可以做子网间的数据共享什么的，不重要。&lt;/p&gt;
-&lt;p&gt;通过
-&lt;a href="#lysneMethodologyDevelopingDeadlockfree2005" class="citation"&gt;(O., et al, 2005)&lt;/a&gt;
-的方法实现&lt;strong&gt;无死锁的动态路由策略切换&lt;/strong&gt;，具体而言有如下几步：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;由一个控制端口？（这个论文里没讲）发送一个切换路由策略的消息，接到消息的路由器加载Rmesh（mesh的路由算法）&lt;/li&gt;
-&lt;li&gt;等到没有需要由老的路由算法传递的包以后，移除旧路由策略Rold及其对应的link configuration并加载新路由策略Rnew以及对应的link configuration。&lt;/li&gt;
-&lt;li&gt;最后，Rnew配置完成后，移除Rmesh。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;组子网的举例：&lt;/p&gt;
-&lt;figure&gt;
-&lt;img loading="lazy" src="https://leru-sama.github.io/noc/adapt_noc/constructionOfSubNoC.jpg"
-alt="SubNoC的构造"/&gt; &lt;figcaption&gt;
-&lt;p&gt;SubNoC的构造&lt;/p&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;cmesh&lt;/strong&gt;: 每个2 × 2的相邻路由器做了一个concentrate link,把2 × 2的Core连到一个路由器上面去，然后用 adaptable link 来连接 2 × 2 的Core，形成一个稀疏的NoC&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;torus&lt;/strong&gt;: 普通的mesh加上adaptable link作为bypass路径，形成完整拓扑。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;tree&lt;/strong&gt;: 可以为更高层的父节点提供更大的带宽，一个router有4个端口，分别可以通过基础款的mesh以及adaptation link吃满下游的3个带宽，然后回复1个带宽给上游。&lt;strong&gt;这个不拿来做adaptable，拿来做广播好像也挺好&lt;/strong&gt;。
-这个例子里面将最右下角的router作为根节点，以获取最多的空闲接口（右边和下面都是空着的），将边上的router作为第一级节点，获得次大的空闲接口（下边是空着的）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="小结"&gt;小结&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这个东西可以作为缓存一致性域的高速连接:&lt;/p&gt;</description></item><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p&gt;字体测试：
+adaptable link有点意思，使用了 link segmentation and link reversal。&lt;/p&gt;</description></item><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p&gt;字体测试：
 &lt;em&gt;这是斜体&lt;/em&gt; &lt;em&gt;这也是斜体&lt;/em&gt; &lt;strong&gt;加粗！&lt;/strong&gt; &lt;em&gt;&lt;strong&gt;又粗又斜！&lt;/strong&gt;&lt;/em&gt; &lt;del&gt;删掉的字&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;列表：&lt;/p&gt;
 &lt;ul&gt;
@@ -401,23 +565,87 @@ $$&lt;/p&gt;
 &lt;p&gt;这是一张图，和这个md文档放一起的，这个就能显示出来：&lt;/p&gt;
 &lt;figure&gt;
 &lt;img loading="lazy" src="https://leru-sama.github.io/example/test.jpg"
-alt="测试图片"/&gt; &lt;figcaption&gt;
+alt="测试图片"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt; &lt;figcaption&gt;
 &lt;p&gt;这是一张测试图片&lt;/p&gt;
 &lt;/figcaption&gt;
 &lt;/figure&gt;
+&lt;style&gt;
+.image-viewer {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+}
+.image-viewer.show {
+display: flex;
+}
+.image-viewer img {
+max-width: 90%;
+max-height: 90%;
+object-fit: contain;
+}
+.image-viewer-close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+.image-viewer-close:hover {
+color: #bbb;
+}
+&lt;/style&gt;
+&lt;script&gt;
+function createImageViewer() {
+if (!document.getElementById('imageViewer')) {
+const viewer = document.createElement('div');
+viewer.id = 'imageViewer';
+viewer.className = 'image-viewer';
+viewer.innerHTML = `
+&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
+&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+`;
+document.body.appendChild(viewer);
+viewer.addEventListener('click', function(event) {
+if (event.target === viewer) {
+closeImageViewer();
+}
+});
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape' &amp;&amp; viewer.classList.contains('show')) {
+closeImageViewer();
+}
+});
+}
+return document.getElementById('imageViewer');
+}
+function openImageViewer(imgElement) {
+const viewer = createImageViewer();
+const viewerImg = document.getElementById('viewerImage');
+viewerImg.src = imgElement.src;
+viewerImg.alt = imgElement.alt;
+viewer.classList.add('show');
+document.body.style.overflow = 'hidden';
+}
+function closeImageViewer() {
+const viewer = document.getElementById('imageViewer');
+if (viewer) {
+viewer.classList.remove('show');
+document.body.style.overflow = '';
+}
+}
+&lt;/script&gt;
 &lt;p&gt;这里引用一篇关于NoC的论文：
 &lt;a href="#xuRHTNoCReconfigurable2025" class="citation"&gt;(Dongyu, et al, 2025)&lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;这里再随便引用一篇论文：
-&lt;a href="#zhengAdaptNoCFlexibleNetworkonChip2021" class="citation"&gt;(Hao, et al, 2021)&lt;/a&gt;
-&lt;/p&gt;
-&lt;p&gt;然后就可以生成参考文献列表了，这个参考文献列表有这一页的参考文献：
-&lt;h2&gt;参考文献&lt;/h2&gt;
-&lt;ol class="references-list"&gt;
-&lt;li id="xuRHTNoCReconfigurable2025" class="reference-item"&gt;
-Xu Dongyu, Zhou Wu, Huang Zhengfeng, Liang Huaguo, Wen Xiaoqing. 2025. RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System. IEEE Transactions on Very Large Scale Integration (VLSI) Systems 33(8): 2104-2117. DOI: 10.1109/TVLSI.2025.3572112.
-&lt;/li&gt;
-&lt;li id="zhengAdaptNoCFlexibleNetworkonChip2021" class="reference-item"&gt;
-Zheng Hao, Wang Ke, Louri Ahmed. 2021. Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures. 2021 IEEE International Symposium on High-Performance Computer Architecture (HPCA) 723-735. DOI: 10.1109/HPCA51647.2021.00066.
-&lt;/li&gt;
-&lt;/ol&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;/p&gt;</description></item></channel></rss>
