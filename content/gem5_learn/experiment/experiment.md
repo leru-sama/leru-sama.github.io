@@ -12,13 +12,13 @@ title = '做的实验'
 {{</admonition>}}
 
 实验分几个阶段：
-1. X86的单核+自己写的程序，先跑一个hello world。
-2. X86的多核+自己写的程序，测试一下多核的cache hierarchy的性能。
+1. 自己写的程序，先跑一个hello world。
+2. 多核+自己写的程序，测试一下多核的cache hierarchy的性能。
 3. 自己写一个CPU以外的东西，就当是个CIM吧，跑通
 4. 自己写的片上网络，跑通。
 5. 片上网络+CIM+多核+自己的程序
 
-## X86单核上跑自己的程序
+## 跑自己的程序
 
 ### 装环境
 首先是装环境，参考的是[官方文档的 Docker 指南](https://www.gem5.org/documentation/general_docs/building#docker)。
