@@ -146,7 +146,111 @@ Escape character is '^]'.
 Hello World! 1337
 Hello The fucking world!
 ```
+### 配置多核
+GEM5上配置多核很简单，直接num_core狠狠加就行了，程序这边麻烦一点，首先要在link脚本里增加stack的容量，不然容易越界，然后通过get_core_ID等方法获取core ID，否则GEM5默认所有核心运行同一个ELF文件，会出问题。[多核的hello world](https://github.com/leru-sama/gem5.bare-metal)其实就是fork的单核改了改。，最终效果如下：
+```bash
+leru@DESKTOP-G9S8DTU:~$ telnet localhost 3456
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+==== m5 terminal: Terminal 0 ====
+Hello World from Core 0! Value: 1337
+Hello World from Core 1! Value: 1337
+Hello World from Core 2! Value: 1337
+Hello World from Core 3! Value: 1337
+Hello World from Core 4! Value: 1337
+Hello World from Core 5! Value: 1337
+Hello World from Core 6! Value: 1337
+Hello World from Core 7! Value: 1337
+```
 
+## 自己写一个CPU以外的东西
 
+自己用GEM5建模一个CPU以外的东西，目前来说目标是一个矩阵计算的加速器。
 
+大致分3步，挺八股文的：
+1. python注册这个component。
+2. C++实现这个component的功能。
+3. 写SConscript脚本，然后**重新编译整个GEM5** ~~真服了，编译一年~~
+4. 写python脚本，把建模的东西给连到系统上。
 
+### Hello Object例程
+这个例程来自官方教程，完整步骤见 [HelloObject 文档](https://www.gem5.org/documentation/learning_gem5/part2/helloobject/)。写的代码的位置都是放在src下面的
+
+#### python注册component
+八股文，type和C++的class名要相同，路径认为src是根目录
+```python
+# src/learning_gem5/part2/hello_object.py
+from m5.params import *
+from m5.SimObject import SimObject
+
+class HelloObject(SimObject):
+    type = 'HelloObject'
+    cxx_header = "learning_gem5/part2/hello_object.hh"
+    cxx_class = "gem5::HelloObject"
+```
+
+#### C++实现component的功能
+照抄就行，值得注意的是，构造函数里面有一个参数 HelloObjectParams &p，这个是自动生成的类名+Params，应该使用了反射之类的机制
+
+```C++
+// src/learning_gem5/part2/hello_object.hh
+#ifndef __LEARNING_GEM5_HELLO_OBJECT_HH__
+#define __LEARNING_GEM5_HELLO_OBJECT_HH__
+
+#include "params/HelloObject.hh"
+#include "sim/sim_object.hh"
+
+namespace gem5
+{
+
+class HelloObject : public SimObject
+{
+  public:
+    HelloObject(const HelloObjectParams &p);
+};
+
+} // namespace gem5
+
+#endif // __LEARNING_GEM5_HELLO_OBJECT_HH__
+```
+
+教程里边说需要实现两个函数，一个是构造函数，一个是debug用的输出函数，cout一般是不用的，但是这儿用，教程里说是留到下一节在讲。
+```C++
+// src/learning_gem5/part2/hello_object.cc
+#include "learning_gem5/part2/hello_object.hh"
+
+#include <iostream>
+
+namespace gem5
+{
+
+HelloObject::HelloObject(const HelloObjectParams &params) :
+    SimObject(params)
+{
+    std::cout << "Hello World! From a SimObject!" << std::endl;
+}
+
+} // namespace gem5
+
+```
+
+#### 写SConscript脚本
+
+照抄完事。
+```python
+# src/learning_gem5/part2/SConscript
+Import('*')
+
+SimObject('HelloObject.py', sim_objects=['HelloObject'])
+Source('hello_object.cc')
+
+```
+
+写完了就可以重新编译了
+
+```bash
+scons build/ARM/gem5.fast
+```
+
+~~然后就等一年，复制粘贴完这一段还没编译完。。。。~~
