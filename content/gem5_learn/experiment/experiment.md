@@ -97,3 +97,56 @@ simulator.run()
 ./build/X86/gem5.fast  ./configs/leru/simple_x86.py 
 ```
 最后，在gem5的输出中可以看到hello world的输出。
+
+### 裸机跑hello world
+网上全是上了操作系统内核的，教程都找不到。
+
+裸机跑 helloworld 分两部分：gem5 配置文件和裸机 kernel 程序。kernel 程序直接借用 [tukl-msd/gem5.bare-metal](https://github.com/tukl-msd/gem5.bare-metal) 仓库里的 `hello` 示例，无需自己从头写汇编。
+
+他的这个其实写的很简单，初始化栈顶就直接跳到main去了，用printf打印的话，gem5会直接输出到一个remote的terminal，注意打印信息就ok。intrrupt里面有中断的汇编，加了一个timer的中断。
+
+实现的过程如下：
+1. 编译kernel程序main.elf
+2. 直接跑
+```bash
+./build/ARM/gem5.fast ./configs/example/arm/baremetal.py --kernel /gem5/main.elf
+```
+出现类似于以下的输出：
+```bash
+ubuntu@6aae7a680a71:/gem5$ ./build/ARM/gem5.fast ./configs/example/arm/baremetal.py --kernel /gem5/
+main.elf
+gem5 Simulator System.  https://www.gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 version 25.0.0.1
+gem5 compiled Nov 12 2025 07:01:04
+gem5 started Nov 13 2025 06:03:30
+gem5 executing on 6aae7a680a71, pid 97929
+command line: ./build/ARM/gem5.fast ./configs/example/arm/baremetal.py --kernel /gem5/main.elf
+
+Global frequency set at 1000000000000 ticks per second
+src/mem/dram_interface.cc:690: warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (2048 Mbytes)
+src/sim/kernel_workload.cc:46: info: kernel located at: /gem5/main.elf
+src/arch/arm/system.cc:97: warn: Highest ARM exception-level set to AArch64 but the workload is for AArch32. Assuming you wanted these to match.
+src/base/statistics.hh:279: warn: One of the stats is a legacy stat. Legacy stat is a stat that does not belong to any statistics::Group. Legacy stat is deprecated.
+system.vncserver: Listening for connections on port 5900
+system.terminal: Listening for connections on port 3456
+system.realview.uart1.device: Listening for connections on port 3457
+system.realview.uart2.device: Listening for connections on port 3458
+system.realview.uart3.device: Listening for connections on port 3459
+src/dev/arm/energy_ctrl.cc:252: warn: Existing EnergyCtrl, but no enabled DVFSHandler found.
+```
+注意里面的system.terminal，这是gem5的一个remote terminal，用来输出打印信息。使用
+```bash
+leru@DESKTOP-G9S8DTU:~/gem5.bare-metal$ telnet localhost 3456
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+==== m5 terminal: Terminal 0 ====
+Hello World! 1337
+Hello The fucking world!
+```
+
+
+
+
