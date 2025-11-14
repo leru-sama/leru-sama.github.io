@@ -11,13 +11,13 @@ benchmark用什么？这个要想一想
 &lt;/div&gt;
 &lt;p&gt;实验分几个阶段：&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;X86的单核+自己写的程序，先跑一个hello world。&lt;/li&gt;
-&lt;li&gt;X86的多核+自己写的程序，测试一下多核的cache hierarchy的性能。&lt;/li&gt;
+&lt;li&gt;自己写的程序，先跑一个hello world。&lt;/li&gt;
+&lt;li&gt;多核+自己写的程序，测试一下多核的cache hierarchy的性能。&lt;/li&gt;
 &lt;li&gt;自己写一个CPU以外的东西，就当是个CIM吧，跑通&lt;/li&gt;
 &lt;li&gt;自己写的片上网络，跑通。&lt;/li&gt;
 &lt;li&gt;片上网络+CIM+多核+自己的程序&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id="x86单核上跑自己的程序"&gt;X86单核上跑自己的程序&lt;/h2&gt;
+&lt;h2 id="跑自己的程序"&gt;跑自己的程序&lt;/h2&gt;
 &lt;h3 id="装环境"&gt;装环境&lt;/h3&gt;
 &lt;p&gt;首先是装环境，参考的是&lt;a href="https://www.gem5.org/documentation/general_docs/building#docker"&gt;官方文档的 Docker 指南&lt;/a&gt;。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull ghcr.io/gem5/ubuntu-24.04_all-dependencies:latest &lt;span style="color:#75715e"&gt;# 拉取最新的docker镜像&lt;/span&gt;
