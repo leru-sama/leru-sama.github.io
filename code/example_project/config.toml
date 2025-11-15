@@ -1,0 +1,23 @@
+# 项目配置文件
+
+[project]
+name = "example_project"
+version = "1.0.0"
+description = "这是一个示例项目"
+author = "Your Name"
+
+[build]
+compiler = "g++"
+flags = ["-std=c++17", "-Wall", "-O2"]
+output = "main"
+
+[dependencies]
+# 这里可以列出项目依赖
+
+[testing]
+framework = "gtest"
+test_files = ["test/*.cpp"]
+
+[documentation]
+format = "markdown"
+output_dir = "docs/"

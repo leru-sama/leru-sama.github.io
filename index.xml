@@ -508,7 +508,144 @@ document.body.style.overflow = '';
 &lt;/script&gt;
 &lt;h2 id="adaptable-router-and-adaptable-link"&gt;adaptable router and adaptable link&lt;/h2&gt;
 &lt;p&gt;adaptable router就是再普通的router外部加了一堆mux，具体路由算法可能得再看看，
-adaptable link有点意思，使用了 link segmentation and link reversal。&lt;/p&gt;</description></item><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p&gt;字体测试：
+adaptable link有点意思，使用了 link segmentation and link reversal。&lt;/p&gt;</description></item><item><title>代码链接Shortcode使用指南</title><link>https://leru-sama.github.io/posts/codelink-usage-guide/</link><pubDate>Mon, 15 Jan 2024 11:00:00 +0800</pubDate><guid>https://leru-sama.github.io/posts/codelink-usage-guide/</guid><description>&lt;h1 id="代码链接shortcode使用指南"&gt;代码链接Shortcode使用指南&lt;/h1&gt;
+&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;codelink&lt;/code&gt; shortcode 是一个自定义的Hugo shortcode，用于在Markdown文档中创建指向代码文件的链接。这些链接具有统一的样式，并且支持链接到特定的代码行。&lt;/p&gt;
+&lt;h2 id="语法"&gt;语法&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code class="language-hugo" data-lang="hugo"&gt;&lt;a href="https://leru-sama.github.io/code/%e7%9b%b8%e5%af%b9%e4%ba%8ecode%e7%9a%84%e8%b7%af%e5%be%84#L25" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+显示文本
+&lt;/a&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="参数说明"&gt;参数说明&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;必需&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;path&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字符串&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;相对于 &lt;code&gt;static/code/&lt;/code&gt; 的路径，支持深层目录结构&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字符串&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;链接显示的文本，默认为路径&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;line&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数字&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;行号，会在URL中添加锚点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="使用示例"&gt;使用示例&lt;/h2&gt;
+&lt;h3 id="1-基本用法"&gt;1. 基本用法&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;查看 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+example_project/main.cpp
+&lt;/a&gt; 的实现。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：查看 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+example_project/main.cpp
+&lt;/a&gt; 的实现。&lt;/p&gt;
+&lt;h3 id="2-自定义显示文本"&gt;2. 自定义显示文本&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;配置文件位于 &lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+项目配置
+&lt;/a&gt;。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：配置文件位于 &lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+项目配置
+&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id="3-链接到特定行"&gt;3. 链接到特定行&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;在 {{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; line=&amp;#34;25&amp;#34; text=&amp;#34;第25行&amp;#34; &amp;gt;}} 定义了计算平均值的方法。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：在 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp#L25" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+第25行
+&lt;/a&gt; 定义了计算平均值的方法。&lt;/p&gt;
+&lt;h3 id="4-深层目录结构示例"&gt;4. 深层目录结构示例&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;深度学习模型实现见 &lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+CNN模型
+&lt;/a&gt;。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：深度学习模型实现见 &lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+CNN模型
+&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>代码链接功能演示</title><link>https://leru-sama.github.io/posts/code-link-demo/</link><pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate><guid>https://leru-sama.github.io/posts/code-link-demo/</guid><description>&lt;h1 id="代码链接功能演示"&gt;代码链接功能演示&lt;/h1&gt;
+&lt;p&gt;这个页面演示了如何使用 &lt;code&gt;codelink&lt;/code&gt; shortcode 来链接到存储在 &lt;code&gt;static/code/&lt;/code&gt; 目录中的代码文件。&lt;/p&gt;
+&lt;h2 id="功能说明"&gt;功能说明&lt;/h2&gt;
+&lt;p&gt;通过 &lt;code&gt;codelink&lt;/code&gt; shortcode，你可以：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;链接到项目中的特定代码文件&lt;/li&gt;
+&lt;li&gt;指定显示的文本&lt;/li&gt;
+&lt;li&gt;可选地链接到特定行号&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="使用方法"&gt;使用方法&lt;/h2&gt;
+&lt;h3 id="基本用法"&gt;基本用法&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+example_project/main.cpp
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="自定义显示文本"&gt;自定义显示文本&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; text=&amp;#34;主程序文件&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+主程序文件
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="链接到配置文件"&gt;链接到配置文件&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/config.toml&amp;#34; text=&amp;#34;项目配置&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+项目配置
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="链接到特定行号"&gt;链接到特定行号&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; line=&amp;#34;25&amp;#34; text=&amp;#34;calculateAverage方法&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp#L25" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+calculateAverage方法
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="深层目录结构示例"&gt;深层目录结构示例&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;ml/models/neural_networks/cnn.py&amp;#34; text=&amp;#34;CNN模型实现&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+CNN模型实现
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="目录结构"&gt;目录结构&lt;/h2&gt;
+&lt;p&gt;代码文件存储在 &lt;code&gt;static/code/&lt;/code&gt; 目录中，支持任意深度的目录结构：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;static/
+└── code/
+├── example_project/
+│ ├── main.cpp
+│ └── config.toml
+├── data_analysis/
+│ ├── analyzer.py
+│ └── README.md
+├── ml/
+│ └── models/
+│ └── neural_networks/
+│ ├── cnn.py
+│ └── rnn.py
+└── scripts/
+├── build.sh
+└── deploy.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="参数说明"&gt;参数说明&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;path&lt;/code&gt; (必需): 相对于 &lt;code&gt;static/code/&lt;/code&gt; 的路径，支持深层目录结构&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;text&lt;/code&gt; (可选): 链接显示的文本，默认为路径&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;line&lt;/code&gt; (可选): 行号，会在URL中添加锚点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="示例场景"&gt;示例场景&lt;/h2&gt;
+&lt;p&gt;在技术文档中，你可以这样使用：&lt;/p&gt;</description></item><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p&gt;字体测试：
 &lt;em&gt;这是斜体&lt;/em&gt; &lt;em&gt;这也是斜体&lt;/em&gt; &lt;strong&gt;加粗！&lt;/strong&gt; &lt;em&gt;&lt;strong&gt;又粗又斜！&lt;/strong&gt;&lt;/em&gt; &lt;del&gt;删掉的字&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;列表：&lt;/p&gt;
 &lt;ul&gt;

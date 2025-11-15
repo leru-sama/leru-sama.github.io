@@ -1,0 +1,8 @@
+Import('*')
+
+# SimpleMatrix module
+SimObject('simple_matrix.py', sim_objects=['SimpleMatrix'])
+Source('simple_matrix.cc')
+
+# Debug flag for SimpleMatrix
+DebugFlag('SimpleMatrix', "For SimpleMatrix module")
