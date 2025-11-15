@@ -1,0 +1,18 @@
+{{- $path := .Get "path" -}}
+{{- $text := .Get "text" | default $path -}}
+{{- $line := .Get "line" -}}
+
+{{- if not $path -}}
+  {{- errorf "codelink shortcode: missing 'path' parameter" -}}
+{{- end -}}
+
+{{- $code_url := printf "code/%s" $path -}}
+
+{{- if $line -}}
+  {{- $code_url = printf "%s#L%d" $code_url (int $line) -}}
+{{- end -}}
+
+<a href="{{ $code_url | relURL }}" class="code-link">
+  <i class="fas fa-code"></i>
+  {{ $text }}
+</a>

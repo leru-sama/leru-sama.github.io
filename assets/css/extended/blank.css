@@ -13,6 +13,22 @@
     text-decoration: underline;
 }
 
+/* 代码链接样式 */
+.code-link {
+    color: var(--primary) !important;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.code-link:hover {
+    color: var(--primary) !important;
+    text-decoration: underline;
+}
+
+.code-link i {
+    display: none; /* 隐藏代码图标 */
+}
+
 /* 悬浮目录样式 */
 .floating-toc {
     position: fixed;
