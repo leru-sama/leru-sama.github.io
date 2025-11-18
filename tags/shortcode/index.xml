@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Shortcode on 牛马日志</title><link>https://leru-sama.github.io/tags/shortcode/</link><description>Recent content in Shortcode on 牛马日志</description><generator>Hugo -- 0.152.2</generator><language>zh-cn</language><lastBuildDate>Mon, 15 Jan 2024 11:00:00 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/tags/shortcode/index.xml" rel="self" type="application/rss+xml"/><item><title>代码链接Shortcode使用指南</title><link>https://leru-sama.github.io/posts/codelink-usage-guide/</link><pubDate>Mon, 15 Jan 2024 11:00:00 +0800</pubDate><guid>https://leru-sama.github.io/posts/codelink-usage-guide/</guid><description>&lt;h1 id="代码链接shortcode使用指南"&gt;代码链接Shortcode使用指南&lt;/h1&gt;
+&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;codelink&lt;/code&gt; shortcode 是一个自定义的Hugo shortcode，用于在Markdown文档中创建指向代码文件的链接。这些链接具有统一的样式，并且支持链接到特定的代码行。&lt;/p&gt;
+&lt;h2 id="语法"&gt;语法&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code class="language-hugo" data-lang="hugo"&gt;&lt;a href="https://leru-sama.github.io/code/%e7%9b%b8%e5%af%b9%e4%ba%8ecode%e7%9a%84%e8%b7%af%e5%be%84#L25" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+显示文本
+&lt;/a&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="参数说明"&gt;参数说明&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;必需&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;path&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字符串&lt;/td&gt;
+&lt;td&gt;✅&lt;/td&gt;
+&lt;td&gt;相对于 &lt;code&gt;static/code/&lt;/code&gt; 的路径，支持深层目录结构&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;text&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;字符串&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;链接显示的文本，默认为路径&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;line&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;数字&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;行号，会在URL中添加锚点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="使用示例"&gt;使用示例&lt;/h2&gt;
+&lt;h3 id="1-基本用法"&gt;1. 基本用法&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;查看 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+example_project/main.cpp
+&lt;/a&gt; 的实现。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：查看 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+example_project/main.cpp
+&lt;/a&gt; 的实现。&lt;/p&gt;
+&lt;h3 id="2-自定义显示文本"&gt;2. 自定义显示文本&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;配置文件位于 &lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+项目配置
+&lt;/a&gt;。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：配置文件位于 &lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+项目配置
+&lt;/a&gt;。&lt;/p&gt;
+&lt;h3 id="3-链接到特定行"&gt;3. 链接到特定行&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;在 {{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; line=&amp;#34;25&amp;#34; text=&amp;#34;第25行&amp;#34; &amp;gt;}} 定义了计算平均值的方法。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：在 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp#L25" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+第25行
+&lt;/a&gt; 定义了计算平均值的方法。&lt;/p&gt;
+&lt;h3 id="4-深层目录结构示例"&gt;4. 深层目录结构示例&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;深度学习模型实现见 &lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+CNN模型
+&lt;/a&gt;。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：深度学习模型实现见 &lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+CNN模型
+&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>代码链接功能演示</title><link>https://leru-sama.github.io/posts/code-link-demo/</link><pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate><guid>https://leru-sama.github.io/posts/code-link-demo/</guid><description>&lt;h1 id="代码链接功能演示"&gt;代码链接功能演示&lt;/h1&gt;
+&lt;p&gt;这个页面演示了如何使用 &lt;code&gt;codelink&lt;/code&gt; shortcode 来链接到存储在 &lt;code&gt;static/code/&lt;/code&gt; 目录中的代码文件。&lt;/p&gt;
+&lt;h2 id="功能说明"&gt;功能说明&lt;/h2&gt;
+&lt;p&gt;通过 &lt;code&gt;codelink&lt;/code&gt; shortcode，你可以：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;链接到项目中的特定代码文件&lt;/li&gt;
+&lt;li&gt;指定显示的文本&lt;/li&gt;
+&lt;li&gt;可选地链接到特定行号&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="使用方法"&gt;使用方法&lt;/h2&gt;
+&lt;h3 id="基本用法"&gt;基本用法&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+example_project/main.cpp
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="自定义显示文本"&gt;自定义显示文本&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; text=&amp;#34;主程序文件&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+主程序文件
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="链接到配置文件"&gt;链接到配置文件&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/config.toml&amp;#34; text=&amp;#34;项目配置&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+项目配置
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="链接到特定行号"&gt;链接到特定行号&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; line=&amp;#34;25&amp;#34; text=&amp;#34;calculateAverage方法&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp#L25" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+calculateAverage方法
+&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="深层目录结构示例"&gt;深层目录结构示例&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;ml/models/neural_networks/cnn.py&amp;#34; text=&amp;#34;CNN模型实现&amp;#34; &amp;gt;}}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link"&gt;
+&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+CNN模型实现
+&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="目录结构"&gt;目录结构&lt;/h2&gt;
+&lt;p&gt;代码文件存储在 &lt;code&gt;static/code/&lt;/code&gt; 目录中，支持任意深度的目录结构：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;static/
+└── code/
+├── example_project/
+│ ├── main.cpp
+│ └── config.toml
+├── data_analysis/
+│ ├── analyzer.py
+│ └── README.md
+├── ml/
+│ └── models/
+│ └── neural_networks/
+│ ├── cnn.py
+│ └── rnn.py
+└── scripts/
+├── build.sh
+└── deploy.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="参数说明"&gt;参数说明&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;path&lt;/code&gt; (必需): 相对于 &lt;code&gt;static/code/&lt;/code&gt; 的路径，支持深层目录结构&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;text&lt;/code&gt; (可选): 链接显示的文本，默认为路径&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;line&lt;/code&gt; (可选): 行号，会在URL中添加锚点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="示例场景"&gt;示例场景&lt;/h2&gt;
+&lt;p&gt;在技术文档中，你可以这样使用：&lt;/p&gt;</description></item><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p&gt;字体测试：
+&lt;em&gt;这是斜体&lt;/em&gt; &lt;em&gt;这也是斜体&lt;/em&gt; &lt;strong&gt;加粗！&lt;/strong&gt; &lt;em&gt;&lt;strong&gt;又粗又斜！&lt;/strong&gt;&lt;/em&gt; &lt;del&gt;删掉的字&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;列表：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;这是列表&lt;/li&gt;
+&lt;li&gt;的第二项&lt;/li&gt;
+&lt;li&gt;第三项&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;多级列表：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;第一级
+&lt;ul&gt;
+&lt;li&gt;第二级
+&lt;ul&gt;
+&lt;li&gt;第三级&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;区块引用，拿来做背景什么的不错&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可以多级&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这是第三级&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;代码块：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-verilog" data-lang="verilog"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;//居然可以支持verilog！
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;module&lt;/span&gt; hello_world (
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;input&lt;/span&gt; clk,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;input&lt;/span&gt; rst_n,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;output&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;reg&lt;/span&gt; [&lt;span style="color:#ae81ff"&gt;7&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] led
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;always&lt;/span&gt; @(&lt;span style="color:#66d9ef"&gt;posedge&lt;/span&gt; clk &lt;span style="color:#66d9ef"&gt;or&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;negedge&lt;/span&gt; rst_n) &lt;span style="color:#66d9ef"&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (&lt;span style="color:#f92672"&gt;!&lt;/span&gt;rst_n) &lt;span style="color:#66d9ef"&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; led &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;&amp;#39;b00000000&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;end&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;begin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; led &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; led &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;&amp;#39;b1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;end&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;endmodule&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;内嵌公式，支持latex语法！
+例如：$E=mc^2$&lt;/p&gt;
+&lt;p&gt;还有独占一行的公式！&lt;/p&gt;
+&lt;p&gt;$$
+F(x) = \int_{-\infty}^\infty e^{-x^2} dx
+$$&lt;/p&gt;
+&lt;p&gt;这是一张图，放在/static/img目录下面的，不知道为什么，用figure短代码显示不出来：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="测试图片" loading="lazy" src="https://leru-sama.github.io/img/test_photo.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;这是一张图，和这个md文档放一起的，这个就能显示出来：&lt;/p&gt;
+&lt;figure&gt;
+&lt;img loading="lazy" src="https://leru-sama.github.io/example/test.jpg"
+alt="测试图片"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt; &lt;figcaption&gt;
+&lt;p&gt;这是一张测试图片&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;style&gt;
+.image-viewer {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+}
+.image-viewer.show {
+display: flex;
+}
+.image-viewer img {
+max-width: 90%;
+max-height: 90%;
+object-fit: contain;
+}
+.image-viewer-close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+.image-viewer-close:hover {
+color: #bbb;
+}
+&lt;/style&gt;
+&lt;script&gt;
+function createImageViewer() {
+if (!document.getElementById('imageViewer')) {
+const viewer = document.createElement('div');
+viewer.id = 'imageViewer';
+viewer.className = 'image-viewer';
+viewer.innerHTML = `
+&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
+&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+`;
+document.body.appendChild(viewer);
+viewer.addEventListener('click', function(event) {
+if (event.target === viewer) {
+closeImageViewer();
+}
+});
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape' &amp;&amp; viewer.classList.contains('show')) {
+closeImageViewer();
+}
+});
+}
+return document.getElementById('imageViewer');
+}
+function openImageViewer(imgElement) {
+const viewer = createImageViewer();
+const viewerImg = document.getElementById('viewerImage');
+viewerImg.src = imgElement.src;
+viewerImg.alt = imgElement.alt;
+viewer.classList.add('show');
+document.body.style.overflow = 'hidden';
+}
+function closeImageViewer() {
+const viewer = document.getElementById('imageViewer');
+if (viewer) {
+viewer.classList.remove('show');
+document.body.style.overflow = '';
+}
+}
+&lt;/script&gt;
+&lt;p&gt;这里引用一篇关于NoC的论文：
+&lt;a href="#xuRHTNoCReconfigurable2025" class="citation"&gt;(Dongyu, et al, 2025)&lt;/a&gt;
+&lt;/p&gt;</description></item></channel></rss>

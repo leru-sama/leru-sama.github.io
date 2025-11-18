@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Weak Coherence on 牛马日志</title><link>https://leru-sama.github.io/tags/weak-coherence/</link><description>Recent content in Weak Coherence on 牛马日志</description><generator>Hugo -- 0.152.2</generator><language>zh-cn</language><lastBuildDate>Wed, 05 Nov 2025 10:08:49 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/tags/weak-coherence/index.xml" rel="self" type="application/rss+xml"/><item><title>Cache Coherence for GPU Architectures</title><link>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</link><pubDate>Wed, 05 Nov 2025 10:08:49 +0800</pubDate><guid>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</guid><description>&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
+&lt;p&gt;这篇文章
+&lt;a href="#singh2013" class="citation"&gt;(Inderpreet, et al, 2013)&lt;/a&gt;
+挺老的，介绍的是一种GPU的缓存一致性协议。解决的问题是CPU的严格一致性在
+GPU上不好用，因为GPU有成千上万个线程，导致的一致性流量会非常大，且所需存储的一致性相关查找表也需要的
+memory非常大，所以GPU是没法做类似于 访问-&amp;gt;noop-&amp;gt;授权-&amp;gt;修改 这样的严格一致性协议，文中一句话写得很
+透彻：**Reducing the worst case storage overhead requires throttling the net work via back-pressure flow-control mechanisms when theend-point queues fill up.**这句话引用自
+&lt;a href="#martin2000" class="citation"&gt;(Milo M. K., et al, 2000)&lt;/a&gt;
+这篇远古文章，估计是讲的基于时间戳的snoop，有时间看看。&lt;/p&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
+&lt;span class="admonition-text"&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+结论就是，对于超级多核系统，
+&lt;a href="#martin2000" class="citation"&gt;(Milo M. K., et al, 2000)&lt;/a&gt;
+称"Symmetric Multycore Processor",使用基于反压的流控机制，可以减少一致性流量。
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id="主要内容"&gt;主要内容&lt;/h2&gt;
+&lt;p&gt;主要设计了三种缓存一致性协议：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;GPU-VI：优化的 VI一致性协议
+&lt;a href="#kongetira2005" class="citation"&gt;(P., et al, 2005)&lt;/a&gt;
+，VI协议为：写穿，即写操作无论hit还是miss，都将直接发给主存（或HA），由主存去invalid那些其他拥有缓存行的主机副本。&lt;/li&gt;
+&lt;li&gt;GPU-VIni：在L2缓存单独开了一个目录的缓存，本质上就是GPU-VI&lt;/li&gt;
+&lt;li&gt;TC-weak/strong：本文提出的协议，强的不需要软件参与，但是性能弱一点，弱的需要软件进行显式的fence操作，但性能会好一点。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="tc协议"&gt;TC协议&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;这个协议只能用在单片上&lt;/strong&gt;，因为它基于一个global的计数器。&lt;/p&gt;
+&lt;p&gt;协议中有2个时间戳：L2每条cacheline的global timestamp和L1每条cacheline的local timestamp。读请求会附带一个预测生命周期，L2将对应cacheline的时间戳设置为全局计数器+预测生命周期。多条读请求就如下图所示，将继续增加global timestamp。&lt;/p&gt;
+&lt;figure&gt;
+&lt;img loading="lazy" src="https://leru-sama.github.io/cachecohence/CacheCoherenceforGPUArchitectures/TC%20hardware%20extention.png"
+alt="TC hardware extention.png"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt; &lt;figcaption&gt;
+&lt;p&gt;时间戳扩展&lt;/p&gt;
+&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;style&gt;
+.image-viewer {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 9999;
+justify-content: center;
+align-items: center;
+}
+.image-viewer.show {
+display: flex;
+}
+.image-viewer img {
+max-width: 90%;
+max-height: 90%;
+object-fit: contain;
+}
+.image-viewer-close {
+position: absolute;
+top: 20px;
+right: 30px;
+color: white;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+transition: 0.3s;
+}
+.image-viewer-close:hover {
+color: #bbb;
+}
+&lt;/style&gt;
+&lt;script&gt;
+function createImageViewer() {
+if (!document.getElementById('imageViewer')) {
+const viewer = document.createElement('div');
+viewer.id = 'imageViewer';
+viewer.className = 'image-viewer';
+viewer.innerHTML = `
+&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
+&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+`;
+document.body.appendChild(viewer);
+viewer.addEventListener('click', function(event) {
+if (event.target === viewer) {
+closeImageViewer();
+}
+});
+document.addEventListener('keydown', function(event) {
+if (event.key === 'Escape' &amp;&amp; viewer.classList.contains('show')) {
+closeImageViewer();
+}
+});
+}
+return document.getElementById('imageViewer');
+}
+function openImageViewer(imgElement) {
+const viewer = createImageViewer();
+const viewerImg = document.getElementById('viewerImage');
+viewerImg.src = imgElement.src;
+viewerImg.alt = imgElement.alt;
+viewer.classList.add('show');
+document.body.style.overflow = 'hidden';
+}
+function closeImageViewer() {
+const viewer = document.getElementById('imageViewer');
+if (viewer) {
+viewer.classList.remove('show');
+document.body.style.overflow = '';
+}
+}
+&lt;/script&gt;
+&lt;div class="admonition admonition-note"&gt;
+&lt;div class="admonition-title"&gt;
+&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
+&lt;span class="admonition-text"&gt;Note&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="admonition-content"&gt;
+这样做有一个好处，查看L2的cacheline的时间戳，小于全局计数器，就说明已经没有其他主机持有这个cacheline了，文中没有做处理，但可以可以安全地将它invalid。
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;figure&gt;
+&lt;img loading="lazy" src="https://leru-sama.github.io/cachecohence/CacheCoherenceforGPUArchitectures/GPU-VI%20vs%20TC.png"
+alt="GPU-VI vs TC.png"onclick="openImageViewer(this)"
+style="cursor: pointer;"
+/&gt; &lt;figcaption&gt;
+&lt;p&gt;GPU-VS vs TC协议&lt;/p&gt;</description></item></channel></rss>
