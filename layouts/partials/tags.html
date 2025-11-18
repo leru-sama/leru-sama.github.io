@@ -1,0 +1,23 @@
+{{- if .Params.tags }}
+<div class="post-tags">
+    <h3>标签</h3>
+    <div class="tags-container">
+        {{- range $index, $tag := .Params.tags -}}
+            {{- $tagUrl := printf "/tags/%s" ($tag | urlize) -}}
+            {{- $tagPage := site.GetPage (printf "tags/%s" ($tag | urlize)) -}}
+            {{- $count := 0 -}}
+            {{- if $tagPage -}}
+            {{- $count = len $tagPage.Pages -}}
+            {{- end -}}
+            
+            {{- if gt $index 0 }} {{ end -}}
+            <a href="{{ $tagUrl }}" class="tag tag-default tag-medium" data-count="{{ $count }}">
+                <span class="tag-name">{{ $tag }}</span>
+                {{- if gt $count 0 -}}
+                <span class="tag-count">({{ $count }})</span>
+                {{- end -}}
+            </a>
+        {{- end -}}
+    </div>
+</div>
+{{- end -}}

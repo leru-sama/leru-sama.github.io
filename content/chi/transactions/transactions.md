@@ -2,6 +2,7 @@
 date = '2025-10-22T15:23:05+08:00'
 draft = false
 title = 'Transactions'
+tags = ['CHI', 'Cache Coherence']
 +++
 
 直接从transaction开始看了，看点没看过的给记录下来

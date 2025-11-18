@@ -2,9 +2,9 @@
 {{- $has_headers := ge (len $headers) 1 -}}
 {{- if $has_headers -}}
 <div class="toc">
-    <details {{if (.Param "TocOpen") }} open{{ end }}>
+    <details>
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">{{- i18n "toc" | default "Table of Contents" }}</span>
+            <span class="details">{{- .Title }}</span>
         </summary>
 
         <div class="inner">

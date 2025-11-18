@@ -2,6 +2,9 @@
 date = '2025-11-05T10:08:49+08:00'
 draft = false
 title = 'Cache Coherence for GPU Architectures'
+tags = ['GPU', 'Cache Coherence', 'Weak Coherence']
+categories = ['计算机体系结构']
+series = ['缓存一致性研究']
 +++
 
 ## 概述

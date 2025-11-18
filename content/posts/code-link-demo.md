@@ -2,6 +2,9 @@
 title: "代码链接功能演示"
 date: 2024-01-15T10:00:00+08:00
 draft: false
+tags: ['shortcode']
+categories: ['网站开发']
+series: ['Hugo功能开发']
 ---
 
 # 代码链接功能演示

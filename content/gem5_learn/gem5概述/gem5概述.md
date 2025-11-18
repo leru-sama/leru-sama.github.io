@@ -2,6 +2,7 @@
 title: "GEM5 学习"
 date: 2025-11-06
 draft: false
+tags: ['gem5']
 ---
 
 本文档主要参考 [gem5 官方入门教程](https://www.gem5.org/documentation/learning_gem5/introduction/) 编写。

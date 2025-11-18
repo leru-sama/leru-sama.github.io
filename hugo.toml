@@ -3,6 +3,11 @@ languageCode = 'zh-cn'
 title = '牛马日志'
 theme = ['PaperMod']
 
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  series = "series"
+
 [params]
   defaultTheme = "auto"
   homeInfoParams = { Title = "你好，我是乐如 ", Content = "这里有一些我看的论文以及思考" }
@@ -33,8 +38,8 @@ theme = ['PaperMod']
   weight = 3
 
 [[menu.main]]
-  name = "example"
-  url = "/example"
+  name = "TAGS"
+  url = "/tags"
   weight = 4
 
 [[menu.main]]

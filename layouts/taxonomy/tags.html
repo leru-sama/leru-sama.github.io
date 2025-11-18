@@ -1,0 +1,66 @@
+{{- define "main" }}
+
+{{- if .Title }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+    {{- if .Data.Terms }}
+    <div class="tags-overview-stats">
+        <p>共 {{ len .Data.Terms }} 个标签，{{ $totalPosts := 0 }}{{ range .Data.Terms }}{{ $totalPosts = add $totalPosts (len .Pages) }}{{ end }}{{ $totalPosts }} 篇文章</p>
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+{{- if .Content }}
+<div class="content">
+    {{ .Content }}
+</div>
+{{- end }}
+
+<div class="tags-overview">
+    {{- range .Data.Terms.Alphabetical }}
+    {{- $tagPages := .Pages }}
+    {{- $latestPost := index $tagPages 0 }}
+    <div class="tag-card">
+        <header class="tag-header">
+            <h2>
+                <a href="{{ .Page.RelPermalink }}">
+                    {{ .Page.Title }}
+                </a>
+            </h2>
+            <div class="tag-count">
+                {{ len $tagPages }} 篇文章
+            </div>
+        </header>
+        
+        {{- if $latestPost }}
+        <div class="tag-latest">
+            <p>最新文章：</p>
+            <ul>
+                {{- range first 3 $tagPages.ByDate.Reverse }}
+                <li>
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+                        {{ .Date.Format "01-02" }}
+                    </time>
+                </li>
+                {{- end }}
+            </ul>
+        </div>
+        {{- end }}
+    </div>
+    {{- end }}
+</div>
+
+{{- if not .Data.Terms }}
+<div class="no-tags">
+    <p>{{ i18n "no_tags_found" | default "No tags found." }}</p>
+</div>
+{{- end }}
+
+{{- end }}{{/* end main */ -}}

@@ -2,6 +2,7 @@
 title: "一些例子"
 date: 2024-01-15
 draft: false
+tags: ['shortcode']
 ---
 
 字体测试：

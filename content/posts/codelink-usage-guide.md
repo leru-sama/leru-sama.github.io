@@ -2,6 +2,9 @@
 title: "代码链接Shortcode使用指南"
 date: 2024-01-15T11:00:00+08:00
 draft: false
+tags: ['shortcode']
+categories: ['网站开发']
+series: ['Hugo功能开发']
 ---
 
 # 代码链接Shortcode使用指南

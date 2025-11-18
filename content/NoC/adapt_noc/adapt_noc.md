@@ -2,6 +2,7 @@
 date = '2025-10-20T20:56:19+08:00'
 draft = false
 title = 'Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures'
+tags = ['NoC', 'Adaptable NoC']
 +++
 
 这篇论文{{< cite zhengAdaptNoCFlexibleNetworkonChip2021 >}}做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。

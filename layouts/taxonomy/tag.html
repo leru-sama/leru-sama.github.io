@@ -1,0 +1,84 @@
+{{- define "main" }}
+
+{{- partial "tag_head.html" . }}
+
+{{- if .Title }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+    {{- if .Data.Pages }}
+    <div class="tag-stats">
+        <p>共找到 {{ len .Data.Pages }} 篇文章</p>
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+{{- if .Content }}
+<div class="content">
+    {{ .Content }}
+</div>
+{{- end }}
+
+<div class="tag-posts">
+    {{- $type := .Type }}
+    {{- range .Data.Pages.ByDate.Reverse }}
+    <article class="post-entry">
+        <header class="entry-header">
+            <h2>
+                <a href="{{ .Permalink }}">
+                    {{ .Title }}
+                </a>
+            </h2>
+        </header>
+        
+        <div class="entry-meta">
+            {{- if not .Date.IsZero -}}
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" | safeHTML }}">
+                {{ .Date.Format (default "January 2, 2006" site.Params.DateFormat) }}
+            </time>
+            {{- end }}
+            
+            {{- if (.Param "ShowReadingTime") -}}
+            &nbsp;·&nbsp;{{ i18n "read_time" .ReadingTime | default (printf "%d min" .ReadingTime) }}
+            {{- end }}
+            
+            {{- if (.Param "ShowWordCount") -}}
+            &nbsp;·&nbsp;{{ i18n "words" .WordCount | default (printf "%d words" .WordCount) }}
+            {{- end }}
+        </div>
+        
+        {{- if .Summary }}
+        <div class="entry-content">
+            <p>{{ .Summary }}</p>
+        </div>
+        {{- end }}
+        
+        {{- if .Params.tags }}
+        <div class="entry-footer">
+            <div class="tags-container">
+                {{- range $index, $tag := .Params.tags }}
+                {{- $tagUrl := printf "/tags/%s" ($tag | urlize) -}}
+                {{- if gt $index 0 }} {{ end }}
+                <a href="{{ $tagUrl }}" class="tag tag-outline tag-small">
+                    {{ $tag }}
+                </a>
+                {{- end }}
+            </div>
+        </div>
+        {{- end }}
+    </article>
+    {{- end }}
+</div>
+
+{{- if not .Data.Pages }}
+<div class="no-posts">
+    <p>{{ i18n "no_posts_found" | default "No posts found for this tag." }}</p>
+</div>
+{{- end }}
+
+{{- end }}{{/* end main */ -}}

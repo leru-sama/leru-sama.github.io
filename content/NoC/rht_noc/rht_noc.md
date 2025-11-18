@@ -2,6 +2,7 @@
 date = '2025-10-20T20:58:23+08:00'
 draft = false
 title = 'RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System'
+tags = ['NoC', 'Adaptable NoC']
 +++
 
 这篇论文{{< cite xuRHTNoCReconfigurable2025 >}}来自VLSI，今天先看看。

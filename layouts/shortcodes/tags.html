@@ -1,0 +1,25 @@
+{{- $style := .Get "style" | default "default" -}}
+{{- $separator := .Get "separator" | default ", " -}}
+{{- $showCount := .Get "showCount" | default "true" -}}
+{{- $size := .Get "size" | default "medium" -}}
+
+{{- if .Params.tags -}}
+<div class="tags-container tags-{{ $style }}">
+    {{- range $index, $tag := .Params.tags -}}
+        {{- $tagUrl := printf "/tags/%s" ($tag | urlize) -}}
+        {{- $tagPage := site.GetPage (printf "tags/%s" ($tag | urlize)) -}}
+        {{- $count := 0 -}}
+        {{- if $tagPage -}}
+        {{- $count = len $tagPage.Pages -}}
+        {{- end -}}
+        
+        {{- if gt $index 0 }}{{ $separator }}{{ end -}}
+        <a href="{{ $tagUrl }}" class="tag tag-{{ $style }} tag-{{ $size }}" data-count="{{ $count }}">
+            <span class="tag-name">{{ $tag }}</span>
+            {{- if and (eq $showCount "true") (gt $count 0) -}}
+            <span class="tag-count">({{ $count }})</span>
+            {{- end -}}
+        </a>
+    {{- end -}}
+</div>
+{{- end -}}

@@ -1,0 +1,19 @@
+{{- $name := .Get "name" | default (.Get 0) -}}
+{{- $style := .Get "style" | default "default" -}}
+{{- $size := .Get "size" | default "medium" -}}
+
+{{- if $name -}}
+{{- $tagUrl := printf "/tags/%s" ($name | urlize) -}}
+{{- $tagPage := site.GetPage (printf "tags/%s" ($name | urlize)) -}}
+{{- $count := 0 -}}
+{{- if $tagPage -}}
+{{- $count = len $tagPage.Pages -}}
+{{- end -}}
+
+<a href="{{ $tagUrl }}" class="tag tag-{{ $style }} tag-{{ $size }}" data-count="{{ $count }}">
+    <span class="tag-name">{{ $name }}</span>
+    {{- if gt $count 0 -}}
+    <span class="tag-count">({{ $count }})</span>
+    {{- end -}}
+</a>
+{{- end -}}

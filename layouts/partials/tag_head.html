@@ -1,0 +1,55 @@
+{{- define "head" }}
+<meta name="description" content="{{ .Title }} - {{ site.Title }}{{ if .Description }}: {{ .Description }}{{ end }}">
+<meta name="keywords" content="{{ range $index, $tag := .Params.tags }}{{ if $index }}, {{ end }}{{ $tag }}{{ end }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ .Description | default (printf "查看所有标记为 %s 的文章" .Title) }}">
+<meta property="og:image" content="{{ site.Params.favicon | default "/favicon.ico" }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ .Permalink }}">
+<meta property="twitter:title" content="{{ .Title }}">
+<meta property="twitter:description" content="{{ .Description | default (printf "查看所有标记为 %s 的文章" .Title) }}">
+<meta property="twitter:image" content="{{ site.Params.favicon | default "/favicon.ico" }}">
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ .Title }}",
+  "description": "{{ .Description | default (printf "查看所有标记为 %s 的文章" .Title) }}",
+  "url": "{{ .Permalink }}",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {{- $pages := .Data.Pages.ByDate.Reverse }}
+      {{- range $index, $page := $pages }}
+      {
+        "@type": "Article",
+        "position": {{ add $index 1 }},
+        "name": "{{ $page.Title }}",
+        "url": "{{ $page.Permalink }}",
+        "datePublished": "{{ $page.Date.Format "2006-01-02T15:04:05Z07:00" }}",
+        "author": {
+          "@type": "Person",
+          "name": "{{ site.Params.author | default "乐如" }}"
+        }
+      }{{ if lt (add $index 1) (len $pages) }},{{ end }}
+      {{- end }}
+    ]
+  }
+}
+</script>
+
+<!-- 预加载关键资源 -->
+{{- if .Data.Pages }}
+{{- range first 3 .Data.Pages.ByDate.Reverse }}
+<link rel="preload" href="{{ .Permalink }}" as="document">
+{{- end }}
+{{- end }}
+{{- end }}

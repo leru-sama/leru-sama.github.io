@@ -2,6 +2,7 @@
 date = '2025-11-10T15:16:46+08:00'
 draft = false
 title = '做的实验'
+tags = ['gem5']
 +++
 
 ## 目标
