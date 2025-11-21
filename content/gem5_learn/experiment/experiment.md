@@ -176,7 +176,7 @@ port分为req的port和resp的port，分别包含接受、发送和重传的函�
 大致分3步，挺八股文的：
 1. python注册这个component。
 2. C++实现这个component的功能。
-3. 写SConscript脚本，然后**重新编译整个GEM5** ~~真服了，编译一年~~
+3. 写SConscript脚本，然后不用编译整个，还是有增量编译的，但是还是很慢。~~**重新编译整个GEM5**~~ ~~真服了，编译一年~~
 4. 写python脚本，把建模的东西给连到系统上。
 
 ### Hello Object例程
