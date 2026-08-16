@@ -51,8 +51,3 @@ theme = ['PaperMod']
   name = "GEM5"
   url  = "/gem5_learn"
   weight = 6
-
-[[menu.main]]
-  name = "菜谱"
-  url  = "/recipe"
-  weight = 7
