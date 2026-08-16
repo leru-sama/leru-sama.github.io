@@ -1,52 +1,52 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>牛马日志</title><link>https://leru-sama.github.io/</link><description>Recent content on 牛马日志</description><generator>Hugo -- 0.154.5</generator><language>zh-cn</language><lastBuildDate>Fri, 16 Jan 2026 20:31:49 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>葱烧鸡腿</title><link>https://leru-sama.github.io/recipe/%E8%91%B1%E7%83%A7%E9%B8%A1%E8%85%BF/</link><pubDate>Fri, 16 Jan 2026 20:31:49 +0800</pubDate><guid>https://leru-sama.github.io/recipe/%E8%91%B1%E7%83%A7%E9%B8%A1%E8%85%BF/</guid><description>&lt;p&gt;鸡腿切块，拍碎的姜，生抽，盐，抓粘后放面粉抓拌均匀腌制。&lt;/p&gt;
-&lt;p&gt;大葱葱白切滚刀，葱绿随便切&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;起锅烧油，小火煎姜、葱绿、花椒熬出葱油。&lt;/li&gt;
-&lt;li&gt;取出之前加的东西，放蒜炸香。&lt;/li&gt;
-&lt;li&gt;取出蒜，放鸡腿，煎一会放料酒生抽白糖&lt;/li&gt;
-&lt;li&gt;放蒜炒两下加一点点清水&lt;/li&gt;
-&lt;li&gt;煮一会，收汁到差不多，放葱白&lt;/li&gt;
-&lt;li&gt;葱白不要煮太熟，稍微炒两下就出锅&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>做的实验</title><link>https://leru-sama.github.io/gem5_learn/experiment/experiment/</link><pubDate>Mon, 10 Nov 2025 15:16:46 +0800</pubDate><guid>https://leru-sama.github.io/gem5_learn/experiment/experiment/</guid><description>&lt;h2 id="目标"&gt;目标&lt;/h2&gt;
-&lt;p&gt;搭一个多核的系统，测试一下片上网络+缓存策略+同步策略的性能。&lt;/p&gt;
-&lt;div class="admonition admonition-info"&gt;
-&lt;div class="admonition-title"&gt;
-&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
-&lt;span class="admonition-text"&gt;info&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>牛马日志</title><link>https://leru-sama.github.io/</link><description>Recent content on 牛马日志</description><generator>Hugo -- 0.147.4</generator><language>zh-cn</language><lastBuildDate>Fri, 16 Jan 2026 20:31:49 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>葱烧鸡腿</title><link>https://leru-sama.github.io/recipe/%E8%91%B1%E7%83%A7%E9%B8%A1%E8%85%BF/</link><pubDate>Fri, 16 Jan 2026 20:31:49 +0800</pubDate><guid>https://leru-sama.github.io/recipe/%E8%91%B1%E7%83%A7%E9%B8%A1%E8%85%BF/</guid><description>&lt;p>鸡腿切块，拍碎的姜，生抽，盐，抓粘后放面粉抓拌均匀腌制。&lt;/p>
+&lt;p>大葱葱白切滚刀，葱绿随便切&lt;/p>
+&lt;ul>
+&lt;li>起锅烧油，小火煎姜、葱绿、花椒熬出葱油。&lt;/li>
+&lt;li>取出之前加的东西，放蒜炸香。&lt;/li>
+&lt;li>取出蒜，放鸡腿，煎一会放料酒生抽白糖&lt;/li>
+&lt;li>放蒜炒两下加一点点清水&lt;/li>
+&lt;li>煮一会，收汁到差不多，放葱白&lt;/li>
+&lt;li>葱白不要煮太熟，稍微炒两下就出锅&lt;/li>
+&lt;/ul></description></item><item><title>做的实验</title><link>https://leru-sama.github.io/gem5_learn/experiment/experiment/</link><pubDate>Mon, 10 Nov 2025 15:16:46 +0800</pubDate><guid>https://leru-sama.github.io/gem5_learn/experiment/experiment/</guid><description>&lt;h2 id="目标">目标&lt;/h2>
+&lt;p>搭一个多核的系统，测试一下片上网络+缓存策略+同步策略的性能。&lt;/p>
+&lt;div class="admonition admonition-info">
+&lt;div class="admonition-title">
+&lt;span class="admonition-icon">💡&lt;/span>
+&lt;span class="admonition-text">info&lt;/span>
+&lt;/div>
+&lt;div class="admonition-content">
 benchmark用什么？这个要想一想
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;实验分几个阶段：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;自己写的程序，先跑一个hello world。&lt;/li&gt;
-&lt;li&gt;多核+自己写的程序，测试一下多核的cache hierarchy的性能。&lt;/li&gt;
-&lt;li&gt;自己写一个CPU以外的东西，就当是个CIM吧，跑通&lt;/li&gt;
-&lt;li&gt;自己写的片上网络，跑通。&lt;/li&gt;
-&lt;li&gt;片上网络+CIM+多核+自己的程序&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="跑自己的程序"&gt;跑自己的程序&lt;/h2&gt;
-&lt;h3 id="装环境"&gt;装环境&lt;/h3&gt;
-&lt;p&gt;首先是装环境，参考的是&lt;a href="https://www.gem5.org/documentation/general_docs/building#docker"&gt;官方文档的 Docker 指南&lt;/a&gt;。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker pull ghcr.io/gem5/ubuntu-24.04_all-dependencies:latest &lt;span style="color:#75715e"&gt;# 拉取最新的docker镜像&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -u $UID:$GID --volume ~/gem5_workspace:/gem5 --rm -it sha256:bf02f9de3631a35d95c429e579a62438e99f724ff873996e24b93b8a00c4ffec &lt;span style="color:#75715e"&gt;# 运行docker容器，挂载本地目录~/gem5_workspace到容器中，用户ID和组ID保持一致，那一堆哈希码就是容器的名字&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/gem5/gem5 &lt;span style="color:#75715e"&gt;# 克隆gem5仓库&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;scons build/&lt;span style="color:#f92672"&gt;{&lt;/span&gt;ISA&lt;span style="color:#f92672"&gt;}&lt;/span&gt;/gem5.&lt;span style="color:#f92672"&gt;{&lt;/span&gt;variant&lt;span style="color:#f92672"&gt;}&lt;/span&gt; -j &lt;span style="color:#f92672"&gt;{&lt;/span&gt;cpus&lt;span style="color:#f92672"&gt;}&lt;/span&gt; &lt;span style="color:#75715e"&gt;# 编译gem5，{ISA}是架构，{variant}是编译选项，{cpus}是线程数，ISA有ARM、NULL、MIPS、POWER、RISCV、SPARC、X86，编译选项有debug、opt、fast，我这儿图方便就直接fast然后X86了&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="跑hello-world"&gt;跑hello world&lt;/h3&gt;
-&lt;p&gt;docker跑起来了就直接开干，没跑起来的话先给跑起来&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;docker run -u $UID:$GID --volume ~/gem5_workspace:/gem5 --rm -it sha256:bf02f9de3631a35d95c429e579a62438e99f724ff873996e24b93b8a00c4ffec &lt;span style="color:#75715e"&gt;# 运行docker容器，挂载本地目录~/gem5_workspace到容器中，用户ID和组ID保持一致，那一堆哈希码就是容器的名字&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;vscode打开容器，点左下角的那个连接的小点点，如下图：
-&lt;figure&gt;
+&lt;/div>
+&lt;/div>
+&lt;p>实验分几个阶段：&lt;/p>
+&lt;ol>
+&lt;li>自己写的程序，先跑一个hello world。&lt;/li>
+&lt;li>多核+自己写的程序，测试一下多核的cache hierarchy的性能。&lt;/li>
+&lt;li>自己写一个CPU以外的东西，就当是个CIM吧，跑通&lt;/li>
+&lt;li>自己写的片上网络，跑通。&lt;/li>
+&lt;li>片上网络+CIM+多核+自己的程序&lt;/li>
+&lt;/ol>
+&lt;h2 id="跑自己的程序">跑自己的程序&lt;/h2>
+&lt;h3 id="装环境">装环境&lt;/h3>
+&lt;p>首先是装环境，参考的是&lt;a href="https://www.gem5.org/documentation/general_docs/building#docker">官方文档的 Docker 指南&lt;/a>。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker pull ghcr.io/gem5/ubuntu-24.04_all-dependencies:latest &lt;span style="color:#75715e"># 拉取最新的docker镜像&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>docker run -u $UID:$GID --volume ~/gem5_workspace:/gem5 --rm -it sha256:bf02f9de3631a35d95c429e579a62438e99f724ff873996e24b93b8a00c4ffec &lt;span style="color:#75715e"># 运行docker容器，挂载本地目录~/gem5_workspace到容器中，用户ID和组ID保持一致，那一堆哈希码就是容器的名字&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git clone https://github.com/gem5/gem5 &lt;span style="color:#75715e"># 克隆gem5仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>scons build/&lt;span style="color:#f92672">{&lt;/span>ISA&lt;span style="color:#f92672">}&lt;/span>/gem5.&lt;span style="color:#f92672">{&lt;/span>variant&lt;span style="color:#f92672">}&lt;/span> -j &lt;span style="color:#f92672">{&lt;/span>cpus&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#75715e"># 编译gem5，{ISA}是架构，{variant}是编译选项，{cpus}是线程数，ISA有ARM、NULL、MIPS、POWER、RISCV、SPARC、X86，编译选项有debug、opt、fast，我这儿图方便就直接fast然后X86了&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="跑hello-world">跑hello world&lt;/h3>
+&lt;p>docker跑起来了就直接开干，没跑起来的话先给跑起来&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>docker run -u $UID:$GID --volume ~/gem5_workspace:/gem5 --rm -it sha256:bf02f9de3631a35d95c429e579a62438e99f724ff873996e24b93b8a00c4ffec &lt;span style="color:#75715e"># 运行docker容器，挂载本地目录~/gem5_workspace到容器中，用户ID和组ID保持一致，那一堆哈希码就是容器的名字&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>vscode打开容器，点左下角的那个连接的小点点，如下图：
+&lt;figure>
 &lt;img loading="lazy" src="https://leru-sama.github.io/gem5_learn/experiment/vscode%20connect.jpg"
 alt="vscode连接容器" width="500"onclick="openImageViewer(this)"
 style="cursor: pointer;"
-/&gt;
-&lt;/figure&gt;
-&lt;style&gt;
+/>
+&lt;/figure>
+&lt;style>
 .image-viewer {
 display: none;
 position: fixed;
@@ -80,16 +80,16 @@ transition: 0.3s;
 .image-viewer-close:hover {
 color: #bbb;
 }
-&lt;/style&gt;
-&lt;script&gt;
+&lt;/style>
+&lt;script>
 function createImageViewer() {
 if (!document.getElementById('imageViewer')) {
 const viewer = document.createElement('div');
 viewer.id = 'imageViewer';
 viewer.className = 'image-viewer';
 viewer.innerHTML = `
-&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
-&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+&lt;span class="image-viewer-close" onclick="closeImageViewer()">&amp;times;&lt;/span>
+&lt;img id="viewerImage" src="" alt="放大图片">
 `;
 document.body.appendChild(viewer);
 viewer.addEventListener('click', function(event) {
@@ -120,58 +120,58 @@ viewer.classList.remove('show');
 document.body.style.overflow = '';
 }
 }
-&lt;/script&gt;
-&lt;/p&gt;</description></item><item><title>GEM5 学习</title><link>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</link><pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</guid><description>&lt;p&gt;本文档主要参考 &lt;a href="https://www.gem5.org/documentation/learning_gem5/introduction/"&gt;gem5 官方入门教程&lt;/a&gt; 编写。&lt;/p&gt;
-&lt;h2 id="什么是gem5"&gt;什么是GEM5&lt;/h2&gt;
-&lt;p&gt;贴一个原文：gem5 is a modular discrete event driven computer system simulator platform. That means that:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;gem5’s components can be rearranged, parameterized, extended or replaced easily to suit your needs.&lt;/li&gt;
-&lt;li&gt;It simulates the &lt;strong&gt;passing of time as a series of discrete events&lt;/strong&gt;.&lt;/li&gt;
-&lt;li&gt;Its intended use is to simulate one or more computer systems in various ways.&lt;/li&gt;
-&lt;li&gt;It’s more than just a simulator; it’s a simulator platform that lets you use as many of its premade components as you want to build up your own simulation system.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="环境配置"&gt;环境配置&lt;/h2&gt;
-&lt;p&gt;使用vscode + docker安装gem5的环境，安装需要很大的内存，我给了14G+32Gswap。&lt;/p&gt;</description></item><item><title>Cache Coherence for GPU Architectures</title><link>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</link><pubDate>Wed, 05 Nov 2025 10:08:49 +0800</pubDate><guid>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</guid><description>&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
-&lt;p&gt;这篇文章
-&lt;a href="#singh2013" class="citation"&gt;(Inderpreet, et al, 2013)&lt;/a&gt;
+&lt;/script>
+&lt;/p></description></item><item><title>GEM5 学习</title><link>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</link><pubDate>Thu, 06 Nov 2025 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/gem5_learn/gem5%E6%A6%82%E8%BF%B0/gem5%E6%A6%82%E8%BF%B0/</guid><description>&lt;p>本文档主要参考 &lt;a href="https://www.gem5.org/documentation/learning_gem5/introduction/">gem5 官方入门教程&lt;/a> 编写。&lt;/p>
+&lt;h2 id="什么是gem5">什么是GEM5&lt;/h2>
+&lt;p>贴一个原文：gem5 is a modular discrete event driven computer system simulator platform. That means that:&lt;/p>
+&lt;ol>
+&lt;li>gem5’s components can be rearranged, parameterized, extended or replaced easily to suit your needs.&lt;/li>
+&lt;li>It simulates the &lt;strong>passing of time as a series of discrete events&lt;/strong>.&lt;/li>
+&lt;li>Its intended use is to simulate one or more computer systems in various ways.&lt;/li>
+&lt;li>It’s more than just a simulator; it’s a simulator platform that lets you use as many of its premade components as you want to build up your own simulation system.&lt;/li>
+&lt;/ol>
+&lt;h2 id="环境配置">环境配置&lt;/h2>
+&lt;p>使用vscode + docker安装gem5的环境，安装需要很大的内存，我给了14G+32Gswap。&lt;/p></description></item><item><title>Cache Coherence for GPU Architectures</title><link>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</link><pubDate>Wed, 05 Nov 2025 10:08:49 +0800</pubDate><guid>https://leru-sama.github.io/cachecohence/cachecoherenceforgpuarchitectures/cachecoherenceforgpuarchitectures/</guid><description>&lt;h2 id="概述">概述&lt;/h2>
+&lt;p>这篇文章
+&lt;a href="#singh2013" class="citation">(Inderpreet, et al, 2013)&lt;/a>
 挺老的，介绍的是一种GPU的缓存一致性协议。解决的问题是CPU的严格一致性在
 GPU上不好用，因为GPU有成千上万个线程，导致的一致性流量会非常大，且所需存储的一致性相关查找表也需要的
 memory非常大，所以GPU是没法做类似于 访问-&amp;gt;noop-&amp;gt;授权-&amp;gt;修改 这样的严格一致性协议，文中一句话写得很
 透彻：**Reducing the worst case storage overhead requires throttling the net work via back-pressure flow-control mechanisms when theend-point queues fill up.**这句话引用自
-&lt;a href="#martin2000" class="citation"&gt;(Milo M. K., et al, 2000)&lt;/a&gt;
-这篇远古文章，估计是讲的基于时间戳的snoop，有时间看看。&lt;/p&gt;
-&lt;div class="admonition admonition-note"&gt;
-&lt;div class="admonition-title"&gt;
-&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
-&lt;span class="admonition-text"&gt;Note&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
+&lt;a href="#martin2000" class="citation">(Milo M. K., et al, 2000)&lt;/a>
+这篇远古文章，估计是讲的基于时间戳的snoop，有时间看看。&lt;/p>
+&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+&lt;span class="admonition-icon">💡&lt;/span>
+&lt;span class="admonition-text">Note&lt;/span>
+&lt;/div>
+&lt;div class="admonition-content">
 结论就是，对于超级多核系统，
-&lt;a href="#martin2000" class="citation"&gt;(Milo M. K., et al, 2000)&lt;/a&gt;
+&lt;a href="#martin2000" class="citation">(Milo M. K., et al, 2000)&lt;/a>
 称"Symmetric Multycore Processor",使用基于反压的流控机制，可以减少一致性流量。
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h2 id="主要内容"&gt;主要内容&lt;/h2&gt;
-&lt;p&gt;主要设计了三种缓存一致性协议：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;GPU-VI：优化的 VI一致性协议
-&lt;a href="#kongetira2005" class="citation"&gt;(P., et al, 2005)&lt;/a&gt;
-，VI协议为：写穿，即写操作无论hit还是miss，都将直接发给主存（或HA），由主存去invalid那些其他拥有缓存行的主机副本。&lt;/li&gt;
-&lt;li&gt;GPU-VIni：在L2缓存单独开了一个目录的缓存，本质上就是GPU-VI&lt;/li&gt;
-&lt;li&gt;TC-weak/strong：本文提出的协议，强的不需要软件参与，但是性能弱一点，弱的需要软件进行显式的fence操作，但性能会好一点。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="tc协议"&gt;TC协议&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;这个协议只能用在单片上&lt;/strong&gt;，因为它基于一个global的计数器。&lt;/p&gt;
-&lt;p&gt;协议中有2个时间戳：L2每条cacheline的global timestamp和L1每条cacheline的local timestamp。读请求会附带一个预测生命周期，L2将对应cacheline的时间戳设置为全局计数器+预测生命周期。多条读请求就如下图所示，将继续增加global timestamp。&lt;/p&gt;
-&lt;figure&gt;
+&lt;/div>
+&lt;/div>
+&lt;h2 id="主要内容">主要内容&lt;/h2>
+&lt;p>主要设计了三种缓存一致性协议：&lt;/p>
+&lt;ul>
+&lt;li>GPU-VI：优化的 VI一致性协议
+&lt;a href="#kongetira2005" class="citation">(P., et al, 2005)&lt;/a>
+，VI协议为：写穿，即写操作无论hit还是miss，都将直接发给主存（或HA），由主存去invalid那些其他拥有缓存行的主机副本。&lt;/li>
+&lt;li>GPU-VIni：在L2缓存单独开了一个目录的缓存，本质上就是GPU-VI&lt;/li>
+&lt;li>TC-weak/strong：本文提出的协议，强的不需要软件参与，但是性能弱一点，弱的需要软件进行显式的fence操作，但性能会好一点。&lt;/li>
+&lt;/ul>
+&lt;h3 id="tc协议">TC协议&lt;/h3>
+&lt;p>&lt;strong>这个协议只能用在单片上&lt;/strong>，因为它基于一个global的计数器。&lt;/p>
+&lt;p>协议中有2个时间戳：L2每条cacheline的global timestamp和L1每条cacheline的local timestamp。读请求会附带一个预测生命周期，L2将对应cacheline的时间戳设置为全局计数器+预测生命周期。多条读请求就如下图所示，将继续增加global timestamp。&lt;/p>
+&lt;figure>
 &lt;img loading="lazy" src="https://leru-sama.github.io/cachecohence/CacheCoherenceforGPUArchitectures/TC%20hardware%20extention.png"
 alt="TC hardware extention.png"onclick="openImageViewer(this)"
 style="cursor: pointer;"
-/&gt; &lt;figcaption&gt;
-&lt;p&gt;时间戳扩展&lt;/p&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;style&gt;
+/> &lt;figcaption>
+&lt;p>时间戳扩展&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;style>
 .image-viewer {
 display: none;
 position: fixed;
@@ -205,16 +205,16 @@ transition: 0.3s;
 .image-viewer-close:hover {
 color: #bbb;
 }
-&lt;/style&gt;
-&lt;script&gt;
+&lt;/style>
+&lt;script>
 function createImageViewer() {
 if (!document.getElementById('imageViewer')) {
 const viewer = document.createElement('div');
 viewer.id = 'imageViewer';
 viewer.className = 'image-viewer';
 viewer.innerHTML = `
-&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
-&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+&lt;span class="image-viewer-close" onclick="closeImageViewer()">&amp;times;&lt;/span>
+&lt;img id="viewerImage" src="" alt="放大图片">
 `;
 document.body.appendChild(viewer);
 viewer.addEventListener('click', function(event) {
@@ -245,115 +245,115 @@ viewer.classList.remove('show');
 document.body.style.overflow = '';
 }
 }
-&lt;/script&gt;
-&lt;div class="admonition admonition-note"&gt;
-&lt;div class="admonition-title"&gt;
-&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
-&lt;span class="admonition-text"&gt;Note&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
+&lt;/script>
+&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+&lt;span class="admonition-icon">💡&lt;/span>
+&lt;span class="admonition-text">Note&lt;/span>
+&lt;/div>
+&lt;div class="admonition-content">
 这样做有一个好处，查看L2的cacheline的时间戳，小于全局计数器，就说明已经没有其他主机持有这个cacheline了，文中没有做处理，但可以可以安全地将它invalid。
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;figure&gt;
+&lt;/div>
+&lt;/div>
+&lt;figure>
 &lt;img loading="lazy" src="https://leru-sama.github.io/cachecohence/CacheCoherenceforGPUArchitectures/GPU-VI%20vs%20TC.png"
 alt="GPU-VI vs TC.png"onclick="openImageViewer(this)"
 style="cursor: pointer;"
-/&gt; &lt;figcaption&gt;
-&lt;p&gt;GPU-VS vs TC协议&lt;/p&gt;</description></item><item><title>Transactions</title><link>https://leru-sama.github.io/chi/transactions/transactions/</link><pubDate>Wed, 22 Oct 2025 15:23:05 +0800</pubDate><guid>https://leru-sama.github.io/chi/transactions/transactions/</guid><description>&lt;p&gt;直接从transaction开始看了，看点没看过的给记录下来&lt;/p&gt;
-&lt;h2 id="接口和信号"&gt;接口和信号&lt;/h2&gt;
-&lt;p&gt;&lt;del&gt;无数次都是从这儿开始，后边看不下去&lt;/del&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;通道&lt;/th&gt;
-&lt;th&gt;RN接口&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;th&gt;SN接口&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;REQ&lt;/td&gt;
-&lt;td&gt;O&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;td&gt;I&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WDAT&lt;/td&gt;
-&lt;td&gt;O&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;td&gt;I&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SRSP&lt;/td&gt;
-&lt;td&gt;O&lt;/td&gt;
-&lt;td&gt;用作snoop的resp以及发complete resp&lt;/td&gt;
-&lt;td&gt;无&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CRSP&lt;/td&gt;
-&lt;td&gt;I&lt;/td&gt;
-&lt;td&gt;用作接收complete resp&lt;/td&gt;
-&lt;td&gt;O&lt;/td&gt;
-&lt;td&gt;用作发响应&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;RDAT&lt;/td&gt;
-&lt;td&gt;I&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;td&gt;O&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SNP&lt;/td&gt;
-&lt;td&gt;I&lt;/td&gt;
-&lt;td&gt;接收snoop&lt;/td&gt;
-&lt;td&gt;无&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;div class="admonition admonition-note"&gt;
-&lt;div class="admonition-title"&gt;
-&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
-&lt;span class="admonition-text"&gt;Note&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
+/> &lt;figcaption>
+&lt;p>GPU-VS vs TC协议&lt;/p></description></item><item><title>Transactions</title><link>https://leru-sama.github.io/chi/transactions/transactions/</link><pubDate>Wed, 22 Oct 2025 15:23:05 +0800</pubDate><guid>https://leru-sama.github.io/chi/transactions/transactions/</guid><description>&lt;p>直接从transaction开始看了，看点没看过的给记录下来&lt;/p>
+&lt;h2 id="接口和信号">接口和信号&lt;/h2>
+&lt;p>&lt;del>无数次都是从这儿开始，后边看不下去&lt;/del>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>通道&lt;/th>
+&lt;th>RN接口&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>SN接口&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>REQ&lt;/td>
+&lt;td>O&lt;/td>
+&lt;td>\&lt;/td>
+&lt;td>I&lt;/td>
+&lt;td>\&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>WDAT&lt;/td>
+&lt;td>O&lt;/td>
+&lt;td>\&lt;/td>
+&lt;td>I&lt;/td>
+&lt;td>\&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SRSP&lt;/td>
+&lt;td>O&lt;/td>
+&lt;td>用作snoop的resp以及发complete resp&lt;/td>
+&lt;td>无&lt;/td>
+&lt;td>\&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CRSP&lt;/td>
+&lt;td>I&lt;/td>
+&lt;td>用作接收complete resp&lt;/td>
+&lt;td>O&lt;/td>
+&lt;td>用作发响应&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RDAT&lt;/td>
+&lt;td>I&lt;/td>
+&lt;td>\&lt;/td>
+&lt;td>O&lt;/td>
+&lt;td>\&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SNP&lt;/td>
+&lt;td>I&lt;/td>
+&lt;td>接收snoop&lt;/td>
+&lt;td>无&lt;/td>
+&lt;td>\&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+&lt;span class="admonition-icon">💡&lt;/span>
+&lt;span class="admonition-text">Note&lt;/span>
+&lt;/div>
+&lt;div class="admonition-content">
 snoop是HF来发的，RN只接收然后通过SRSP他回东西就OK
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id="各种id相关"&gt;各种ID相关&lt;/h3&gt;
-&lt;p&gt;一个包包含的ID信息如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;For a &lt;strong&gt;Request&lt;/strong&gt; packet: TgtID, SrcID, TxnID, StashNID, StashLPID, ReturnNID, ReturnTxnID, PGroupID, StashGroupID, and TagGroupID.&lt;/li&gt;
-&lt;li&gt;For a &lt;strong&gt;Response packet&lt;/strong&gt;: TgtID, SrcID, TxnID, DBID, PGroupID, StashGroupID, and TagGroupID.&lt;/li&gt;
-&lt;li&gt;For a &lt;strong&gt;Data packet&lt;/strong&gt;: TgtID, SrcID, TxnID, HomeNID, and DBID.&lt;/li&gt;
-&lt;li&gt;For a &lt;strong&gt;Snoop packet&lt;/strong&gt;: SrcID, TxnID, FwdNID, FwdTxnID, and StashLPID.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;TgtID、SrcID就是源和目的ID，剩余的ID如下介绍：&lt;/p&gt;</description></item><item><title>RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System</title><link>https://leru-sama.github.io/noc/rht_noc/rht_noc/</link><pubDate>Mon, 20 Oct 2025 20:58:23 +0800</pubDate><guid>https://leru-sama.github.io/noc/rht_noc/rht_noc/</guid><description>&lt;p&gt;这篇论文
-&lt;a href="#xuRHTNoCReconfigurable2025" class="citation"&gt;(Dongyu, et al, 2025)&lt;/a&gt;
-来自VLSI，今天先看看。&lt;/p&gt;
-&lt;p&gt;这篇论文做了一个半带宽mesh，然后用一个bufferless tours来弥补半带宽mesh的不足。&lt;/p&gt;
-&lt;h2 id="半带宽mesh"&gt;半带宽mesh&lt;/h2&gt;
-&lt;p&gt;使用依据是
-&lt;a href="#xuRMCNoCReliable2023" class="citation"&gt;(Dongyu, et al, 2023)&lt;/a&gt;
+&lt;/div>
+&lt;/div>
+&lt;h3 id="各种id相关">各种ID相关&lt;/h3>
+&lt;p>一个包包含的ID信息如下：&lt;/p>
+&lt;ul>
+&lt;li>For a &lt;strong>Request&lt;/strong> packet: TgtID, SrcID, TxnID, StashNID, StashLPID, ReturnNID, ReturnTxnID, PGroupID, StashGroupID, and TagGroupID.&lt;/li>
+&lt;li>For a &lt;strong>Response packet&lt;/strong>: TgtID, SrcID, TxnID, DBID, PGroupID, StashGroupID, and TagGroupID.&lt;/li>
+&lt;li>For a &lt;strong>Data packet&lt;/strong>: TgtID, SrcID, TxnID, HomeNID, and DBID.&lt;/li>
+&lt;li>For a &lt;strong>Snoop packet&lt;/strong>: SrcID, TxnID, FwdNID, FwdTxnID, and StashLPID.&lt;/li>
+&lt;/ul>
+&lt;p>TgtID、SrcID就是源和目的ID，剩余的ID如下介绍：&lt;/p></description></item><item><title>RHT NoC: A Reconfigurable Hybrid Topology Architecture for Chiplet-Based Multicore System</title><link>https://leru-sama.github.io/noc/rht_noc/rht_noc/</link><pubDate>Mon, 20 Oct 2025 20:58:23 +0800</pubDate><guid>https://leru-sama.github.io/noc/rht_noc/rht_noc/</guid><description>&lt;p>这篇论文
+&lt;a href="#xuRHTNoCReconfigurable2025" class="citation">(Dongyu, et al, 2025)&lt;/a>
+来自VLSI，今天先看看。&lt;/p>
+&lt;p>这篇论文做了一个半带宽mesh，然后用一个bufferless tours来弥补半带宽mesh的不足。&lt;/p>
+&lt;h2 id="半带宽mesh">半带宽mesh&lt;/h2>
+&lt;p>使用依据是
+&lt;a href="#xuRMCNoCReliable2023" class="citation">(Dongyu, et al, 2023)&lt;/a>
 中写的，百分之80情况下的相邻router带宽都是单向的，所以索性就只做半带宽的mesh来节省资源，router之间通过一个channel的adaptable link
-&lt;a href="#ditomasoQOREFaultTolerant2014" class="citation"&gt;(Dominic, et al, 2014)&lt;/a&gt;
-连接，然后再路由器里面增加了一级LC（link control），用来判定link是朝哪个方向走。&lt;/p&gt;
-&lt;figure&gt;
+&lt;a href="#ditomasoQOREFaultTolerant2014" class="citation">(Dominic, et al, 2014)&lt;/a>
+连接，然后再路由器里面增加了一级LC（link control），用来判定link是朝哪个方向走。&lt;/p>
+&lt;figure>
 &lt;img loading="lazy" src="https://leru-sama.github.io/noc/rht_noc/router_with_link_controller.jpg"
 alt="加入 LC 的 router"onclick="openImageViewer(this)"
 style="cursor: pointer;"
-/&gt; &lt;figcaption&gt;
-&lt;p&gt;加入 LC 的 router&lt;/p&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;style&gt;
+/> &lt;figcaption>
+&lt;p>加入 LC 的 router&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;style>
 .image-viewer {
 display: none;
 position: fixed;
@@ -387,16 +387,16 @@ transition: 0.3s;
 .image-viewer-close:hover {
 color: #bbb;
 }
-&lt;/style&gt;
-&lt;script&gt;
+&lt;/style>
+&lt;script>
 function createImageViewer() {
 if (!document.getElementById('imageViewer')) {
 const viewer = document.createElement('div');
 viewer.id = 'imageViewer';
 viewer.className = 'image-viewer';
 viewer.innerHTML = `
-&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
-&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+&lt;span class="image-viewer-close" onclick="closeImageViewer()">&amp;times;&lt;/span>
+&lt;img id="viewerImage" src="" alt="放大图片">
 `;
 document.body.appendChild(viewer);
 viewer.addEventListener('click', function(event) {
@@ -427,20 +427,20 @@ viewer.classList.remove('show');
 document.body.style.overflow = '';
 }
 }
-&lt;/script&gt;
-&lt;p&gt;LC的判断逻辑是根据两端待传输的flit进行协商，优先传输flit多也就是带宽需求大的。这玩意会带来一个等待链路授权的时间，这个文章里面通过一个bufferless torus解决。&lt;/p&gt;</description></item><item><title>Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures</title><link>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</link><pubDate>Mon, 20 Oct 2025 20:56:19 +0800</pubDate><guid>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</guid><description>&lt;p&gt;这篇论文
-&lt;a href="#zhengAdaptNoCFlexibleNetworkonChip2021" class="citation"&gt;(Hao, et al, 2021)&lt;/a&gt;
-做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。&lt;/p&gt;
-&lt;p&gt;整体来说就是一个基础款的mesh网络加上一些可配置的link，这些link可以用将子网络组成不同的拓扑结构。&lt;/p&gt;
-&lt;figure&gt;
+&lt;/script>
+&lt;p>LC的判断逻辑是根据两端待传输的flit进行协商，优先传输flit多也就是带宽需求大的。这玩意会带来一个等待链路授权的时间，这个文章里面通过一个bufferless torus解决。&lt;/p></description></item><item><title>Adapt-NoC: A Flexible Network-on-Chip Design for Heterogeneous Manycore Architectures</title><link>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</link><pubDate>Mon, 20 Oct 2025 20:56:19 +0800</pubDate><guid>https://leru-sama.github.io/noc/adapt_noc/adapt_noc/</guid><description>&lt;p>这篇论文
+&lt;a href="#zhengAdaptNoCFlexibleNetworkonChip2021" class="citation">(Hao, et al, 2021)&lt;/a>
+做了一个动态可配置的NoC，可以将一个大的mesh网络分割为任意拓扑的子网，通过设计adaptable router和adaptable link来实现。&lt;/p>
+&lt;p>整体来说就是一个基础款的mesh网络加上一些可配置的link，这些link可以用将子网络组成不同的拓扑结构。&lt;/p>
+&lt;figure>
 &lt;img loading="lazy" src="https://leru-sama.github.io/noc/adapt_noc/adaptable_NoC_overview.jpg"
 alt="Adapt-NoC总体结构"onclick="openImageViewer(this)"
 style="cursor: pointer;"
-/&gt; &lt;figcaption&gt;
-&lt;p&gt;Adapt-NoC总体结构&lt;/p&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;style&gt;
+/> &lt;figcaption>
+&lt;p>Adapt-NoC总体结构&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;style>
 .image-viewer {
 display: none;
 position: fixed;
@@ -474,16 +474,16 @@ transition: 0.3s;
 .image-viewer-close:hover {
 color: #bbb;
 }
-&lt;/style&gt;
-&lt;script&gt;
+&lt;/style>
+&lt;script>
 function createImageViewer() {
 if (!document.getElementById('imageViewer')) {
 const viewer = document.createElement('div');
 viewer.id = 'imageViewer';
 viewer.className = 'image-viewer';
 viewer.innerHTML = `
-&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
-&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+&lt;span class="image-viewer-close" onclick="closeImageViewer()">&amp;times;&lt;/span>
+&lt;img id="viewerImage" src="" alt="放大图片">
 `;
 document.body.appendChild(viewer);
 viewer.addEventListener('click', function(event) {
@@ -514,124 +514,133 @@ viewer.classList.remove('show');
 document.body.style.overflow = '';
 }
 }
-&lt;/script&gt;
-&lt;h2 id="adaptable-router-and-adaptable-link"&gt;adaptable router and adaptable link&lt;/h2&gt;
-&lt;p&gt;adaptable router就是再普通的router外部加了一堆mux，具体路由算法可能得再看看，
-adaptable link有点意思，使用了 link segmentation and link reversal。&lt;/p&gt;</description></item><item><title>代码链接Shortcode使用指南</title><link>https://leru-sama.github.io/posts/codelink-usage-guide/</link><pubDate>Mon, 15 Jan 2024 11:00:00 +0800</pubDate><guid>https://leru-sama.github.io/posts/codelink-usage-guide/</guid><description>&lt;h1 id="代码链接shortcode使用指南"&gt;代码链接Shortcode使用指南&lt;/h1&gt;
-&lt;h2 id="概述"&gt;概述&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;codelink&lt;/code&gt; shortcode 是一个自定义的Hugo shortcode，用于在Markdown文档中创建指向代码文件的链接。这些链接具有统一的样式，并且支持链接到特定的代码行。&lt;/p&gt;
-&lt;h2 id="语法"&gt;语法&lt;/h2&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-hugo" data-lang="hugo"&gt;&lt;a href="https://leru-sama.github.io/code/%e7%9b%b8%e5%af%b9%e4%ba%8ecode%e7%9a%84%e8%b7%af%e5%be%84#L25" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/script>
+&lt;h2 id="adaptable-router-and-adaptable-link">adaptable router and adaptable link&lt;/h2>
+&lt;p>adaptable router就是再普通的router外部加了一堆mux，具体路由算法可能得再看看，
+adaptable link有点意思，使用了 link segmentation and link reversal。&lt;/p></description></item><item><title>代码链接Shortcode使用指南</title><link>https://leru-sama.github.io/posts/codelink-usage-guide/</link><pubDate>Mon, 15 Jan 2024 11:00:00 +0800</pubDate><guid>https://leru-sama.github.io/posts/codelink-usage-guide/</guid><description>&lt;h1 id="代码链接shortcode使用指南">代码链接Shortcode使用指南&lt;/h1>
+&lt;h2 id="概述">概述&lt;/h2>
+&lt;p>&lt;code>codelink&lt;/code> shortcode 是一个自定义的Hugo shortcode，用于在Markdown文档中创建指向代码文件的链接。这些链接具有统一的样式，并且支持链接到特定的代码行。&lt;/p>
+&lt;h2 id="语法">语法&lt;/h2>
+&lt;pre tabindex="0">&lt;code class="language-hugo" data-lang="hugo">&lt;a href="https://leru-sama.github.io/code/%e7%9b%b8%e5%af%b9%e4%ba%8ecode%e7%9a%84%e8%b7%af%e5%be%84#L25" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 显示文本
-&lt;/a&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="参数说明"&gt;参数说明&lt;/h2&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;参数&lt;/th&gt;
-&lt;th&gt;类型&lt;/th&gt;
-&lt;th&gt;必需&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;path&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;字符串&lt;/td&gt;
-&lt;td&gt;✅&lt;/td&gt;
-&lt;td&gt;相对于 &lt;code&gt;static/code/&lt;/code&gt; 的路径，支持深层目录结构&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;text&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;字符串&lt;/td&gt;
-&lt;td&gt;❌&lt;/td&gt;
-&lt;td&gt;链接显示的文本，默认为路径&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&lt;code&gt;line&lt;/code&gt;&lt;/td&gt;
-&lt;td&gt;数字&lt;/td&gt;
-&lt;td&gt;❌&lt;/td&gt;
-&lt;td&gt;行号，会在URL中添加锚点&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="使用示例"&gt;使用示例&lt;/h2&gt;
-&lt;h3 id="1-基本用法"&gt;1. 基本用法&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;查看 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a>
+&lt;/code>&lt;/pre>&lt;h2 id="参数说明">参数说明&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>参数&lt;/th>
+&lt;th>类型&lt;/th>
+&lt;th>必需&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>path&lt;/code>&lt;/td>
+&lt;td>字符串&lt;/td>
+&lt;td>✅&lt;/td>
+&lt;td>相对于 &lt;code>static/code/&lt;/code> 的路径，支持深层目录结构&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>text&lt;/code>&lt;/td>
+&lt;td>字符串&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>链接显示的文本，默认为路径&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>line&lt;/code>&lt;/td>
+&lt;td>数字&lt;/td>
+&lt;td>❌&lt;/td>
+&lt;td>行号，会在URL中添加锚点&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="使用示例">使用示例&lt;/h2>
+&lt;h3 id="1-基本用法">1. 基本用法&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>查看 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 example_project/main.cpp
-&lt;/a&gt; 的实现。
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：查看 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a> 的实现。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>效果：查看 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 example_project/main.cpp
-&lt;/a&gt; 的实现。&lt;/p&gt;
-&lt;h3 id="2-自定义显示文本"&gt;2. 自定义显示文本&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;配置文件位于 &lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a> 的实现。&lt;/p>
+&lt;h3 id="2-自定义显示文本">2. 自定义显示文本&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>配置文件位于 &lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 项目配置
-&lt;/a&gt;。
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：配置文件位于 &lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a>。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>效果：配置文件位于 &lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 项目配置
-&lt;/a&gt;。&lt;/p&gt;
-&lt;h3 id="3-链接到特定行"&gt;3. 链接到特定行&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;在 {{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; line=&amp;#34;25&amp;#34; text=&amp;#34;第25行&amp;#34; &amp;gt;}} 定义了计算平均值的方法。
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：在 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp#L25" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a>。&lt;/p>
+&lt;h3 id="3-链接到特定行">3. 链接到特定行&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>在 {{&amp;lt; &lt;span style="color:#f92672">codelink&lt;/span> &lt;span style="color:#a6e22e">path&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;example_project/main.cpp&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">line&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;25&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">text&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;第25行&amp;#34;&lt;/span> &amp;gt;}} 定义了计算平均值的方法。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>效果：在 &lt;a href="https://leru-sama.github.io/code/example_project/main.cpp#L25" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 第25行
-&lt;/a&gt; 定义了计算平均值的方法。&lt;/p&gt;
-&lt;h3 id="4-深层目录结构示例"&gt;4. 深层目录结构示例&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;深度学习模型实现见 &lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a> 定义了计算平均值的方法。&lt;/p>
+&lt;h3 id="4-深层目录结构示例">4. 深层目录结构示例&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>深度学习模型实现见 &lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 CNN模型
-&lt;/a&gt;。
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：深度学习模型实现见 &lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a>。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>效果：深度学习模型实现见 &lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 CNN模型
-&lt;/a&gt;。&lt;/p&gt;</description></item><item><title>代码链接功能演示</title><link>https://leru-sama.github.io/posts/code-link-demo/</link><pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate><guid>https://leru-sama.github.io/posts/code-link-demo/</guid><description>&lt;h1 id="代码链接功能演示"&gt;代码链接功能演示&lt;/h1&gt;
-&lt;p&gt;这个页面演示了如何使用 &lt;code&gt;codelink&lt;/code&gt; shortcode 来链接到存储在 &lt;code&gt;static/code/&lt;/code&gt; 目录中的代码文件。&lt;/p&gt;
-&lt;h2 id="功能说明"&gt;功能说明&lt;/h2&gt;
-&lt;p&gt;通过 &lt;code&gt;codelink&lt;/code&gt; shortcode，你可以：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;链接到项目中的特定代码文件&lt;/li&gt;
-&lt;li&gt;指定显示的文本&lt;/li&gt;
-&lt;li&gt;可选地链接到特定行号&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="使用方法"&gt;使用方法&lt;/h2&gt;
-&lt;h3 id="基本用法"&gt;基本用法&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; &amp;gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a>。&lt;/p>
+&lt;h3 id="5-数据分析项目示例">5. 数据分析项目示例&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>我们使用 &lt;a href="https://leru-sama.github.io/code/data_analysis/analyzer.py" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
+数据分析器
+&lt;/a> 来处理数据。
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>效果：我们使用 &lt;a href="https://leru-sama.github.io/code/data_analysis/analyzer.py" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
+数据分析器
+&lt;/a> 来处理数据。&lt;/p></description></item><item><title>代码链接功能演示</title><link>https://leru-sama.github.io/posts/code-link-demo/</link><pubDate>Mon, 15 Jan 2024 10:00:00 +0800</pubDate><guid>https://leru-sama.github.io/posts/code-link-demo/</guid><description>&lt;h1 id="代码链接功能演示">代码链接功能演示&lt;/h1>
+&lt;p>这个页面演示了如何使用 &lt;code>codelink&lt;/code> shortcode 来链接到存储在 &lt;code>static/code/&lt;/code> 目录中的代码文件。&lt;/p>
+&lt;h2 id="功能说明">功能说明&lt;/h2>
+&lt;p>通过 &lt;code>codelink&lt;/code> shortcode，你可以：&lt;/p>
+&lt;ol>
+&lt;li>链接到项目中的特定代码文件&lt;/li>
+&lt;li>指定显示的文本&lt;/li>
+&lt;li>可选地链接到特定行号&lt;/li>
+&lt;/ol>
+&lt;h2 id="使用方法">使用方法&lt;/h2>
+&lt;h3 id="基本用法">基本用法&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>{{&amp;lt; &lt;span style="color:#f92672">codelink&lt;/span> &lt;span style="color:#a6e22e">path&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;example_project/main.cpp&amp;#34;&lt;/span> &amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 example_project/main.cpp
-&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id="自定义显示文本"&gt;自定义显示文本&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; text=&amp;#34;主程序文件&amp;#34; &amp;gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a>&lt;/p>
+&lt;h3 id="自定义显示文本">自定义显示文本&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>{{&amp;lt; &lt;span style="color:#f92672">codelink&lt;/span> &lt;span style="color:#a6e22e">path&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;example_project/main.cpp&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">text&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;主程序文件&amp;#34;&lt;/span> &amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 主程序文件
-&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id="链接到配置文件"&gt;链接到配置文件&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/config.toml&amp;#34; text=&amp;#34;项目配置&amp;#34; &amp;gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a>&lt;/p>
+&lt;h3 id="链接到配置文件">链接到配置文件&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>{{&amp;lt; &lt;span style="color:#f92672">codelink&lt;/span> &lt;span style="color:#a6e22e">path&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;example_project/config.toml&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">text&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;项目配置&amp;#34;&lt;/span> &amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>效果：&lt;a href="https://leru-sama.github.io/code/example_project/config.toml" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 项目配置
-&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id="链接到特定行号"&gt;链接到特定行号&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;example_project/main.cpp&amp;#34; line=&amp;#34;25&amp;#34; text=&amp;#34;calculateAverage方法&amp;#34; &amp;gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp#L25" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a>&lt;/p>
+&lt;h3 id="链接到特定行号">链接到特定行号&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>{{&amp;lt; &lt;span style="color:#f92672">codelink&lt;/span> &lt;span style="color:#a6e22e">path&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;example_project/main.cpp&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">line&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;25&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">text&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;calculateAverage方法&amp;#34;&lt;/span> &amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>效果：&lt;a href="https://leru-sama.github.io/code/example_project/main.cpp#L25" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 calculateAverage方法
-&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id="深层目录结构示例"&gt;深层目录结构示例&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{{&amp;lt; codelink path=&amp;#34;ml/models/neural_networks/cnn.py&amp;#34; text=&amp;#34;CNN模型实现&amp;#34; &amp;gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;效果：&lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link"&gt;
-&lt;i class="fas fa-code"&gt;&lt;/i&gt;
+&lt;/a>&lt;/p>
+&lt;h3 id="深层目录结构示例">深层目录结构示例&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-markdown" data-lang="markdown">&lt;span style="display:flex;">&lt;span>{{&amp;lt; &lt;span style="color:#f92672">codelink&lt;/span> &lt;span style="color:#a6e22e">path&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;ml/models/neural_networks/cnn.py&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">text&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;CNN模型实现&amp;#34;&lt;/span> &amp;gt;}}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>效果：&lt;a href="https://leru-sama.github.io/code/ml/models/neural_networks/cnn.py" class="code-link">
+&lt;i class="fas fa-code">&lt;/i>
 CNN模型实现
-&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="目录结构"&gt;目录结构&lt;/h2&gt;
-&lt;p&gt;代码文件存储在 &lt;code&gt;static/code/&lt;/code&gt; 目录中，支持任意深度的目录结构：&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;static/
+&lt;/a>&lt;/p>
+&lt;h2 id="目录结构">目录结构&lt;/h2>
+&lt;p>代码文件存储在 &lt;code>static/code/&lt;/code> 目录中，支持任意深度的目录结构：&lt;/p>
+&lt;pre tabindex="0">&lt;code>static/
 └── code/
 ├── example_project/
 │ ├── main.cpp
@@ -647,77 +656,74 @@ CNN模型实现
 └── scripts/
 ├── build.sh
 └── deploy.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="参数说明"&gt;参数说明&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;path&lt;/code&gt; (必需): 相对于 &lt;code&gt;static/code/&lt;/code&gt; 的路径，支持深层目录结构&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;text&lt;/code&gt; (可选): 链接显示的文本，默认为路径&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;line&lt;/code&gt; (可选): 行号，会在URL中添加锚点&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="示例场景"&gt;示例场景&lt;/h2&gt;
-&lt;p&gt;在技术文档中，你可以这样使用：&lt;/p&gt;</description></item><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p&gt;字体测试：
-&lt;em&gt;这是斜体&lt;/em&gt; &lt;em&gt;这也是斜体&lt;/em&gt; &lt;strong&gt;加粗！&lt;/strong&gt; &lt;em&gt;&lt;strong&gt;又粗又斜！&lt;/strong&gt;&lt;/em&gt; &lt;del&gt;删掉的字&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;列表：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;这是列表&lt;/li&gt;
-&lt;li&gt;的第二项&lt;/li&gt;
-&lt;li&gt;第三项&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;多级列表：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;第一级
-&lt;ul&gt;
-&lt;li&gt;第二级
-&lt;ul&gt;
-&lt;li&gt;第三级&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;区块引用，拿来做背景什么的不错&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;可以多级&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这是第三级&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;代码块：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-verilog" data-lang="verilog"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;//居然可以支持verilog！
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;module&lt;/span&gt; hello_world (
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;input&lt;/span&gt; clk,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;input&lt;/span&gt; rst_n,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;output&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;reg&lt;/span&gt; [&lt;span style="color:#ae81ff"&gt;7&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] led
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;always&lt;/span&gt; @(&lt;span style="color:#66d9ef"&gt;posedge&lt;/span&gt; clk &lt;span style="color:#66d9ef"&gt;or&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;negedge&lt;/span&gt; rst_n) &lt;span style="color:#66d9ef"&gt;begin&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (&lt;span style="color:#f92672"&gt;!&lt;/span&gt;rst_n) &lt;span style="color:#66d9ef"&gt;begin&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; led &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;&amp;#39;b00000000&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;end&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;begin&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; led &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; led &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;&amp;#39;b1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;endmodule&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;内嵌公式，支持latex语法！
-例如：$E=mc^2$&lt;/p&gt;
-&lt;p&gt;还有独占一行的公式！&lt;/p&gt;
-&lt;p&gt;$$
+&lt;/code>&lt;/pre>&lt;h2 id="参数说明">参数说明&lt;/h2>
+&lt;ul>
+&lt;li>&lt;code>path&lt;/code> (必需): 相对于 &lt;code>static/code/&lt;/code> 的路径，支持深层目录结构&lt;/li>
+&lt;li>&lt;code>text&lt;/code> (可选): 链接显示的文本，默认为路径&lt;/li>
+&lt;li>&lt;code>line&lt;/code> (可选): 行号，会在URL中添加锚点&lt;/li>
+&lt;/ul>
+&lt;h2 id="示例场景">示例场景&lt;/h2>
+&lt;p>在技术文档中，你可以这样使用：&lt;/p></description></item><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p>字体测试：
+&lt;em>这是斜体&lt;/em> &lt;em>这也是斜体&lt;/em> &lt;strong>加粗！&lt;/strong> &lt;em>&lt;strong>又粗又斜！&lt;/strong>&lt;/em> &lt;del>删掉的字&lt;/del>&lt;/p>
+&lt;p>列表：&lt;/p>
+&lt;ul>
+&lt;li>这是列表&lt;/li>
+&lt;li>的第二项&lt;/li>
+&lt;li>第三项&lt;/li>
+&lt;/ul>
+&lt;p>多级列表：&lt;/p>
+&lt;ul>
+&lt;li>第一级
+&lt;ul>
+&lt;li>第二级
+&lt;ul>
+&lt;li>第三级&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>区块引用，拿来做背景什么的不错&lt;/p>
+&lt;blockquote>
+&lt;p>可以多级&lt;/p>
+&lt;blockquote>
+&lt;p>这是第三级&lt;/p>&lt;/blockquote>&lt;/blockquote>&lt;/blockquote>
+&lt;p>代码块：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-verilog" data-lang="verilog">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">//居然可以支持verilog！
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">module&lt;/span> hello_world (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">input&lt;/span> clk,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">input&lt;/span> rst_n,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">output&lt;/span> &lt;span style="color:#66d9ef">reg&lt;/span> [&lt;span style="color:#ae81ff">7&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>] led
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">always&lt;/span> @(&lt;span style="color:#66d9ef">posedge&lt;/span> clk &lt;span style="color:#66d9ef">or&lt;/span> &lt;span style="color:#66d9ef">negedge&lt;/span> rst_n) &lt;span style="color:#66d9ef">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>rst_n) &lt;span style="color:#66d9ef">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> led &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span>&lt;span style="color:#ae81ff">&amp;#39;b00000000&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">end&lt;/span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> led &lt;span style="color:#f92672">&amp;lt;=&lt;/span> led &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#ae81ff">&amp;#39;b1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>内嵌公式，支持latex语法！
+例如：$E=mc^2$&lt;/p>
+&lt;p>还有独占一行的公式！&lt;/p>
+&lt;p>$$
 F(x) = \int_{-\infty}^\infty e^{-x^2} dx
-$$&lt;/p&gt;
-&lt;p&gt;这是一张图，放在/static/img目录下面的，不知道为什么，用figure短代码显示不出来：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="测试图片" loading="lazy" src="https://leru-sama.github.io/img/test_photo.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;这是一张图，和这个md文档放一起的，这个就能显示出来：&lt;/p&gt;
-&lt;figure&gt;
+$$&lt;/p>
+&lt;p>这是一张图，放在/static/img目录下面的，不知道为什么，用figure短代码显示不出来：&lt;/p>
+&lt;p>&lt;img alt="测试图片" loading="lazy" src="https://leru-sama.github.io/img/test_photo.jpg">&lt;/p>
+&lt;p>这是一张图，和这个md文档放一起的，这个就能显示出来：&lt;/p>
+&lt;figure>
 &lt;img loading="lazy" src="https://leru-sama.github.io/example/test.jpg"
 alt="测试图片"onclick="openImageViewer(this)"
 style="cursor: pointer;"
-/&gt; &lt;figcaption&gt;
-&lt;p&gt;这是一张测试图片&lt;/p&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;style&gt;
+/> &lt;figcaption>
+&lt;p>这是一张测试图片&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;style>
 .image-viewer {
 display: none;
 position: fixed;
@@ -751,16 +757,16 @@ transition: 0.3s;
 .image-viewer-close:hover {
 color: #bbb;
 }
-&lt;/style&gt;
-&lt;script&gt;
+&lt;/style>
+&lt;script>
 function createImageViewer() {
 if (!document.getElementById('imageViewer')) {
 const viewer = document.createElement('div');
 viewer.id = 'imageViewer';
 viewer.className = 'image-viewer';
 viewer.innerHTML = `
-&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
-&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+&lt;span class="image-viewer-close" onclick="closeImageViewer()">&amp;times;&lt;/span>
+&lt;img id="viewerImage" src="" alt="放大图片">
 `;
 document.body.appendChild(viewer);
 viewer.addEventListener('click', function(event) {
@@ -791,7 +797,7 @@ viewer.classList.remove('show');
 document.body.style.overflow = '';
 }
 }
-&lt;/script&gt;
-&lt;p&gt;这里引用一篇关于NoC的论文：
-&lt;a href="#xuRHTNoCReconfigurable2025" class="citation"&gt;(Dongyu, et al, 2025)&lt;/a&gt;
-&lt;/p&gt;</description></item></channel></rss>
+&lt;/script>
+&lt;p>这里引用一篇关于NoC的论文：
+&lt;a href="#xuRHTNoCReconfigurable2025" class="citation">(Dongyu, et al, 2025)&lt;/a>
+&lt;/p></description></item></channel></rss>

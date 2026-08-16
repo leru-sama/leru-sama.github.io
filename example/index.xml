@@ -1,67 +1,64 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Examples on 牛马日志</title><link>https://leru-sama.github.io/example/</link><description>Recent content in Examples on 牛马日志</description><generator>Hugo -- 0.154.5</generator><language>zh-cn</language><lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leru-sama.github.io/example/index.xml" rel="self" type="application/rss+xml"/><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p&gt;字体测试：
-&lt;em&gt;这是斜体&lt;/em&gt; &lt;em&gt;这也是斜体&lt;/em&gt; &lt;strong&gt;加粗！&lt;/strong&gt; &lt;em&gt;&lt;strong&gt;又粗又斜！&lt;/strong&gt;&lt;/em&gt; &lt;del&gt;删掉的字&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;列表：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;这是列表&lt;/li&gt;
-&lt;li&gt;的第二项&lt;/li&gt;
-&lt;li&gt;第三项&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;多级列表：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;第一级
-&lt;ul&gt;
-&lt;li&gt;第二级
-&lt;ul&gt;
-&lt;li&gt;第三级&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;区块引用，拿来做背景什么的不错&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;可以多级&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这是第三级&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;代码块：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-verilog" data-lang="verilog"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;//居然可以支持verilog！
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;module&lt;/span&gt; hello_world (
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;input&lt;/span&gt; clk,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;input&lt;/span&gt; rst_n,
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;output&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;reg&lt;/span&gt; [&lt;span style="color:#ae81ff"&gt;7&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] led
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;always&lt;/span&gt; @(&lt;span style="color:#66d9ef"&gt;posedge&lt;/span&gt; clk &lt;span style="color:#66d9ef"&gt;or&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;negedge&lt;/span&gt; rst_n) &lt;span style="color:#66d9ef"&gt;begin&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (&lt;span style="color:#f92672"&gt;!&lt;/span&gt;rst_n) &lt;span style="color:#66d9ef"&gt;begin&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; led &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;8&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;&amp;#39;b00000000&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;end&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;begin&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; led &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; led &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;&amp;#39;b1&lt;/span&gt;;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;end&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;endmodule&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;内嵌公式，支持latex语法！
-例如：$E=mc^2$&lt;/p&gt;
-&lt;p&gt;还有独占一行的公式！&lt;/p&gt;
-&lt;p&gt;$$
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Examples on 牛马日志</title><link>https://leru-sama.github.io/example/</link><description>Recent content in Examples on 牛马日志</description><generator>Hugo -- 0.147.4</generator><language>zh-cn</language><lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://leru-sama.github.io/example/index.xml" rel="self" type="application/rss+xml"/><item><title>一些例子</title><link>https://leru-sama.github.io/example/example/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>https://leru-sama.github.io/example/example/</guid><description>&lt;p>字体测试：
+&lt;em>这是斜体&lt;/em> &lt;em>这也是斜体&lt;/em> &lt;strong>加粗！&lt;/strong> &lt;em>&lt;strong>又粗又斜！&lt;/strong>&lt;/em> &lt;del>删掉的字&lt;/del>&lt;/p>
+&lt;p>列表：&lt;/p>
+&lt;ul>
+&lt;li>这是列表&lt;/li>
+&lt;li>的第二项&lt;/li>
+&lt;li>第三项&lt;/li>
+&lt;/ul>
+&lt;p>多级列表：&lt;/p>
+&lt;ul>
+&lt;li>第一级
+&lt;ul>
+&lt;li>第二级
+&lt;ul>
+&lt;li>第三级&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>区块引用，拿来做背景什么的不错&lt;/p>
+&lt;blockquote>
+&lt;p>可以多级&lt;/p>
+&lt;blockquote>
+&lt;p>这是第三级&lt;/p>&lt;/blockquote>&lt;/blockquote>&lt;/blockquote>
+&lt;p>代码块：&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-verilog" data-lang="verilog">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">//居然可以支持verilog！
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">module&lt;/span> hello_world (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">input&lt;/span> clk,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">input&lt;/span> rst_n,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">output&lt;/span> &lt;span style="color:#66d9ef">reg&lt;/span> [&lt;span style="color:#ae81ff">7&lt;/span>&lt;span style="color:#f92672">:&lt;/span>&lt;span style="color:#ae81ff">0&lt;/span>] led
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">always&lt;/span> @(&lt;span style="color:#66d9ef">posedge&lt;/span> clk &lt;span style="color:#66d9ef">or&lt;/span> &lt;span style="color:#66d9ef">negedge&lt;/span> rst_n) &lt;span style="color:#66d9ef">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>rst_n) &lt;span style="color:#66d9ef">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> led &lt;span style="color:#f92672">&amp;lt;=&lt;/span> &lt;span style="color:#ae81ff">8&lt;/span>&lt;span style="color:#ae81ff">&amp;#39;b00000000&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">end&lt;/span> &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">begin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> led &lt;span style="color:#f92672">&amp;lt;=&lt;/span> led &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#ae81ff">&amp;#39;b1&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">end&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">endmodule&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>内嵌公式，支持latex语法！
+例如：$E=mc^2$&lt;/p>
+&lt;p>还有独占一行的公式！&lt;/p>
+&lt;p>$$
 F(x) = \int_{-\infty}^\infty e^{-x^2} dx
-$$&lt;/p&gt;
-&lt;p&gt;这是一张图，放在/static/img目录下面的，不知道为什么，用figure短代码显示不出来：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="测试图片" loading="lazy" src="https://leru-sama.github.io/img/test_photo.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;这是一张图，和这个md文档放一起的，这个就能显示出来：&lt;/p&gt;
-&lt;figure&gt;
+$$&lt;/p>
+&lt;p>这是一张图，放在/static/img目录下面的，不知道为什么，用figure短代码显示不出来：&lt;/p>
+&lt;p>&lt;img alt="测试图片" loading="lazy" src="https://leru-sama.github.io/img/test_photo.jpg">&lt;/p>
+&lt;p>这是一张图，和这个md文档放一起的，这个就能显示出来：&lt;/p>
+&lt;figure>
 &lt;img loading="lazy" src="https://leru-sama.github.io/example/test.jpg"
 alt="测试图片"onclick="openImageViewer(this)"
 style="cursor: pointer;"
-/&gt; &lt;figcaption&gt;
-&lt;p&gt;这是一张测试图片&lt;/p&gt;
-&lt;/figcaption&gt;
-&lt;/figure&gt;
-&lt;style&gt;
+/> &lt;figcaption>
+&lt;p>这是一张测试图片&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;style>
 .image-viewer {
 display: none;
 position: fixed;
@@ -95,16 +92,16 @@ transition: 0.3s;
 .image-viewer-close:hover {
 color: #bbb;
 }
-&lt;/style&gt;
-&lt;script&gt;
+&lt;/style>
+&lt;script>
 function createImageViewer() {
 if (!document.getElementById('imageViewer')) {
 const viewer = document.createElement('div');
 viewer.id = 'imageViewer';
 viewer.className = 'image-viewer';
 viewer.innerHTML = `
-&lt;span class="image-viewer-close" onclick="closeImageViewer()"&gt;&amp;times;&lt;/span&gt;
-&lt;img id="viewerImage" src="" alt="放大图片"&gt;
+&lt;span class="image-viewer-close" onclick="closeImageViewer()">&amp;times;&lt;/span>
+&lt;img id="viewerImage" src="" alt="放大图片">
 `;
 document.body.appendChild(viewer);
 viewer.addEventListener('click', function(event) {
@@ -135,7 +132,7 @@ viewer.classList.remove('show');
 document.body.style.overflow = '';
 }
 }
-&lt;/script&gt;
-&lt;p&gt;这里引用一篇关于NoC的论文：
-&lt;a href="#xuRHTNoCReconfigurable2025" class="citation"&gt;(Dongyu, et al, 2025)&lt;/a&gt;
-&lt;/p&gt;</description></item></channel></rss>
+&lt;/script>
+&lt;p>这里引用一篇关于NoC的论文：
+&lt;a href="#xuRHTNoCReconfigurable2025" class="citation">(Dongyu, et al, 2025)&lt;/a>
+&lt;/p></description></item></channel></rss>

@@ -1,76 +1,76 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>CHI on 牛马日志</title><link>https://leru-sama.github.io/tags/chi/</link><description>Recent content in CHI on 牛马日志</description><generator>Hugo -- 0.154.5</generator><language>zh-cn</language><lastBuildDate>Wed, 22 Oct 2025 15:23:05 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/tags/chi/index.xml" rel="self" type="application/rss+xml"/><item><title>Transactions</title><link>https://leru-sama.github.io/chi/transactions/transactions/</link><pubDate>Wed, 22 Oct 2025 15:23:05 +0800</pubDate><guid>https://leru-sama.github.io/chi/transactions/transactions/</guid><description>&lt;p&gt;直接从transaction开始看了，看点没看过的给记录下来&lt;/p&gt;
-&lt;h2 id="接口和信号"&gt;接口和信号&lt;/h2&gt;
-&lt;p&gt;&lt;del&gt;无数次都是从这儿开始，后边看不下去&lt;/del&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;通道&lt;/th&gt;
-&lt;th&gt;RN接口&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;th&gt;SN接口&lt;/th&gt;
-&lt;th&gt;说明&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;REQ&lt;/td&gt;
-&lt;td&gt;O&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;td&gt;I&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;WDAT&lt;/td&gt;
-&lt;td&gt;O&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;td&gt;I&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SRSP&lt;/td&gt;
-&lt;td&gt;O&lt;/td&gt;
-&lt;td&gt;用作snoop的resp以及发complete resp&lt;/td&gt;
-&lt;td&gt;无&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;CRSP&lt;/td&gt;
-&lt;td&gt;I&lt;/td&gt;
-&lt;td&gt;用作接收complete resp&lt;/td&gt;
-&lt;td&gt;O&lt;/td&gt;
-&lt;td&gt;用作发响应&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;RDAT&lt;/td&gt;
-&lt;td&gt;I&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;td&gt;O&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;SNP&lt;/td&gt;
-&lt;td&gt;I&lt;/td&gt;
-&lt;td&gt;接收snoop&lt;/td&gt;
-&lt;td&gt;无&lt;/td&gt;
-&lt;td&gt;\&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;div class="admonition admonition-note"&gt;
-&lt;div class="admonition-title"&gt;
-&lt;span class="admonition-icon"&gt;💡&lt;/span&gt;
-&lt;span class="admonition-text"&gt;Note&lt;/span&gt;
-&lt;/div&gt;
-&lt;div class="admonition-content"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>CHI on 牛马日志</title><link>https://leru-sama.github.io/tags/chi/</link><description>Recent content in CHI on 牛马日志</description><generator>Hugo -- 0.147.4</generator><language>zh-cn</language><lastBuildDate>Wed, 22 Oct 2025 15:23:05 +0800</lastBuildDate><atom:link href="https://leru-sama.github.io/tags/chi/index.xml" rel="self" type="application/rss+xml"/><item><title>Transactions</title><link>https://leru-sama.github.io/chi/transactions/transactions/</link><pubDate>Wed, 22 Oct 2025 15:23:05 +0800</pubDate><guid>https://leru-sama.github.io/chi/transactions/transactions/</guid><description>&lt;p>直接从transaction开始看了，看点没看过的给记录下来&lt;/p>
+&lt;h2 id="接口和信号">接口和信号&lt;/h2>
+&lt;p>&lt;del>无数次都是从这儿开始，后边看不下去&lt;/del>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>通道&lt;/th>
+&lt;th>RN接口&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;th>SN接口&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>REQ&lt;/td>
+&lt;td>O&lt;/td>
+&lt;td>\&lt;/td>
+&lt;td>I&lt;/td>
+&lt;td>\&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>WDAT&lt;/td>
+&lt;td>O&lt;/td>
+&lt;td>\&lt;/td>
+&lt;td>I&lt;/td>
+&lt;td>\&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SRSP&lt;/td>
+&lt;td>O&lt;/td>
+&lt;td>用作snoop的resp以及发complete resp&lt;/td>
+&lt;td>无&lt;/td>
+&lt;td>\&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>CRSP&lt;/td>
+&lt;td>I&lt;/td>
+&lt;td>用作接收complete resp&lt;/td>
+&lt;td>O&lt;/td>
+&lt;td>用作发响应&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>RDAT&lt;/td>
+&lt;td>I&lt;/td>
+&lt;td>\&lt;/td>
+&lt;td>O&lt;/td>
+&lt;td>\&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>SNP&lt;/td>
+&lt;td>I&lt;/td>
+&lt;td>接收snoop&lt;/td>
+&lt;td>无&lt;/td>
+&lt;td>\&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;div class="admonition admonition-note">
+&lt;div class="admonition-title">
+&lt;span class="admonition-icon">💡&lt;/span>
+&lt;span class="admonition-text">Note&lt;/span>
+&lt;/div>
+&lt;div class="admonition-content">
 snoop是HF来发的，RN只接收然后通过SRSP他回东西就OK
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;h3 id="各种id相关"&gt;各种ID相关&lt;/h3&gt;
-&lt;p&gt;一个包包含的ID信息如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;For a &lt;strong&gt;Request&lt;/strong&gt; packet: TgtID, SrcID, TxnID, StashNID, StashLPID, ReturnNID, ReturnTxnID, PGroupID, StashGroupID, and TagGroupID.&lt;/li&gt;
-&lt;li&gt;For a &lt;strong&gt;Response packet&lt;/strong&gt;: TgtID, SrcID, TxnID, DBID, PGroupID, StashGroupID, and TagGroupID.&lt;/li&gt;
-&lt;li&gt;For a &lt;strong&gt;Data packet&lt;/strong&gt;: TgtID, SrcID, TxnID, HomeNID, and DBID.&lt;/li&gt;
-&lt;li&gt;For a &lt;strong&gt;Snoop packet&lt;/strong&gt;: SrcID, TxnID, FwdNID, FwdTxnID, and StashLPID.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;TgtID、SrcID就是源和目的ID，剩余的ID如下介绍：&lt;/p&gt;</description></item></channel></rss>
+&lt;/div>
+&lt;/div>
+&lt;h3 id="各种id相关">各种ID相关&lt;/h3>
+&lt;p>一个包包含的ID信息如下：&lt;/p>
+&lt;ul>
+&lt;li>For a &lt;strong>Request&lt;/strong> packet: TgtID, SrcID, TxnID, StashNID, StashLPID, ReturnNID, ReturnTxnID, PGroupID, StashGroupID, and TagGroupID.&lt;/li>
+&lt;li>For a &lt;strong>Response packet&lt;/strong>: TgtID, SrcID, TxnID, DBID, PGroupID, StashGroupID, and TagGroupID.&lt;/li>
+&lt;li>For a &lt;strong>Data packet&lt;/strong>: TgtID, SrcID, TxnID, HomeNID, and DBID.&lt;/li>
+&lt;li>For a &lt;strong>Snoop packet&lt;/strong>: SrcID, TxnID, FwdNID, FwdTxnID, and StashLPID.&lt;/li>
+&lt;/ul>
+&lt;p>TgtID、SrcID就是源和目的ID，剩余的ID如下介绍：&lt;/p></description></item></channel></rss>
