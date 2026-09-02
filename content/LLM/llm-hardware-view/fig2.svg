@@ -1,0 +1,62 @@
+<svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>4×4 脉动阵列的数据流</title>
+<desc>激活值沿行向右流动，权重沿列向下流动，每个处理单元执行一次乘加并把部分和传给下方邻居。</desc>
+<defs>
+<marker id="ar3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<text x="186" y="66" font-size="11" fill="#5F5E5A" text-anchor="middle">B₀</text>
+<text x="246" y="66" font-size="11" fill="#5F5E5A" text-anchor="middle">B₁</text>
+<text x="306" y="66" font-size="11" fill="#5F5E5A" text-anchor="middle">B₂</text>
+<text x="366" y="66" font-size="11" fill="#5F5E5A" text-anchor="middle">B₃</text>
+<text x="132" y="120" font-size="11" fill="#5F5E5A" text-anchor="end">A₀</text>
+<text x="132" y="180" font-size="11" fill="#5F5E5A" text-anchor="end">A₁</text>
+<text x="132" y="240" font-size="11" fill="#5F5E5A" text-anchor="end">A₂</text>
+<text x="132" y="300" font-size="11" fill="#5F5E5A" text-anchor="end">A₃</text>
+<path d="M186 72 L186 86" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#ar3)"/>
+<path d="M246 72 L246 86" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#ar3)"/>
+<path d="M306 72 L306 86" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#ar3)"/>
+<path d="M366 72 L366 86" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#ar3)"/>
+<path d="M138 116 L156 116" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#ar3)"/>
+<path d="M138 176 L156 176" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#ar3)"/>
+<path d="M138 236 L156 236" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#ar3)"/>
+<path d="M138 296 L156 296" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#ar3)"/>
+<rect x="160" y="90" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="220" y="90" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="280" y="90" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="340" y="90" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="160" y="150" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="220" y="150" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="280" y="150" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="340" y="150" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="160" y="210" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="220" y="210" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="280" y="210" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="340" y="210" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="160" y="270" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="220" y="270" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="280" y="270" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<rect x="340" y="270" width="52" height="52" rx="4" fill="#E6F1FB" stroke="#378ADD" stroke-width="0.5"/>
+<text x="186" y="112" font-size="10" fill="#0C447C" text-anchor="middle">MAC</text>
+<text x="186" y="126" font-size="9" fill="#185FA5" text-anchor="middle">PE</text>
+<text x="246" y="112" font-size="10" fill="#0C447C" text-anchor="middle">MAC</text>
+<text x="246" y="126" font-size="9" fill="#185FA5" text-anchor="middle">PE</text>
+<text x="306" y="112" font-size="10" fill="#0C447C" text-anchor="middle">MAC</text>
+<text x="306" y="126" font-size="9" fill="#185FA5" text-anchor="middle">PE</text>
+<text x="366" y="112" font-size="10" fill="#0C447C" text-anchor="middle">MAC</text>
+<text x="366" y="126" font-size="9" fill="#185FA5" text-anchor="middle">PE</text>
+<text x="306" y="236" font-size="10" fill="#0C447C" text-anchor="middle">MAC</text>
+<text x="306" y="250" font-size="9" fill="#185FA5" text-anchor="middle">PE</text>
+<text x="452" y="112" font-size="13" font-weight="500" fill="#0C447C">PE（处理单元）</text>
+<text x="452" y="140" font-size="12" fill="#5F5E5A">每个 PE 包含：</text>
+<text x="452" y="162" font-size="12" fill="#5F5E5A">· 1 个 bf16 乘法器</text>
+<text x="452" y="182" font-size="12" fill="#5F5E5A">· 1 个加法器（累加）</text>
+<text x="452" y="202" font-size="12" fill="#5F5E5A">· 少量局部寄存器</text>
+<text x="452" y="222" font-size="12" fill="#5F5E5A">· 无全局广播，只与</text>
+<text x="466" y="240" font-size="12" fill="#5F5E5A">相邻 PE 通信</text>
+<text x="452" y="268" font-size="12" fill="#0F6E56">→ 走线短、扇出小</text>
+<text x="452" y="288" font-size="12" fill="#0F6E56">→ 频率可做到接近</text>
+<text x="466" y="306" font-size="12" fill="#0F6E56">标量 ALU 的极限</text>
+<text x="186" y="344" font-size="11" fill="#5F5E5A" text-anchor="middle">部分和向下流出</text>
+<text x="306" y="344" font-size="11" fill="#5F5E5A" text-anchor="middle">部分和向下流出</text>
+</svg>

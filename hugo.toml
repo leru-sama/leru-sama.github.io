@@ -52,3 +52,12 @@ theme = ['PaperMod']
   url  = "/gem5_learn"
   weight = 6
 
+[[menu.main]]
+  name = "LLM"
+  url  = "/LLM"
+  weight = 7
+
+# 允许在 Markdown 中直接使用 HTML（公式角标 <sub>、参考文献锚点等需要）
+[markup.goldmark.renderer]
+  unsafe = true
+

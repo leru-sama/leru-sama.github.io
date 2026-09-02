@@ -1,0 +1,8 @@
+{{/* 块级数学公式：内容原样交给 KaTeX，不经过 Markdown
+     （Markdown 会把 \sum_{i}^{n} 这类下划线误判为斜体）
+     用法：
+       {{< eq >}}
+       E = m c^2
+       {{< /eq >}}
+*/ -}}
+<div class="eq">$${{- .Inner -}}$$</div>

@@ -1,0 +1,35 @@
+<svg viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>残差流视角下的单层 Transformer</title>
+<desc>主残差流垂直贯穿，注意力分支与 FFN 分支各自从残差流取值、经归一化后计算，再以加法写回残差流。</desc>
+<defs>
+<marker id="ar2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<text x="140" y="52" font-size="12" fill="#5F5E5A" text-anchor="middle">第 L 层输入 x</text>
+<path d="M140 62 L140 338" fill="none" stroke="#5F5E5A" stroke-width="2" marker-end="url(#ar2)"/>
+<path d="M144 105 L181 105" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar2)"/>
+<rect x="185" y="87" width="85" height="36" rx="6" fill="#FFFFFF" stroke="#AFA9EC" stroke-width="0.5"/>
+<text x="227" y="105" font-size="13" fill="#26215C" text-anchor="middle" dominant-baseline="central">RMSNorm</text>
+<path d="M272 105 L286 105" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar2)"/>
+<rect x="290" y="87" width="175" height="36" rx="6" fill="#FFFFFF" stroke="#AFA9EC" stroke-width="0.5"/>
+<text x="377" y="105" font-size="13" fill="#26215C" text-anchor="middle" dominant-baseline="central">Multi-Head Attention</text>
+<path d="M467 105 L560 105 L560 155 L152 155" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar2)"/>
+<circle cx="140" cy="155" r="9" fill="#FFFFFF" stroke="#5F5E5A" stroke-width="1.5"/>
+<path d="M135 155 L145 155 M140 150 L140 160" fill="none" stroke="#5F5E5A" stroke-width="1.5"/>
+<text x="185" y="74" font-size="12" fill="#5F5E5A">① 注意力分支：沿序列方向混合信息</text>
+<text x="185" y="142" font-size="12" fill="#5F5E5A">25M+17M 参数 · 84 MFLOP · 读写 KV cache</text>
+<path d="M144 213 L181 213" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar2)"/>
+<rect x="185" y="195" width="85" height="36" rx="6" fill="#FFFFFF" stroke="#EF9F27" stroke-width="0.5"/>
+<text x="227" y="213" font-size="13" fill="#412402" text-anchor="middle" dominant-baseline="central">RMSNorm</text>
+<path d="M272 213 L286 213" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar2)"/>
+<rect x="290" y="195" width="175" height="36" rx="6" fill="#FFFFFF" stroke="#EF9F27" stroke-width="0.5"/>
+<text x="377" y="213" font-size="13" fill="#412402" text-anchor="middle" dominant-baseline="central">FFN（SwiGLU）</text>
+<path d="M467 213 L560 213 L560 263 L152 263" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#ar2)"/>
+<circle cx="140" cy="263" r="9" fill="#FFFFFF" stroke="#5F5E5A" stroke-width="1.5"/>
+<path d="M135 263 L145 263 M140 258 L140 268" fill="none" stroke="#5F5E5A" stroke-width="1.5"/>
+<text x="185" y="182" font-size="12" fill="#5F5E5A">② FFN 分支：逐位置非线性变换</text>
+<text x="185" y="252" font-size="12" fill="#5F5E5A">176M 参数 · 352 MFLOP · 占全层 79% 的权重</text>
+<text x="140" y="360" font-size="12" fill="#5F5E5A" text-anchor="middle">输出 x → 第 L+1 层（共 32 层）</text>
+<text x="30" y="110" font-size="11" fill="#8A8980">宽度 d = 4096</text>
+<text x="30" y="126" font-size="11" fill="#8A8980">全程不变</text>
+</svg>
