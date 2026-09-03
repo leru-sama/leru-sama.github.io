@@ -618,3 +618,11 @@
         background-color: transparent;
     }
 }
+
+/* ===== 内容栏宽度 =====
+   PaperMod 默认 --main-width 是 720px，正文只有约 36 个汉字宽，两边空白很大。
+   这里加宽到 920px（约 46 个汉字/行）。想更宽就加大这个值，比如 1000px；
+   想窄回去改回 720px 即可。页脚会跟着一起变宽，保持对齐。 */
+:root {
+    --main-width: 920px;
+}
