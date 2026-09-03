@@ -188,22 +188,27 @@
 </script>
 
 {{- /* ===== 数学公式与报告组件：仅 front matter 里 math = true 的页面加载 ===== */ -}}
+{{- /* KaTeX 全部自带在 static/katex 下，不走 CDN —— 国外 CDN 在国内会被墙/极慢，
+       而 katex.min.css 是阻塞渲染的样式表，一旦卡住整页白屏。 */ -}}
 {{- if .Params.math }}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
-<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="{{ "katex/katex.min.css" | absURL }}">
+<script defer src="{{ "katex/katex.min.js" | absURL }}"></script>
+<script defer src="{{ "katex/auto-render.min.js" | absURL }}"></script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  if (window.renderMathInElement) {
-    renderMathInElement(document.body, {
-      delimiters: [
-        { left: "$$", right: "$$", display: true },
-        { left: "$", right: "$", display: false }
-      ],
-      throwOnError: false,
-      strict: false
-    });
+  if (!window.renderMathInElement) {
+    // KaTeX 没加载成功：退化为等宽文本，至少公式源码可读，不会糊成一段乱码
+    document.documentElement.classList.add("no-katex");
+    return;
   }
+  renderMathInElement(document.body, {
+    delimiters: [
+      { left: "$$", right: "$$", display: true },
+      { left: "$", right: "$", display: false }
+    ],
+    throwOnError: false,
+    strict: false
+  });
 });
 </script>
 <style>
@@ -216,6 +221,17 @@ document.addEventListener("DOMContentLoaded", function () {
         line-height: 1.9;
     }
     .eq .katex-display { margin: 0; }
+    /* KaTeX 加载失败时的降级：按等宽源码展示，保留换行 */
+    .no-katex .eq {
+        font-family: Consolas, Monaco, "Courier New", monospace;
+        font-size: 13px;
+        white-space: pre-wrap;
+        text-align: left;
+        background: var(--code-bg);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 10px 12px;
+    }
     /* 上标引用角标 */
     .ref {
         font-size: 10px;
